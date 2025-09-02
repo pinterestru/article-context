@@ -1,0 +1,963 @@
+{
+  "channel_structure_example": {
+    "name": "Senior Pomidor Developer",
+    "description": "Python разработка от простого к сложному. Архитектурные решения, код-ревью и карьерные советы от Senior разработчика.",
+    "url": "https://t.me/senior_pomidor_dev",
+    "subscriberCount": 125700,
+    "avatar": "https://ui-avatars.com/api/?name=SP&background=FF6B6B&color=fff&size=400&font-size=0.5&bold=true"
+  },
+  "marketing": [
+    {
+      "name": "О МАРКЕТИНГЕ",
+      "description": "Просто и понятно об основах рекламы и актуальных тенденциях в интернете.",
+      "url": "https://t.me/marketingovoe_o",
+      "subscriberCount": 12990,
+      "avatar": "https://static4.tgstat.ru/channels/_100/11/1147152c384041cdb954566016b82228.jpg"
+    },
+    {
+      "name": "Digital-Лёша | Трафик и клиенты",
+      "description": "Простыми словами про маркетинг в Telegram. Загружайте секреты продвижения блогов и бизнесов!",
+      "url": "https://t.me/digital_lesha",
+      "subscriberCount": 12459,
+      "avatar": "https://static2.tgstat.ru/channels/_100/f6/f6750fbbea417be5152deb836c11f1ab.jpg"
+    },
+    {
+      "name": "Редакция Рыба",
+      "description": "Обучаем авторов и редакторов с 2020 года. 1000+ студентов",
+      "url": "https://t.me/ryba_team",
+      "subscriberCount": 16426,
+      "avatar": "https://static7.tgstat.ru/channels/_100/08/08c5cd6effea1e46842b2ad0f6d8d215.jpg"
+    },
+    {
+      "name": "Иван Парфентев | REELS",
+      "description": "Полезные советы о продвижении, съемке и монтаже",
+      "url": "https://t.me/ivan_parfentev",
+      "subscriberCount": 16037,
+      "avatar": "https://static6.tgstat.ru/channels/_100/5d/5d3f6b3ed3d783f4b6ee1424324fb733.jpg"
+    },
+    {
+      "name": "ARIKOVA PRO. ЯРД",
+      "description": "Автор - Елена Арикова, топ маркетолог РФ. Методические пособия по конверсионному маркетингу",
+      "url": "https://t.me/arikovapro",
+      "subscriberCount": 11445,
+      "avatar": "https://static6.tgstat.ru/channels/_100/e9/e9e3ab4cabadef332869c987a5e10fdb.jpg"
+    },
+    {
+      "name": "Измайлова SMM | СТРАТЕГИЯ",
+      "description": "Практические инструменты для соц.сетей и контент-стратегии",
+      "url": "https://t.me/izmlvsmm",
+      "subscriberCount": 11201,
+      "avatar": "https://static2.tgstat.ru/channels/_100/d6/d612c0dceee16dd74ef594dddcdf7fd9.jpg"
+    },
+    {
+      "name": "Сергей Нагорный | Маркетинг и ИИ",
+      "description": "Практикум по маркетинговым связкам с нейросетями",
+      "url": "https://t.me/gora_academy",
+      "subscriberCount": 9978,
+      "avatar": "https://static4.tgstat.ru/channels/_100/92/929fb8929bfa2d1304b4bc0276790e7c.jpg"
+    },
+    {
+      "name": "РЕФЫ - маркетинг от Баракаева",
+      "description": "База для начинающих маркетологов, таргетологов и спецов по директу",
+      "url": "https://t.me/adrefs",
+      "subscriberCount": 8776,
+      "avatar": "https://static1.tgstat.ru/channels/_100/e0/e080be292b26e8674a0797fe0981d66e.jpg"
+    },
+    {
+      "name": "#тыжэксперт",
+      "description": "Как развивать личный бренд и монетизировать опыт",
+      "url": "https://t.me/tyzhexpert",
+      "subscriberCount": 17744,
+      "avatar": "https://static6.tgstat.ru/channels/_100/82/8222a01478c5f38ee57321cc38df83f9.jpg"
+    },
+    {
+      "name": "Я В КОНТЕНТЕ⚡️",
+      "description": "Авторские элементы, стикеры, туториалы для оформления и продвижения",
+      "url": "https://t.me/ya_v_kontente",
+      "subscriberCount": 16787,
+      "avatar": "https://static9.tgstat.ru/channels/_100/1f/1fe983872c593dafed43b7404bc94217.jpg"
+    },
+    {
+      "name": "эсэмемное чтиво",
+      "description": "Офигительные кейсы из мира маркетинга, PR и SMM",
+      "url": "https://t.me/smmchtivo",
+      "subscriberCount": 14041,
+      "avatar": "https://static3.tgstat.ru/channels/_100/25/25df1a88593709f7885b7ccc9a8ca123.jpg"
+    },
+    {
+      "name": "Люди гибнут за PR",
+      "description": "Про PR и маркетинг с практической точки зрения",
+      "url": "https://t.me/PRnotes",
+      "subscriberCount": 8010,
+      "avatar": "https://static9.tgstat.ru/channels/_100/f9/f9316e367e2c76506a23ca115d195ae9.jpg"
+    },
+    {
+      "name": "Александр Горбачёв | Авитолог",
+      "description": "Обучаю эффективной рекламе на Авито",
+      "url": "https://t.me/avito_trafficsea",
+      "subscriberCount": 10794,
+      "avatar": "https://static3.tgstat.ru/channels/_100/ec/ec4087c8849911aad562998e22219ad8.jpg"
+    },
+    {
+      "name": "🖋 Купи ручку",
+      "description": "С любовью о маркетинге, рекламе и СММ",
+      "url": "https://t.me/KupiRuchku",
+      "subscriberCount": 16150,
+      "avatar": "https://static10.tgstat.ru/channels/_100/34/34aa72be83552aee885f7f8f96489b98.jpg"
+    },
+    {
+      "name": "Невероятный маркетолог",
+      "description": "Откройте удивительный мир маркетинга! Секреты успеха и творческие идеи",
+      "url": "https://t.me/crazyy_marketing",
+      "subscriberCount": 13396,
+      "avatar": "https://static7.tgstat.ru/channels/_100/e8/e86816b4a1abaef7e2f14ad134bb4b28.jpg"
+    },
+    {
+      "name": "Маркетология",
+      "description": "Здесь про соцсети, рекламу и маркетинг",
+      "url": "https://t.me/marketology24",
+      "subscriberCount": 13153,
+      "avatar": "https://static2.tgstat.ru/channels/_100/31/31c858c6b88fd827fd48e8da17a05312.jpg"
+    },
+    {
+      "name": "Хуяркетинг",
+      "description": "Лучшая команда маркетинг-услуг. С нами растут в прибыли в 4-6 раз",
+      "url": "https://t.me/WhoMarketing",
+      "subscriberCount": 12488,
+      "avatar": "https://static2.tgstat.ru/channels/_100/d1/d15e0b3a173f7b332ee5e307205c530a.jpg"
+    },
+    {
+      "name": "Тру.Маркетинг | Первухин",
+      "description": "Digital-маркетинг: разбираем тренды, новые технологии и кейсы",
+      "url": "https://t.me/kineticaagency",
+      "subscriberCount": 7541,
+      "avatar": "https://static9.tgstat.ru/channels/_100/39/39ae2ed11b14a4ccb41d35e9d1ba5d11.jpg"
+    }
+  ],
+  "programming": [
+    {
+      "name": "Организованное программирование",
+      "description": "Как из джуниора дойти до мидла, а потом и до синьора",
+      "url": "https://t.me/orgprog",
+      "subscriberCount": 11315,
+      "avatar": "https://static7.tgstat.ru/channels/_100/ff/ff0a44aa0f58f1373151c575f2ca9290.jpg"
+    },
+    {
+      "name": "Easy Python | Программирование",
+      "description": "Всё о Python-разработке — лучшие гайды, курсы, инструменты и ресурсы",
+      "url": "https://t.me/easy_python_tg",
+      "subscriberCount": 15923,
+      "avatar": "https://static4.tgstat.ru/channels/_100/5c/5cd1336c20efb43aabc0b5f32e8963fa.jpg"
+    },
+    {
+      "name": "Гайды по JavaScript",
+      "description": "Наглядные и доступные гайды в картинках по языку программирования JavaScript",
+      "url": "https://t.me/guides_js",
+      "subscriberCount": 8163,
+      "avatar": "https://static6.tgstat.ru/channels/_100/f2/f2d3a667bdca8abe075e5dc7313ec720.jpg"
+    },
+    {
+      "name": "Easy WebDev | Frontend & Backend",
+      "description": "Всё о Web-разработке — лучшие гайды, курсы, инструменты и ресурсы",
+      "url": "https://t.me/easy_webdev_tg",
+      "subscriberCount": 9383,
+      "avatar": "https://static3.tgstat.ru/channels/_100/32/3223f2595971502f4d74347982817110.jpg"
+    },
+    {
+      "name": "Simple Frontend",
+      "description": "Всё о Frontend-разработке и вёрстке сайтов",
+      "url": "https://t.me/simple_frontend_tg",
+      "subscriberCount": 8806,
+      "avatar": "https://static3.tgstat.ru/channels/_100/48/48297a1290142b9e49c4b244b845e935.jpg"
+    },
+    {
+      "name": "Easy Java",
+      "description": "Лучшие обучающие материалы и полезности для Java-разработчиков",
+      "url": "https://t.me/r8kkGSypBY84MmIy",
+      "subscriberCount": 5623,
+      "avatar": "https://static5.tgstat.ru/channels/_100/0f/0fac543fb3fddde17d982164208d004c.jpg"
+    },
+    {
+      "name": "JavaScript test",
+      "description": "Проверка своих знаний по языку JavaScript",
+      "url": "https://t.me/js_test",
+      "subscriberCount": 11286,
+      "avatar": "https://static4.tgstat.ru/channels/_100/c6/c6443a1a12f546a93223718f8954a865.jpg"
+    },
+    {
+      "name": "Frontend Tests & Tasks",
+      "description": "Тесты и задачи по фронтенду (js, html, css)",
+      "url": "https://t.me/Frontend_Task",
+      "subscriberCount": 10008,
+      "avatar": "https://static10.tgstat.ru/channels/_100/f6/f68e8a38eab5315b9a8ead747d67dbe6.jpg"
+    },
+    {
+      "name": "CodeWars | Задачи",
+      "description": "Решай задачи по JavaScript и совершенствуй свои навыки программирования",
+      "url": "https://t.me/codewars_tg",
+      "subscriberCount": 2112,
+      "avatar": "https://static4.tgstat.ru/channels/_100/1d/1dcf532537cf0a39c52d7a651f9b9f1f.jpg"
+    },
+    {
+      "name": "HowProgrammingWorks",
+      "description": "Программная инженерия для JavaScript, TypeScript, Node.js",
+      "url": "https://t.me/HowProgrammingWorks",
+      "subscriberCount": 6296,
+      "avatar": "https://static4.tgstat.ru/channels/_100/a3/a30bbca6ee135c2b30bcb417398f4e5a.jpg"
+    },
+    {
+      "name": "PythonTalk",
+      "description": "Образовательный контент по Python от Олега Булыгина",
+      "url": "https://t.me/pythontalk_ru",
+      "subscriberCount": 4746,
+      "avatar": "https://static8.tgstat.ru/channels/_100/31/313abcc3039b37ff8fe758bac41de2cb.jpg"
+    },
+    {
+      "name": "Python Tech Code • IT",
+      "description": "Изучаем Python, осваиваем SQL и следим за IT-новостями",
+      "url": "https://t.me/PythonTechCode",
+      "subscriberCount": 3871,
+      "avatar": "https://static9.tgstat.ru/channels/_100/e9/e9d354fcd22a91c5cba75bca68e4a65b.jpg"
+    },
+    {
+      "name": "Код на салфетке",
+      "description": "Для тех, кому интересно программирование на Python и не только",
+      "url": "https://t.me/press_any_button",
+      "subscriberCount": 1235,
+      "avatar": "https://static6.tgstat.ru/channels/_100/40/40cf1160777e3a6423b1b0190ab09075.jpg"
+    },
+    {
+      "name": "Made in HTML/CSS",
+      "description": "Научись классно верстать и создавать сайты",
+      "url": "https://t.me/made_in_html_css",
+      "subscriberCount": 1497,
+      "avatar": "https://static5.tgstat.ru/channels/_100/e1/e1684e28c49353840c39349757060786.jpg"
+    },
+    {
+      "name": "Frontend Interview",
+      "description": "Подготовка к собеседованиям по фронтенду",
+      "url": "https://t.me/frontendInterview",
+      "subscriberCount": 11915,
+      "avatar": "https://static6.tgstat.ru/channels/_100/f5/f5aaba1af3335ac6aa9b2dbb16cc362b.jpg"
+    },
+    {
+      "name": "Java Interview Tasks",
+      "description": "Реальные вопросы и задачи с собеседований",
+      "url": "https://t.me/java_interview_tasks",
+      "subscriberCount": 4123,
+      "avatar": "https://static2.tgstat.ru/channels/_100/9b/9b3223b184f8e11d33b76a21981a4b3e.jpg"
+    },
+    {
+      "name": "PHP задачи с собеседований",
+      "description": "Задачи, тесты и теоретические вопросы по PHP",
+      "url": "https://t.me/phpquiz",
+      "subscriberCount": 3029,
+      "avatar": "https://static10.tgstat.ru/channels/_100/a4/a4f671c3ca1324dce1ca6b675d2f2a59.jpg"
+    },
+    {
+      "name": "Программирование в 1С",
+      "description": "Школа Programming Store от экспертов с опытом в 1С 15+ лет",
+      "url": "https://t.me/learn_prosto",
+      "subscriberCount": 732,
+      "avatar": "https://static2.tgstat.ru/channels/_100/dd/dd04993172ad27ebb0185658cf5f762d.jpg"
+    },
+    {
+      "name": "Заметки разработчика",
+      "description": "Frontend, Backend и DevOps. PHP, Laravel, JavaScript, HTML, CSS",
+      "url": "https://t.me/dev_notes_ru",
+      "subscriberCount": 461,
+      "avatar": "https://static8.tgstat.ru/channels/_100/9f/9f822cc956ee1dbe97b9c1b5ab7e1307.jpg"
+    },
+    {
+      "name": "True Frontender",
+      "description": "Сборная солянка про фронтенд",
+      "url": "https://t.me/truefrontender",
+      "subscriberCount": 1082,
+      "avatar": "https://static1.tgstat.ru/channels/_100/72/72c2c44abbbc274165e4200971e24933.jpg"
+    }
+  ],
+  "management": [
+    {
+      "name": "Product Lab",
+      "description": "Полезно об OKR, product management, agile, дизайн-мышлении и проектном управлении",
+      "url": "https://t.me/productlab_ru",
+      "subscriberCount": 3364,
+      "avatar": "https://static7.tgstat.ru/channels/_100/11/115f650da764bb20496960c92574afeb.jpg"
+    },
+    {
+      "name": "Продукты, книги и любовь",
+      "description": "Об управлении проектами и командой, образовании и создании нового",
+      "url": "https://t.me/product_love",
+      "subscriberCount": 15157,
+      "avatar": "https://static7.tgstat.ru/channels/_100/39/39d4d02bd94e7dad5e06b873a27b0fe4.jpg"
+    },
+    {
+      "name": "Борода продакта",
+      "description": "О менеджменте продуктов как науке от Сергея Тихомирова и Никиты Ефимова",
+      "url": "https://t.me/productclub",
+      "subscriberCount": 14603,
+      "avatar": "https://static2.tgstat.ru/channels/_100/69/696b35cc35e710279b9c2dedc08e22d7.jpg"
+    },
+    {
+      "name": "Про удобство",
+      "description": "Про продуктоводство, UX, работу с b2b-продуктом и здравый смысл",
+      "url": "https://t.me/proudobstvo",
+      "subscriberCount": 18304,
+      "avatar": "https://static2.tgstat.ru/channels/_100/42/426d6a78126d5d4544306ab9ff0e39a5.jpg"
+    },
+    {
+      "name": "Product Focus",
+      "description": "Методологии, фреймворки для создания и управления продуктами",
+      "url": "https://t.me/product_focus",
+      "subscriberCount": 1653,
+      "avatar": "https://static1.tgstat.ru/channels/_100/0d/0db5e40be2ab53e4d5115a64731a53db.jpg"
+    },
+    {
+      "name": "Alexcouncil⚡",
+      "description": "Канал про IT продукты и управление",
+      "url": "https://t.me/alexcouncil",
+      "subscriberCount": 14089,
+      "avatar": "https://static2.tgstat.ru/channels/_100/b7/b791be62676e8bd7b1a692dc436331f5.jpg"
+    },
+    {
+      "name": "Управляй иначе",
+      "description": "О стратегии, создании продуктов и стартапов. Андрей Бадин",
+      "url": "https://t.me/futurediscover",
+      "subscriberCount": 12643,
+      "avatar": "https://static7.tgstat.ru/channels/_100/90/906421482773b2f489000c08eaad9857.jpg"
+    },
+    {
+      "name": "Абраметчиво так думать",
+      "description": "Мысли об управлении проектами и личный опыт Егора Абрамца",
+      "url": "https://t.me/abrametchivo",
+      "subscriberCount": 2928,
+      "avatar": "https://static5.tgstat.ru/channels/_100/5e/5e2fa00c5dfe1ff19156bc1214f6cf2e.jpg"
+    },
+    {
+      "name": "Сундучок продакта",
+      "description": "Основательно и познавательно про управление продуктами. Разбираюсь сам, доношу другим",
+      "url": "https://t.me/productni",
+      "subscriberCount": 652,
+      "avatar": "https://static3.tgstat.ru/channels/_100/b3/b38a8aa2bbf82158bc15d5f723379d3f.jpg"
+    },
+    {
+      "name": "Product games",
+      "description": "Кристина Гусева - продакт-менеджер в New Yorker, ex-ВТБ",
+      "url": "https://t.me/productgames",
+      "subscriberCount": 10661,
+      "avatar": "https://static4.tgstat.ru/channels/_100/ef/ef38870be858abdba418d4a742243f3b.jpg"
+    },
+    {
+      "name": "Средненький продакт",
+      "description": "Антон Тарасов - твой продуктовый терапевт и мыслительный бро",
+      "url": "https://t.me/undisrupt",
+      "subscriberCount": 6477,
+      "avatar": "https://static6.tgstat.ru/channels/_100/e5/e58bac2da385a263b56a9134ab114c6c.jpg"
+    },
+    {
+      "name": "Лев Левицкий выдает базу",
+      "description": "Старший работяга в продуктовом цеху IT-завода. База для начинающих",
+      "url": "https://t.me/levlevitsky_channel",
+      "subscriberCount": 4747,
+      "avatar": "https://static6.tgstat.ru/channels/_100/8e/8eb2250384f31fdf94a8495f61f73221.jpg"
+    },
+    {
+      "name": "Саша Капустин про продукт",
+      "description": "Продуктовые истории, кейсы, управление людьми. 5 лет как CPO Авито Финтеха",
+      "url": "https://t.me/productanddot",
+      "subscriberCount": 2588,
+      "avatar": "https://static4.tgstat.ru/channels/_100/fe/fe3c8ee6db5d17d9587b9dba96c77a65.jpg"
+    },
+    {
+      "name": "Strategic move",
+      "description": "Стратегия, продукт и AI. Юлия Билинкис",
+      "url": "https://t.me/strategic_move",
+      "subscriberCount": 14424,
+      "avatar": "https://static5.tgstat.ru/channels/_100/68/68a2b35785b03729df974903bf0ae230.jpg"
+    },
+    {
+      "name": "Black product owner",
+      "description": "Тигран Басеян о продакт менеджменте и стартапах. Преподаватель ВШЭ",
+      "url": "https://t.me/blackproduct",
+      "subscriberCount": 14075,
+      "avatar": "https://static4.tgstat.ru/channels/_100/42/4249d6bece96ccefb69cac0813921d46.jpg"
+    },
+    {
+      "name": "Полтора продакта",
+      "description": "Галя Ширанкова. Простым языком о сложных кейсах в работе в ИТ",
+      "url": "https://t.me/poltora_producta",
+      "subscriberCount": 2493,
+      "avatar": "https://static7.tgstat.ru/channels/_100/40/407d0234a9ca5b90cf3ae296c88750b1.jpg"
+    },
+    {
+      "name": "Семейка продактов",
+      "description": "Муж (B2C) и жена (B2B), оба продакт менеджеры с большим опытом",
+      "url": "https://t.me/productsgossip",
+      "subscriberCount": 1848,
+      "avatar": "https://static9.tgstat.ru/channels/_100/23/23fa94f6ca75f3963ff2d50338083666.jpg"
+    },
+    {
+      "name": "Продукт и рост",
+      "description": "Яна Доценко про рост tech-продуктов и карьеру. 9 лет в IT, ex.VK",
+      "url": "https://t.me/o_product",
+      "subscriberCount": 1702,
+      "avatar": "https://static8.tgstat.ru/channels/_100/2f/2feba9fd5ebe41c1e7f4c2a3e9851457.jpg"
+    },
+    {
+      "name": "Развитие продукта",
+      "description": "Лев Корнев - авторский блог о продуктовом менеджменте",
+      "url": "https://t.me/product_lev",
+      "subscriberCount": 740,
+      "avatar": "https://static4.tgstat.ru/channels/_100/82/827c0c5900b7ad284a18676dceddbf13.jpg"
+    },
+    {
+      "name": "О чем думает продакт",
+      "description": "Валерия Карелина - личные инсайты product manager'а",
+      "url": "https://t.me/pmkarelina",
+      "subscriberCount": 265,
+      "avatar": "https://static9.tgstat.ru/channels/_100/5e/5e22832064ab7af9f4f2f22c8b942fa5.jpg"
+    }
+  ],
+  "design": [
+    {
+      "name": "Про дизайн – легко!",
+      "description": "Полезные материалы по digital-дизайну в понятном и легком формате для тех, кто хочет прокачаться в дизайне",
+      "url": "https://t.me/tutdesigner",
+      "subscriberCount": 14103,
+      "avatar": "https://static2.tgstat.ru/channels/_100/b6/b66d917a884a852d48b91464f63cc7db.jpg"
+    },
+    {
+      "name": "Design Lessons",
+      "description": "Грызём гранит науки «Дизайн»",
+      "url": "https://t.me/designlessons",
+      "subscriberCount": 13368,
+      "avatar": "https://static5.tgstat.ru/channels/_100/6c/6c986e6614a6723362b563f9d3dbbb37.jpg"
+    },
+    {
+      "name": "dsg design",
+      "description": "Контент для дизайнеров: обучение, материалы, викторины и исходники",
+      "url": "https://t.me/dsg_design",
+      "subscriberCount": 13060,
+      "avatar": "https://static2.tgstat.ru/channels/_100/1a/1a3b3124715a77894b517e13e113eb3d.jpg"
+    },
+    {
+      "name": "Дизайнерская",
+      "description": "Книги, курсы и дизайн-туториалы. Бесплатно",
+      "url": "https://t.me/dsgnerskaya",
+      "subscriberCount": 11796,
+      "avatar": "https://static2.tgstat.ru/channels/_100/eb/ebc62f81936a6b9d6ef6acc2b8abc1e3.jpg"
+    },
+    {
+      "name": "Figma от 0 до 1",
+      "description": "Всё про Figma в одном месте. Без нудных терминов и скучных определений",
+      "url": "https://t.me/figmafordsgn",
+      "subscriberCount": 8609,
+      "avatar": "https://static8.tgstat.ru/channels/_100/27/27515d887a381c094f989672ad6844a6.jpg"
+    },
+    {
+      "name": "TOP Tutorial",
+      "description": "Бесплатные туториалы и фишки для начинающих и более опытных дизайнеров",
+      "url": "https://t.me/top_tutorials",
+      "subscriberCount": 5862,
+      "avatar": "https://static4.tgstat.ru/channels/_100/d2/d2d76206ad727a1ccc3345cef7892e2e.jpg"
+    },
+    {
+      "name": "Designer Notes",
+      "description": "Фишки, хитрости и уроки для работы дизайнера",
+      "url": "https://t.me/designwrite",
+      "subscriberCount": 14464,
+      "avatar": "https://static5.tgstat.ru/channels/_100/12/1200d16b55811dd68bd4b7b320d71b4c.jpg"
+    },
+    {
+      "name": "Fonts Best",
+      "description": "Полезности для дизайнеров: шрифты, мокапы, UI/UX-ресурсы и туториалы",
+      "url": "https://t.me/fonts_best",
+      "subscriberCount": 19903,
+      "avatar": "https://static9.tgstat.ru/channels/_100/9a/9aa2869fc5c6e4276ca893aea67040db.jpg"
+    },
+    {
+      "name": "Академия Дизайна",
+      "description": "Материалы для дизайна",
+      "url": "https://t.me/oJtDn2p33V1hMWUy",
+      "subscriberCount": 7084,
+      "avatar": "https://static2.tgstat.ru/channels/_100/3c/3ce4349baf14267097dad67a250205ad.jpg"
+    },
+    {
+      "name": "Всё для UI дизайнера",
+      "description": "Только рабочие файлы и ссылки на полезные инструменты",
+      "url": "https://t.me/ui_tools",
+      "subscriberCount": 11696,
+      "avatar": "https://static5.tgstat.ru/channels/_100/73/7379f64e2119d011e5cfb6757aeac2e6.jpg"
+    },
+    {
+      "name": "Вебдизайнерская",
+      "description": "Качественный материал для твоего входа в невероятный мир Веб Дизайна",
+      "url": "https://t.me/webdsgnsky",
+      "subscriberCount": 6462,
+      "avatar": "https://static6.tgstat.ru/channels/_100/cc/cc781d7e08ca3a23c85a0d34bce2e222.jpg"
+    },
+    {
+      "name": "Дизайнерская мысль",
+      "description": "Figma, шрифты, плагины — ничего лишнего",
+      "url": "https://t.me/Design_ideaa",
+      "subscriberCount": 17797,
+      "avatar": "https://static10.tgstat.ru/channels/_100/22/22ec6696ce522e74f7dd3a1f7c71ea59.jpg"
+    },
+    {
+      "name": "Hot Design",
+      "description": "Отборные материалы, ресурсы и уроки по дизайну",
+      "url": "https://t.me/hot_dsgn",
+      "subscriberCount": 11207,
+      "avatar": "https://static3.tgstat.ru/channels/_100/96/96c4df477a5e880d3d70c05cc61f08ce.jpg"
+    },
+    {
+      "name": "Content Case",
+      "description": "Все для Photoshop и Adobe Illustrator. Графический дизайн",
+      "url": "https://t.me/contentcrate",
+      "subscriberCount": 18808,
+      "avatar": "https://static7.tgstat.ru/channels/_100/ba/bacef2f1c9451c2de0d70adf6d9dc3fb.jpg"
+    },
+    {
+      "name": "Polygon Station",
+      "description": "Уроки, лайфхаки, инструменты и вдохновение в 3D моделировании",
+      "url": "https://t.me/polygonstation",
+      "subscriberCount": 14781,
+      "avatar": "https://static10.tgstat.ru/channels/_100/9e/9e4db746840bdb50b2d34a0d6e054d89.jpg"
+    },
+    {
+      "name": "Hot Motion",
+      "description": "Обучение, фишки, шаблоны по моушен дизайну",
+      "url": "https://t.me/hot_mtn",
+      "subscriberCount": 9748,
+      "avatar": "https://static3.tgstat.ru/channels/_100/da/daeeec2876fb595a5bc9dd5b83f65007.jpg"
+    },
+    {
+      "name": "Дизайн Ревью",
+      "description": "Конкурсы по web-дизайну и полезности для web-дизайнеров",
+      "url": "https://t.me/dzgn_review",
+      "subscriberCount": 7674,
+      "avatar": "https://static4.tgstat.ru/channels/_100/8b/8bae82fcdc2ad97d9dfd0beedabef974.jpg"
+    },
+    {
+      "name": "Дизайн Туса",
+      "description": "Бесплатные курсы от лучших школ по графическому и web дизайну",
+      "url": "https://t.me/design_tusa",
+      "subscriberCount": 1431,
+      "avatar": "https://static7.tgstat.ru/channels/_100/30/30f943fc751a3ef3969258944543f550.jpg"
+    },
+    {
+      "name": "Дизайн Фак",
+      "description": "Факультет дизайна. Книги, вебинары, подкасты, уроки. Бесплатно",
+      "url": "https://t.me/dsgnfac",
+      "subscriberCount": 1319,
+      "avatar": "https://static5.tgstat.ru/channels/_100/61/61c923d8746bdbfd690e1412191ffe4f.jpg"
+    },
+    {
+      "name": "Design Loot",
+      "description": "Материалы и уроки для дизайнеров. Кейсы, айдентика и брендинг",
+      "url": "https://t.me/design_loot",
+      "subscriberCount": 6487,
+      "avatar": "https://static3.tgstat.ru/channels/_100/ac/acaf912ebb4b765351bb8dab1fce21ed.jpg"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Английский с нуля",
+      "description": "Английский язык с нуля",
+      "url": "https://t.me/angliyskiy_english",
+      "subscriberCount": 18397,
+      "avatar": "https://static1.tgstat.ru/channels/_100/3d/3da202e7025998a6ca4fdfbeab4aadf6.jpg"
+    },
+    {
+      "name": "kakrodnoy | школа английского",
+      "description": "Экосистема прокачки английского для любых целей. От нуля до IELTS и ЕГЭ",
+      "url": "https://t.me/kakrodnoyschool",
+      "subscriberCount": 17634,
+      "avatar": "https://static7.tgstat.ru/channels/_100/dc/dc159a30f1e7fe7352b88109050f5512.jpg"
+    },
+    {
+      "name": "Английский с нуля🇬🇧",
+      "description": "Учите английский язык самостоятельно и бесплатно",
+      "url": "https://t.me/UchuEnglish",
+      "subscriberCount": 15358,
+      "avatar": "https://static9.tgstat.ru/channels/_100/a6/a6ae58cee63b674cb609c9311d559e4f.jpg"
+    },
+    {
+      "name": "Английский язык - Изучение",
+      "description": "Вы сможете с нуля изучить английский язык",
+      "url": "https://t.me/anglyskym",
+      "subscriberCount": 11419,
+      "avatar": "https://static4.tgstat.ru/channels/_100/1b/1b0de13afddb70a19e0f673a08fe1ef7.jpg"
+    },
+    {
+      "name": "Английский для детей и начинающих",
+      "description": "Уроки английского для начинающих и самых маленьких",
+      "url": "https://t.me/eng_kid",
+      "subscriberCount": 9792,
+      "avatar": "https://static8.tgstat.ru/channels/_100/71/71d1aea13168ec8e1befcbb02009d893.jpg"
+    },
+    {
+      "name": "Английский легко",
+      "description": "Учите английский легко!",
+      "url": "https://t.me/English_legko",
+      "subscriberCount": 9654,
+      "avatar": "https://static4.tgstat.ru/channels/_100/27/2747fa50afb2f46e332ffab12a607a1f.jpg"
+    },
+    {
+      "name": "🇬🇧 Английский для ленивых",
+      "description": "Учим каждый день по 2 новых слова",
+      "url": "https://t.me/laz_english",
+      "subscriberCount": 9293,
+      "avatar": "https://static5.tgstat.ru/channels/_100/5d/5db8eae8546b28bc99d16f2ad25a5934.jpg"
+    },
+    {
+      "name": "Как сказать ... ?",
+      "description": "Лучший способ свободно говорить - использовать готовые фразы",
+      "url": "https://t.me/kakskazaty",
+      "subscriberCount": 8434,
+      "avatar": "https://static1.tgstat.ru/channels/_100/f4/f4cd2ba2ac0b641d10cae22da920c4f5.jpg"
+    },
+    {
+      "name": "ENGLISH daily speech",
+      "description": "Проект кафедр ИнЯза МГУ и МГИМО",
+      "url": "https://t.me/english_daily_speech",
+      "subscriberCount": 7236,
+      "avatar": "https://static3.tgstat.ru/channels/_100/ca/ca21578d67f71199c06189b3db34f9ff.jpg"
+    },
+    {
+      "name": "English like a Boss",
+      "description": "Учим английский с помощью простых и эффективных подборок и интерактива",
+      "url": "https://t.me/eng_boss",
+      "subscriberCount": 7173,
+      "avatar": "https://static4.tgstat.ru/channels/_100/ac/acf736cc01d6dfdb7e094a542c38b5d4.jpg"
+    },
+    {
+      "name": "Hobby English & Exams",
+      "description": "Английский на продвинутом уровне (B1—C1) с преподавателем Вероникой Морозовой",
+      "url": "https://t.me/engb2c1",
+      "subscriberCount": 6233,
+      "avatar": "https://static5.tgstat.ru/channels/_100/ec/ec50e1489a21987295de84040af9e523.jpg"
+    },
+    {
+      "name": "Get Better at English",
+      "description": "Хотите выучить английский, не напрягаясь? Забавные постеры, викторины, общение",
+      "url": "https://t.me/getbetteratenglish",
+      "subscriberCount": 5203,
+      "avatar": "https://static3.tgstat.ru/channels/_100/a0/a09fb6648ab390f5c0c8e74f2e9ce4e7.jpg"
+    },
+    {
+      "name": "English & Motivation",
+      "description": "Мотивация на английском с переводом",
+      "url": "https://t.me/englishrise",
+      "subscriberCount": 4999,
+      "avatar": "https://static7.tgstat.ru/channels/_100/76/7621474a81bd2459fb38a8ea4afda568.jpg"
+    },
+    {
+      "name": "Учим Английский",
+      "description": "English is Fun!",
+      "url": "https://t.me/enfriend",
+      "subscriberCount": 4983,
+      "avatar": "https://static7.tgstat.ru/channels/_100/b6/b61e98ab5b207738415373e94827137a.jpg"
+    },
+    {
+      "name": "🇬🇧 English Quiz",
+      "description": "Учим английский через квизы и опросы",
+      "url": "https://t.me/english_quiz_poll",
+      "subscriberCount": 3980,
+      "avatar": "https://static10.tgstat.ru/channels/_100/29/2969685dd0d236cb66b0cc9954075b59.jpg"
+    },
+    {
+      "name": "Час английского",
+      "description": "Я - учитель английского языка",
+      "url": "https://t.me/english_hour",
+      "subscriberCount": 3964,
+      "avatar": "https://static10.tgstat.ru/channels/_100/0c/0c3e531179d8d94672eec2dd715104aa.jpg"
+    },
+    {
+      "name": "Английский с Еленой Арзиани",
+      "description": "Лингво-коуч и полиглот. Специалист по грамматике и фонетике",
+      "url": "https://t.me/arziani",
+      "subscriberCount": 3136,
+      "avatar": "https://static3.tgstat.ru/channels/_100/c7/c79ff72e9b4f4141238a2eb5f8fccb68.jpg"
+    },
+    {
+      "name": "Build Your Vocabulary",
+      "description": "Учите слова и фразы, тренируйте произношение и память",
+      "url": "https://t.me/english_lexeme",
+      "subscriberCount": 2878,
+      "avatar": "https://static7.tgstat.ru/channels/_100/74/74ddae861c79a6f4f55854aca0e43a93.jpg"
+    },
+    {
+      "name": "SL: English Every Day",
+      "description": "Заговори на английском в сообществе SL English Club",
+      "url": "https://t.me/EnglishSL",
+      "subscriberCount": 2740,
+      "avatar": "https://static2.tgstat.ru/channels/_100/9b/9b7aa03bfe67a8b122a42ee74c5e5090.jpg"
+    }
+  ],
+  "analytics": [
+    {
+      "name": "Карточный домик",
+      "description": "Статистика как смысл жизни",
+      "url": "https://t.me/kartochniydomik",
+      "subscriberCount": 17072,
+      "avatar": "https://static1.tgstat.ru/channels/_100/5a/5a32ce4f4b8806856a3d567dc1113c2e.jpg"
+    },
+    {
+      "name": "Дата-сторителлинг",
+      "description": "Помогаю понять этот мир с помощью объективных данных и их визуализации",
+      "url": "https://t.me/data_publication",
+      "subscriberCount": 11267,
+      "avatar": "https://static3.tgstat.ru/channels/_100/e5/e5cb77f52621c430ac78c066dd18e665.jpg"
+    },
+    {
+      "name": "T-Data",
+      "description": "Официальный канал аналитического проекта Т-Банка",
+      "url": "https://t.me/t_bank_data",
+      "subscriberCount": 17282,
+      "avatar": "https://static2.tgstat.ru/channels/_100/cc/ccbdee27cc3ba4234ebf990580c1e00f.jpg"
+    },
+    {
+      "name": "Data Insight",
+      "description": "Рынок электронной торговли в России: игроки, обороты, средний чек, прогнозы",
+      "url": "https://t.me/DataInsight",
+      "subscriberCount": 17675,
+      "avatar": "https://static8.tgstat.ru/channels/_100/e6/e64e7c88f19b91e9cac62b394750f8bf.jpg"
+    },
+    {
+      "name": "Склад статистики Dnative",
+      "description": "Склад презентаций, исследований и статистики",
+      "url": "https://t.me/dnative_sklad",
+      "subscriberCount": 14945,
+      "avatar": "https://static5.tgstat.ru/channels/_100/97/97398cb674b78bb91bb42480002e4a3d.jpg"
+    },
+    {
+      "name": "Data distributor",
+      "description": "Исследования, статистика, анализ данных",
+      "url": "https://t.me/sterngang",
+      "subscriberCount": 11476,
+      "avatar": "https://static4.tgstat.ru/channels/_100/3c/3cb813fae2060caa67d72303633f0aee.jpg"
+    },
+    {
+      "name": "MEDIA RESEARCHES",
+      "description": "Самые актуальные данные, исследования мира маркетинга и рекламы",
+      "url": "https://t.me/mediaresearchesanalytics",
+      "subscriberCount": 14302,
+      "avatar": "https://static3.tgstat.ru/channels/_100/c9/c96a42aa74d2a60ab4a62edf1848858b.jpg"
+    },
+    {
+      "name": "Опросы и замеры",
+      "description": "Результаты опросов и исследований общественного мнения в России и мире",
+      "url": "https://t.me/oizmedia",
+      "subscriberCount": 17815,
+      "avatar": "https://static10.tgstat.ru/channels/_100/d2/d2860aff5032e3bb87e01e93137fe7cf.jpg"
+    },
+    {
+      "name": "Всем ВЦИОМ!",
+      "description": "Официальный Telegram-канал Аналитического центра ВЦИОМ",
+      "url": "https://t.me/WCIOMofficial",
+      "subscriberCount": 12898,
+      "avatar": "https://static6.tgstat.ru/channels/_100/e2/e27b6411c0caca631a74ca4f4ef1420f.jpg"
+    },
+    {
+      "name": "Медиалогия",
+      "description": "Исследования и рейтинги Медиалогии",
+      "url": "https://t.me/medialogia",
+      "subscriberCount": 13396,
+      "avatar": "https://static9.tgstat.ru/channels/_100/d7/d70231bc6ef44884576004c9bb045708.jpg"
+    },
+    {
+      "name": "Потребительское поведение",
+      "description": "Данные исследований для маркетинговых стратегий и решения бизнес-задач",
+      "url": "https://t.me/c_behavior",
+      "subscriberCount": 8366,
+      "avatar": "https://static7.tgstat.ru/channels/_100/8c/8cf2eadb1a9a0b58dfe45644838545d5.jpg"
+    },
+    {
+      "name": "Бизнес и Аналитика",
+      "description": "Собираем и публикуем графики и цифры из мира Бизнеса и Финансов",
+      "url": "https://t.me/AAAAAEu0RFXrhdGOKJb3UA",
+      "subscriberCount": 7346,
+      "avatar": "https://static4.tgstat.ru/channels/_100/ca/ca3c3d80d37c193b2a7421084bd4f416.jpg"
+    },
+    {
+      "name": "НАФИ",
+      "description": "Аналитический центр НАФИ – исследования рынков и общественного мнения",
+      "url": "https://t.me/nafi_research",
+      "subscriberCount": 5571,
+      "avatar": "https://static10.tgstat.ru/channels/_100/06/06ef77a168895a836550be93d77af1df.jpg"
+    },
+    {
+      "name": "RE:source",
+      "description": "Вся аналитика для бизнеса в одном месте",
+      "url": "https://t.me/resource6s",
+      "subscriberCount": 4938,
+      "avatar": "https://static4.tgstat.ru/channels/_100/84/84c9ccc1bb8cfab816759f479152f963.jpg"
+    },
+    {
+      "name": "КСТАТИ, Инфографика",
+      "description": "Инфографика на злобу дня",
+      "url": "https://t.me/kstati_i",
+      "subscriberCount": 2857,
+      "avatar": "https://static9.tgstat.ru/channels/_100/8f/8fd0027593439494a78cb41479dccd5b.jpg"
+    },
+    {
+      "name": "Stata : Экономика России",
+      "description": "Статистика экономики России в виде графиков и инфографики. Коротко и ясно",
+      "url": "https://t.me/tutstata",
+      "subscriberCount": 4856,
+      "avatar": "https://static6.tgstat.ru/channels/_100/ee/ee4692906c5d7ac3e886545bed73b4d9.jpg"
+    },
+    {
+      "name": "СберАналитика",
+      "description": "Рассказываем и показываем на практике, как использовать аналитику для бизнеса",
+      "url": "https://t.me/sberanalytic",
+      "subscriberCount": 2017,
+      "avatar": "https://static7.tgstat.ru/channels/_100/db/db993bd9028aa43221ed7206f32e4edb.jpg"
+    },
+    {
+      "name": "Anketolog.ru",
+      "description": "Всё самое интересное из мира маркетинговых и социологических исследований",
+      "url": "https://t.me/iom_anketolog",
+      "subscriberCount": 8036,
+      "avatar": "https://static1.tgstat.ru/channels/_100/e3/e34fe09b7edde5961ebd625abf014932.jpg"
+    },
+    {
+      "name": "Frontier",
+      "description": "Тренды, отчеты, презентации, стратегии, инструменты анализа и фреймворки",
+      "url": "https://t.me/frontier_trends",
+      "subscriberCount": 5365,
+      "avatar": "https://static7.tgstat.ru/channels/_100/89/89aa1e5f9aa7333b11d9990ec65c6721.jpg"
+    },
+    {
+      "name": "Чек Индекс",
+      "description": "Исследования рынков, товаров, цен, спроса",
+      "url": "https://t.me/checkindex",
+      "subscriberCount": 2913,
+      "avatar": "https://static4.tgstat.ru/channels/_100/68/685da714e02c18f582343b00d37ee2b2.jpg"
+    }
+  ],
+  "ege": [
+    {
+      "name": "Навигатор ЕГЭ и ОГЭ",
+      "description": "Путеводитель по подготовке к экзаменам",
+      "url": "https://t.me/navigator_ege",
+      "subscriberCount": 7127,
+      "avatar": "https://static2.tgstat.ru/channels/_100/8e/8ef63a2c85d274efc67025c8dac3b629.jpg"
+    },
+    {
+      "name": "много букв",
+      "description": "Подготовка к ОГЭ и ЕГЭ - комплексный подход",
+      "url": "https://t.me/mnogo_buk",
+      "subscriberCount": 13069,
+      "avatar": "https://static4.tgstat.ru/channels/_100/c4/c4094a10ea5df9713bd8a0fa8f7bdf80.jpg"
+    },
+    {
+      "name": "ЕГЭ",
+      "description": "Всё о подготовке к ЕГЭ 2025",
+      "url": "https://t.me/EGE_100bal",
+      "subscriberCount": 14033,
+      "avatar": "https://static2.tgstat.ru/channels/_100/c6/c6f86cd679df70282209932c680d52e1.jpg"
+    },
+    {
+      "name": "до егэ",
+      "description": "Мультипредметная подготовка к ЕГЭ",
+      "url": "https://t.me/doegemedia",
+      "subscriberCount": 11781,
+      "avatar": "https://static3.tgstat.ru/channels/_100/b0/b04f177e7a2a43614ad645222021fcbe.jpg"
+    },
+    {
+      "name": "Русский язык ЕГЭ Турбо",
+      "description": "Подготовка к ЕГЭ по русскому языку",
+      "url": "https://t.me/turbo_rus",
+      "subscriberCount": 12761,
+      "avatar": "https://static10.tgstat.ru/channels/_100/cd/cd2d70c55027924809a5bf70bf66ecc1.jpg"
+    },
+    {
+      "name": "Математика ЕГЭ Турбо",
+      "description": "Подготовка к ЕГЭ по математике",
+      "url": "https://t.me/turbo_math",
+      "subscriberCount": 8579,
+      "avatar": "https://static8.tgstat.ru/channels/_100/75/75dab6258f50a7604e2993a6d3740d92.jpg"
+    },
+    {
+      "name": "Обществознание ЕГЭ Турбо",
+      "description": "Подготовка к ЕГЭ по обществознанию",
+      "url": "https://t.me/turbo_soc",
+      "subscriberCount": 7250,
+      "avatar": "https://static4.tgstat.ru/channels/_100/5c/5cbdeadabd8db3c870a23233d798ded0.jpg"
+    },
+    {
+      "name": "Биология ЕГЭ Турбо",
+      "description": "Подготовка к ЕГЭ по биологии",
+      "url": "https://t.me/turbobio",
+      "subscriberCount": 8570,
+      "avatar": "https://static2.tgstat.ru/channels/_100/17/17eaafb20f71f7523aa7493272d2eb2b.jpg"
+    },
+    {
+      "name": "История ЕГЭ 2026 | Сотка",
+      "description": "Подготовка к ЕГЭ по истории",
+      "url": "https://t.me/his100ege",
+      "subscriberCount": 6880,
+      "avatar": "https://static10.tgstat.ru/channels/_100/35/358801002e0ddaf3d80aaed3d3e1eb1d.jpg"
+    },
+    {
+      "name": "Литература ЕГЭ 2026 | Сотка",
+      "description": "Подготовка к ЕГЭ по литературе",
+      "url": "https://t.me/liter100ege",
+      "subscriberCount": 9655,
+      "avatar": "https://static2.tgstat.ru/channels/_100/86/86f5466e15c53126b24a1c8c1d32ef3e.jpg"
+    },
+    {
+      "name": "Биология ЕГЭ 2026 | Сотка",
+      "description": "Подготовка к ЕГЭ по биологии на 100 баллов",
+      "url": "https://t.me/bio100ege",
+      "subscriberCount": 10067,
+      "avatar": "https://static3.tgstat.ru/channels/_100/33/33fd41f8c21598474db62e240a0937fd.jpg"
+    },
+    {
+      "name": "Английский язык ЕГЭ 2026",
+      "description": "Подготовка к ЕГЭ по английскому языку | Сотка",
+      "url": "https://t.me/eng100ege",
+      "subscriberCount": 7901,
+      "avatar": "https://static1.tgstat.ru/channels/_100/15/1567931cdd70abfd294174b31ee682ef.jpg"
+    },
+    {
+      "name": "Профильная Математика ЕГЭ",
+      "description": "Сотка с Александром Нестеровым",
+      "url": "https://t.me/sotkamathege",
+      "subscriberCount": 10304,
+      "avatar": "https://static9.tgstat.ru/channels/_100/97/971d7e6962b715e422877cbe4d810326.jpg"
+    },
+    {
+      "name": "Твой учитель Математики",
+      "description": "ОГЭ, ЕГЭ, ВПР - математика",
+      "url": "https://t.me/teachzg",
+      "subscriberCount": 12147,
+      "avatar": "https://static4.tgstat.ru/channels/_100/a6/a6e8e21cbc63b83a4294240e8615e48c.jpg"
+    },
+    {
+      "name": "Информатик БУ",
+      "description": "Подготовка к ЕГЭ по Информатике",
+      "url": "https://t.me/informatik_bu",
+      "subscriberCount": 12839,
+      "avatar": "https://static10.tgstat.ru/channels/_100/8e/8e2ee09aeece4ec3a5e938d7c74bbcde.jpg"
+    },
+    {
+      "name": "Обществознание ЕГЭ с Никитосом",
+      "description": "Skysmart Exams 2025",
+      "url": "https://t.me/ege_obchestvo_skyeng",
+      "subscriberCount": 11635,
+      "avatar": "https://static9.tgstat.ru/channels/_100/47/47bb9a6bc04cabbec220aa2e70ce5300.jpg"
+    }
+  ],
+  "categories": {
+    "ege": "Подготовка к ЕГЭ",
+    "programming": "Программирование",
+    "marketing": "Маркетинг",
+    "management": "Управление",
+    "design": "Дизайн",
+    "analytics": "Аналитика",
+    "languages": "Иностранные языки"
+  }
+}

@@ -1,0 +1,415 @@
+[
+  {
+    "url": "https://t.me/dsproglib",
+    "name": "Библиотека дата-сайентиста | Data Science, Machine learning, анализ данных, машинное обучение",
+    "description": "Все самое полезное для дата сайентиста в одном канале.",
+    "subscriberCount": 18721,
+    "avatar": "https://static8.tgstat.ru/channels/_100/77/771047c726f3f5a293cd258020d32e54.jpg"
+  },
+  {
+    "url": "https://t.me/BackendPortal",
+    "name": "Backend Portal | Программирование",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир Backend-разработки",
+    "subscriberCount": 17010,
+    "avatar": "https://static5.tgstat.ru/channels/_100/0d/0d96b4db4ab7e6cba9500936803abf09.jpg"
+  },
+  {
+    "url": "https://t.me/git_developer",
+    "name": "GitHub Разработчика",
+    "description": "Здесь ты найдешь полезные репозитории с GitHub",
+    "subscriberCount": 16768,
+    "avatar": "https://static5.tgstat.ru/channels/_100/04/0433e5349b2199d3c7d39e3fd7914375.jpg"
+  },
+  {
+    "url": "https://t.me/Cpportal",
+    "name": "С/С++ Portal | Программирование",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир для C/C++-разработчика",
+    "subscriberCount": 16543,
+    "avatar": "https://static9.tgstat.ru/channels/_100/4c/4c8becaf9f6b2e0530912c951f06df92.jpg"
+  },
+  {
+    "url": "https://t.me/easy_python_tg",
+    "name": "Easy Python | Программирование",
+    "description": "Всё о Python-разработке — лучшие гайды, курсы, инструменты, ресурсы и другие полезности.",
+    "subscriberCount": 15923,
+    "avatar": "https://static4.tgstat.ru/channels/_100/5c/5cd1336c20efb43aabc0b5f32e8963fa.jpg"
+  },
+  {
+    "url": "https://t.me/KodBlog",
+    "name": "C# Portal | Программирование",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир для C#-разработчика",
+    "subscriberCount": 14971,
+    "avatar": "https://static8.tgstat.ru/channels/_100/90/904ca84c39a154cb8c31221abd790400.jpg"
+  },
+  {
+    "url": "https://t.me/SQLPortal",
+    "name": "SQL Portal | Базы Данных",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир баз данных",
+    "subscriberCount": 14410,
+    "avatar": "https://static7.tgstat.ru/channels/_100/04/04c576ec3ceed994e5ad443738ad63d2.jpg"
+  },
+  {
+    "url": "https://t.me/Java_Iibrary",
+    "name": "Java Portal | Программирование",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир для Java-разработчика",
+    "subscriberCount": 12923,
+    "avatar": "https://static2.tgstat.ru/channels/_100/a4/a475c4f5020fdee8c065aa946ace9065.jpg"
+  },
+  {
+    "url": "https://t.me/hackproglib",
+    "name": "Библиотека хакера | Hacking, Infosec, ИБ, информационная безопасность",
+    "description": "Все самое полезное по инфобезу в одном канале.",
+    "subscriberCount": 12590,
+    "avatar": "https://static6.tgstat.ru/channels/_100/bc/bcca061ffc470b1f52a3204dc48d09ba.jpg"
+  },
+  {
+    "url": "https://t.me/iteventsrus",
+    "name": "IT мероприятия России / ITMeeting / IT events",
+    "description": "IT события России: форумы, конференции, митапы, вебинары, хакатоны и т.д.",
+    "subscriberCount": 12249,
+    "avatar": "https://static1.tgstat.ru/channels/_100/8d/8db33adf706281cc757a3e06abaad45c.jpg"
+  },
+  {
+    "url": "https://t.me/frontendInterview",
+    "name": "Frontend Interview - собеседования по Javascript / Html / Css",
+    "description": "Канал для подготовки к собеседованиям по фронтенду",
+    "subscriberCount": 11915,
+    "avatar": "https://static6.tgstat.ru/channels/_100/f5/f5aaba1af3335ac6aa9b2dbb16cc362b.jpg"
+  },
+  {
+    "url": "https://t.me/we_use_js",
+    "name": "Node.JS [ru] | Серверный JavaScript",
+    "description": "Все о разработке backend части на JavaScript (Node JS).",
+    "subscriberCount": 11444,
+    "avatar": "https://static4.tgstat.ru/channels/_100/06/064b19c5c5fac01dbaf87b5b62830a54.jpg"
+  },
+  {
+    "url": "https://t.me/orgprog",
+    "name": "Организованное программирование | Кирилл Мокевнин",
+    "description": "Как из джуниора дойти до мидла, а потом и до синьора",
+    "subscriberCount": 11315,
+    "avatar": "https://static7.tgstat.ru/channels/_100/ff/ff0a44aa0f58f1373151c575f2ca9290.jpg"
+  },
+  {
+    "url": "https://t.me/phpproglib",
+    "name": "Библиотека пхпшника | PHP, Laravel, Symfony, CodeIgniter",
+    "description": "Все самое полезное для пхпшника в одном канале.",
+    "subscriberCount": 11312,
+    "avatar": "https://static5.tgstat.ru/channels/_100/24/2405d31378685976ad43767402dd9249.jpg"
+  },
+  {
+    "url": "https://t.me/js_test",
+    "name": "JavaScript test",
+    "description": "Проверка своих знаний по языку JavaScript.",
+    "subscriberCount": 11286,
+    "avatar": "https://static4.tgstat.ru/channels/_100/c6/c6443a1a12f546a93223718f8954a865.jpg"
+  },
+  {
+    "url": "https://t.me/Frontend_Task",
+    "name": "Frontend Tests & Tasks",
+    "description": "Тесты и задачи по фронтенду (js, html, css)",
+    "subscriberCount": 10008,
+    "avatar": "https://static10.tgstat.ru/channels/_100/f6/f68e8a38eab5315b9a8ead747d67dbe6.jpg"
+  },
+  {
+    "url": "https://t.me/hackathonsrus",
+    "name": "хакатоны.рус / хакатоны / it-соревнования / ctf",
+    "description": "Платформа для хакатонов и IT-соревнований: хакатоны.рус",
+    "subscriberCount": 9966,
+    "avatar": "https://static10.tgstat.ru/channels/_100/ed/ed17ee4a499e306185abdb893a818908.jpg"
+  },
+  {
+    "url": "https://t.me/mobileproglib",
+    "name": "Библиотека мобильного разработчика | Android, iOS, Swift, Retrofit, Moshi, Chuck",
+    "description": "Все самое полезное для мобильного разработчика в одном канале.",
+    "subscriberCount": 9837,
+    "avatar": "https://static7.tgstat.ru/channels/_100/8c/8c9f343bf5910f39ae4b6385af75b667.jpg"
+  },
+  {
+    "url": "https://t.me/easy_webdev_tg",
+    "name": "Easy WebDev | Frontend & Backend",
+    "description": "Всё о Web-разработке — лучшие гайды, курсы, инструменты, ресурсы и другие полезности.",
+    "subscriberCount": 9383,
+    "avatar": "https://static3.tgstat.ru/channels/_100/32/3223f2595971502f4d74347982817110.jpg"
+  },
+  {
+    "url": "https://t.me/simple_frontend_tg",
+    "name": "Simple Frontend | JS, CSS, HTML",
+    "description": "Всё о Frontend-разработке и вёрстке сайтов.",
+    "subscriberCount": 8806,
+    "avatar": "https://static3.tgstat.ru/channels/_100/48/48297a1290142b9e49c4b244b845e935.jpg"
+  },
+  {
+    "url": "https://t.me/testerlib",
+    "name": "Библиотека тестировщика | QA, тестирование, quality assurance, manual testing, autotesting, ручное тестирование, автотесты",
+    "description": "Все самое полезное для тестировщика в одном канале.",
+    "subscriberCount": 8803,
+    "avatar": "https://static8.tgstat.ru/channels/_100/3d/3d6061c5c0696d2d89c128fa92465b1c.jpg"
+  },
+  {
+    "url": "https://t.me/QAPortal",
+    "name": "QA Portal | Тестирование",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир тестирования",
+    "subscriberCount": 8672,
+    "avatar": "https://static6.tgstat.ru/channels/_100/cd/cd7138a214c5ae43df59d031389463ad.jpg"
+  },
+  {
+    "url": "https://t.me/GameDevgx",
+    "name": "GameDev Portal | Разработка Игр",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир разработки игр",
+    "subscriberCount": 8636,
+    "avatar": "https://static5.tgstat.ru/channels/_100/7c/7c3f725aadc0d98e3ad6ccfc8c18fe7f.jpg"
+  },
+  {
+    "url": "https://t.me/phpyh",
+    "name": "Пых",
+    "description": "Блог @vudaltsov о разработке на PHP.",
+    "subscriberCount": 8362,
+    "avatar": "https://static4.tgstat.ru/channels/_100/dc/dcfe34c12c021ca82f272ac3777b0ce9.jpg"
+  },
+  {
+    "url": "https://t.me/guides_js",
+    "name": "Гайды по JavaScript | Программирование",
+    "description": "Наглядные и доступные гайды в картинках по языку программирования JavaScript",
+    "subscriberCount": 8163,
+    "avatar": "https://static6.tgstat.ru/channels/_100/f2/f2d3a667bdca8abe075e5dc7313ec720.jpg"
+  },
+  {
+    "url": "https://t.me/GolangPortal",
+    "name": "Golang Portal",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир для Golang-разработчика",
+    "subscriberCount": 7763,
+    "avatar": "https://static9.tgstat.ru/channels/_100/aa/aa5d697bba215a2b16e2289930c39d37.jpg"
+  },
+  {
+    "url": "https://t.me/jsdevjob",
+    "name": "Javascript jobs — вакансии по фронтенду, джаваскрипт, React, Angular, Vue",
+    "description": "Лучшие вакансии для фронтендеров.",
+    "subscriberCount": 7679,
+    "avatar": "https://static3.tgstat.ru/channels/_100/5e/5ea525f14453568e9086728868de4e50.jpg"
+  },
+  {
+    "url": "https://t.me/rust_code",
+    "name": "Rust",
+    "description": "Rust programming language",
+    "subscriberCount": 6677,
+    "avatar": "https://static5.tgstat.ru/channels/_100/bd/bdc2b079b08e066e32cd3b1b44a9ca9c.jpg"
+  },
+  {
+    "url": "https://t.me/HowProgrammingWorks",
+    "name": "HowProgrammingWorks - JavaScript and Node.js Programming",
+    "description": "Программная инжененрия для JavaScript, TypeScrip, Node.js  Group: https://t.me/MetarhiaHPW  Node.js channel: https://t.me/metarhia  Node.js group: https://t.me/nodeua",
+    "subscriberCount": 6296,
+    "avatar": "https://static4.tgstat.ru/channels/_100/a3/a30bbca6ee135c2b30bcb417398f4e5a.jpg"
+  },
+  {
+    "url": "https://t.me/MobDevPortal",
+    "name": "MobDev Portal | Мобильная Разработка",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир мобильной-разработки",
+    "subscriberCount": 6120,
+    "avatar": "https://static10.tgstat.ru/channels/_100/64/641b1f8583d4cad82edb3ee35ddca732.jpg"
+  },
+  {
+    "url": "https://t.me/coffeecode",
+    "name": "Coffee&Code | Community | IT | Android | iOS | Design | Frontend | Backend | DevOps | QA",
+    "description": "По вопросам рекламы и PR @coffeecode_admin (а так же другим вопросам)",
+    "subscriberCount": 5909,
+    "avatar": "https://static9.tgstat.ru/channels/_100/02/02206de6a0f6c85af8d1d87ac7fd12eb.jpg"
+  },
+  {
+    "url": "https://t.me/r8kkGSypBY84MmIy",
+    "name": "Easy Java",
+    "description": "Лучшие обучающие материалы и другие полезности для Java-разработчиков.",
+    "subscriberCount": 5623,
+    "avatar": "https://static5.tgstat.ru/channels/_100/0f/0fac543fb3fddde17d982164208d004c.jpg"
+  },
+  {
+    "url": "https://t.me/phpdevjob",
+    "name": "PHP jobs — вакансии по PHP, Symfony, Laravel",
+    "description": "Лучшие вакансии по PHP, Symfony, Laravel.",
+    "subscriberCount": 5019,
+    "avatar": "https://static4.tgstat.ru/channels/_100/7b/7bfe9a39e05321e32ae902fb8923a4ac.jpg"
+  },
+  {
+    "url": "https://t.me/pythontalk_ru",
+    "name": "PythonTalk",
+    "description": "Привет, меня зовут Олег Булыгин",
+    "subscriberCount": 4746,
+    "avatar": "https://static8.tgstat.ru/channels/_100/31/313abcc3039b37ff8fe758bac41de2cb.jpg"
+  },
+  {
+    "url": "https://t.me/phpbook",
+    "name": "PHP Books",
+    "description": "Книги по PHP и смежным технологиям.",
+    "subscriberCount": 4528,
+    "avatar": "https://static6.tgstat.ru/channels/_100/a8/a81dc3a8db8752d07594861071f1229e.jpg"
+  },
+  {
+    "url": "https://t.me/CodePen_tg",
+    "name": "CodePen Community",
+    "description": "Лучшие проекты с CodePen",
+    "subscriberCount": 4460,
+    "avatar": "https://static3.tgstat.ru/channels/_100/bd/bd18407cd2508f7fa9d85a0a86382d1d.jpg"
+  },
+  {
+    "url": "https://t.me/easy_github_tg",
+    "name": "Easy GitHub | IT & Open Source",
+    "description": "️ Лучшие репозитории с просторов GitHub для практики и изучения IT.",
+    "subscriberCount": 4220,
+    "avatar": "https://static4.tgstat.ru/channels/_100/95/95249940e76ae80bd6e32dcd2c7b2d39.jpg"
+  },
+  {
+    "url": "https://t.me/TechAndVibe",
+    "name": "TechVibe | Программирование",
+    "description": "Авторский канал действующего разработчика",
+    "subscriberCount": 4205,
+    "avatar": "https://static9.tgstat.ru/channels/_100/04/045ef6f4fd87795d5a8f18004522351e.jpg"
+  },
+  {
+    "url": "https://t.me/java_interview_tasks",
+    "name": "Java Interview Tasks",
+    "description": "Реальные вопросы и задачи с собеседований.",
+    "subscriberCount": 4123,
+    "avatar": "https://static2.tgstat.ru/channels/_100/9b/9b3223b184f8e11d33b76a21981a4b3e.jpg"
+  },
+  {
+    "url": "https://t.me/PythonTechCode",
+    "name": "Python Tech Code • IT",
+    "description": "Изучаем Python, осваиваем SQL и следим за IT-новостями.",
+    "subscriberCount": 3871,
+    "avatar": "https://static9.tgstat.ru/channels/_100/e9/e9d354fcd22a91c5cba75bca68e4a65b.jpg"
+  },
+  {
+    "url": "https://t.me/maket_figma",
+    "name": "Figma Portal | Макеты для верстки сайтов",
+    "description": "Присоединяйтесь к нашему каналу и погрузитесь в мир, где верстальщики могут оттачивать свои навыки с помощью макетов в Figma, а UX/UI и веб-дизайнеры черпать вдохновение",
+    "subscriberCount": 3781,
+    "avatar": "https://static5.tgstat.ru/channels/_100/33/33f4822e9b8570f319d1a271f0c78d1c.jpg"
+  },
+  {
+    "url": "https://t.me/meetupochnaya",
+    "name": "Митапочная - анонсы митапов по разработке",
+    "description": "Анонсы бесплатных мероприятий по разработке.",
+    "subscriberCount": 3273,
+    "avatar": "https://static4.tgstat.ru/channels/_100/42/4264d964ce0149acf09c53c2eb35e963.jpg"
+  },
+  {
+    "url": "https://t.me/phpquiz",
+    "name": "PHP задачи с собеседований",
+    "description": "Задачи, тесты и теоретические вопросы по PHP.",
+    "subscriberCount": 3029,
+    "avatar": "https://static10.tgstat.ru/channels/_100/a4/a4f671c3ca1324dce1ca6b675d2f2a59.jpg"
+  },
+  {
+    "url": "https://t.me/jobforphp",
+    "name": "Job for PHP",
+    "description": "Вакансии для PHP разработчиков",
+    "subscriberCount": 2405,
+    "avatar": "https://static8.tgstat.ru/channels/_100/af/af3cd04e464608bebc30a65063784620.jpg"
+  },
+  {
+    "url": "https://t.me/codewars_tg",
+    "name": "СodeWars | Задачи по программированию",
+    "description": "Решай задачи по JavaScript на всех уровнях сложности и совершенствуй свои навыки программирования каждый день",
+    "subscriberCount": 2112,
+    "avatar": "https://static4.tgstat.ru/channels/_100/1d/1dcf532537cf0a39c52d7a651f9b9f1f.jpg"
+  },
+  {
+    "url": "https://t.me/code_stars",
+    "name": "Code Stars",
+    "description": "Code Stars provides notifications about GitHub repositories that are gaining a significant number of stars in a short period of time. Be the first to find out about trending repositories that everybody will be talking about soon.",
+    "subscriberCount": 1901,
+    "avatar": "https://static5.tgstat.ru/channels/_100/e2/e2d267bb0c5291cfc2eb73c4ab2741b8.jpg"
+  },
+  {
+    "url": "https://t.me/n_it_girls",
+    "name": "N айтишниц заходят в бар",
+    "description": "Они хотят знать, во что это выльется",
+    "subscriberCount": 1757,
+    "avatar": "https://static3.tgstat.ru/channels/_100/c2/c2679219a95cf56aa333d400d63f75e4.jpg"
+  },
+  {
+    "url": "https://t.me/pvsstudio_rus",
+    "name": "PVS-Studio",
+    "description": "Тот самый анализатор с Хабра:",
+    "subscriberCount": 1529,
+    "avatar": "https://static3.tgstat.ru/channels/_100/39/395074d2ddc5b33ce9872541b0275768.jpg"
+  },
+  {
+    "url": "https://t.me/made_in_html_css",
+    "name": "Made in HTML/CSS",
+    "description": "Научись классно верстать и создавать сайты благодаря Made in HTML/CSS.",
+    "subscriberCount": 1497,
+    "avatar": "https://static5.tgstat.ru/channels/_100/e1/e1684e28c49353840c39349757060786.jpg"
+  },
+  {
+    "url": "https://t.me/press_any_button",
+    "name": "Код на салфетке",
+    "description": "Канал для тех, кому интересно программирование на Python и не только.",
+    "subscriberCount": 1235,
+    "avatar": "https://static6.tgstat.ru/channels/_100/40/40cf1160777e3a6423b1b0190ab09075.jpg"
+  },
+  {
+    "url": "https://t.me/ay37cKnFWtg3MDJi",
+    "name": "Коммунист Этичный Хакер",
+    "description": "АДМИН ИЗ КАЗАХСТАНА",
+    "subscriberCount": 1209,
+    "avatar": "https://static7.tgstat.ru/channels/_100/16/165b633aa749e6133132612b87c040a5.jpg"
+  },
+  {
+    "url": "https://t.me/truefrontender",
+    "name": "True Frontender",
+    "description": "Сборная солянка про фронтенд.",
+    "subscriberCount": 1082,
+    "avatar": "https://static1.tgstat.ru/channels/_100/72/72c2c44abbbc274165e4200971e24933.jpg"
+  },
+  {
+    "url": "https://t.me/learn_prosto",
+    "name": "Программирование в 1С | Школа Programming Store",
+    "description": "Школа Programming Store — образовательный проект от экспертов  компани с опытом в 1С 15+ лет.",
+    "subscriberCount": 732,
+    "avatar": "https://static2.tgstat.ru/channels/_100/dd/dd04993172ad27ebb0185658cf5f762d.jpg"
+  },
+  {
+    "url": "https://t.me/korotaev_to_hard",
+    "name": "Трудно быть Коротаевым",
+    "description": "Генеративное искусство, сложные алгоритмы визуализации",
+    "subscriberCount": 518,
+    "avatar": "https://static8.tgstat.ru/channels/_100/21/21de537a68420bdbb34b565d0bffb761.jpg"
+  },
+  {
+    "url": "https://t.me/hackatonochnaya",
+    "name": "Хакатоночная",
+    "description": "Канал с анонсами предстоящих хакатонов",
+    "subscriberCount": 516,
+    "avatar": "https://static5.tgstat.ru/channels/_100/96/962638f285e4f7b7d47f5ce010be51fe.jpg"
+  },
+  {
+    "url": "https://t.me/progmamar",
+    "name": "CoinWOfficial programming",
+    "description": "️هـــــام️",
+    "subscriberCount": 478,
+    "avatar": "https://static2.tgstat.ru/channels/_100/8d/8dcd2549c49a9cc8465a6de750aba525.jpg"
+  },
+  {
+    "url": "https://t.me/dev_notes_ru",
+    "name": "Заметки разработчика",
+    "description": "Заметки о Frontend, Backend и немного DevOps. В основном о #PHP, #Laravel, #JavaScript, #HTML, #CSS, тестировании и настройке серверов.",
+    "subscriberCount": 461,
+    "avatar": "https://static8.tgstat.ru/channels/_100/9f/9f822cc956ee1dbe97b9c1b5ab7e1307.jpg"
+  },
+  {
+    "url": "https://t.me/SpeechAIPro",
+    "name": "SpeechAI Pro",
+    "description": "Технологии распознавания и синтеза речи, разработка, управление командами. Для связи - @vzaguskin",
+    "subscriberCount": 225,
+    "avatar": "https://static1.tgstat.ru/channels/_100/2c/2cbbc321c80360f578052a6f98ff407e.jpg"
+  },
+  {
+    "url": "https://t.me/bald_man_g",
+    "name": "Лысый чел | Николай Гущарин",
+    "description": "Блог разработчика из БигТеха.",
+    "subscriberCount": 211,
+    "avatar": "https://static8.tgstat.ru/channels/_100/1c/1c1d05fa1a2a37ab4bfb0cc961c524af.jpg"
+  }
+]

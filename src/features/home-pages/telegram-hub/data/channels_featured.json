@@ -1,0 +1,78 @@
+{
+  "channels": [
+    {
+      "id": "python_ready",
+      "name": "Python Ready",
+      "description": "Полное руководство по Python: от основ до продвинутых техник разработки. Практические примеры и лучшие практики.",
+      "category": "programming",
+      "url": "https://t.me/python_ready",
+      "subscribers": "45.2K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru",
+      "featured": true
+    },
+    {
+      "id": "backend_it",
+      "name": "Backend IT",
+      "description": "Всё о backend-разработке: архитектура, базы данных, API. Разбор реальных кейсов и решений.",
+      "category": "programming",
+      "url": "https://t.me/backend_it",
+      "subscribers": "38.7K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru"
+    },
+    {
+      "id": "easy_coder_tg",
+      "name": "Easy Coder",
+      "description": "Программирование простым языком. Туториалы, советы и трюки для начинающих и опытных разработчиков.",
+      "category": "programming",
+      "url": "https://t.me/easy_coder_tg",
+      "subscribers": "52.1K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru",
+      "featured": true
+    },
+    {
+      "id": "sysdes_journal",
+      "name": "System Design Journal",
+      "description": "Проектирование систем, архитектурные паттерны, масштабирование. Разбор архитектуры известных сервисов.",
+      "category": "programming",
+      "url": "https://t.me/sysdes_journal",
+      "subscribers": "29.8K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru"
+    },
+    {
+      "id": "skilhunter",
+      "name": "Skill Hunter",
+      "description": "Развитие профессиональных навыков, карьерный рост в IT. Интервью, советы по трудоустройству.",
+      "category": "business",
+      "url": "https://t.me/skilhunter",
+      "subscribers": "41.3K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru",
+      "featured": true
+    },
+    {
+      "id": "pro_cursy",
+      "name": "PRO Курсы",
+      "description": "Обзоры лучших образовательных курсов и программ. Скидки, промокоды и честные отзывы.",
+      "category": "education",
+      "url": "https://t.me/pro_cursy",
+      "subscribers": "67.9K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru",
+      "featured": true
+    },
+    {
+      "id": "vnimanie_kurs",
+      "name": "Внимание, курс!",
+      "description": "Подборка качественных онлайн-курсов по всем направлениям. Акции и специальные предложения от школ.",
+      "category": "education",
+      "url": "https://t.me/vnimanie_kurs",
+      "subscribers": "55.4K подписчиков",
+      "imageUrl": "/images/telegram-placeholder.svg",
+      "language": "ru"
+    }
+  ]
+}

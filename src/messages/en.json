@@ -1,0 +1,340 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "tryAgain": "Try again",
+    "tryAgainButton": "Try Again",
+    "refreshPage": "Refresh Page",
+    "returnHome": "Return Home",
+    "goHome": "Go home",
+    "close": "Close",
+    "copied": "Copied!",
+    "reportIssue": "Report issue",
+    "home": "Home",
+    "months": {
+      "0": "January",
+      "1": "February",
+      "2": "March",
+      "3": "April",
+      "4": "May",
+      "5": "June",
+      "6": "July",
+      "7": "August",
+      "8": "September",
+      "9": "October",
+      "10": "November",
+      "11": "December"
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Page not found",
+      "description": "The page you are looking for doesn't exist or has been moved.",
+      "articleTitle": "Article Not Found",
+      "articleDescription": "We couldn't find the article you're looking for. It may have been moved or deleted.",
+      "returnHome": "Return Home",
+      "lookingForSomethingElse": "Looking for something else?",
+      "browseLatestArticles": "Try browsing our latest articles or use the search feature to find what you need."
+    },
+    "general": {
+      "title": "Something went wrong!",
+      "description": "An unexpected error occurred. Our team has been notified.",
+      "reset": "Try resetting the page",
+      "tryAgain": "Try again",
+      "reportError": "Report this error",
+      "errorId": "Error ID"
+    },
+    "article": {
+      "title": "Unable to Load Article",
+      "notFound": "Article not found",
+      "errorLoading": "Error loading article",
+      "description": "We encountered an error while loading this article. Please try again or return to the homepage.",
+      "technicalDetails": "Error details",
+      "defaultMessage": "An unexpected error occurred while loading the article.",
+      "errorId": "Error ID",
+      "whatYouCanTry": "What you can try:",
+      "developerDetails": "Developer Details",
+      "buttons": {
+        "tryAgain": "Try again",
+        "goHome": "Go home",
+        "reportIssue": "Report issue"
+      },
+      "errors": {
+        "REQUEST_TIMEOUT": "The request took too long to complete. Please check your connection and try again.",
+        "NETWORK_ERROR": "Unable to connect to our servers. Please check your internet connection.",
+        "SERVER_ERROR": "Our servers are experiencing issues. Please try again later.",
+        "ARTICLE_VALIDATION": "The article data is invalid. Please contact support if this issue persists."
+      },
+      "suggestions": {
+        "NETWORK_ERROR": [
+          "Check your internet connection",
+          "Try disabling VPN if you're using one",
+          "Wait a moment and try refreshing the page"
+        ],
+        "REQUEST_TIMEOUT": [
+          "The server is taking longer than usual",
+          "Try again in a few moments",
+          "Check if you're on a slow connection"
+        ],
+        "SERVER_ERROR": [
+          "Our servers are experiencing issues",
+          "This is temporary - please try again later",
+          "If this persists, contact support"
+        ],
+        "ARTICLE_NOT_FOUND": [
+          "This article may have been moved or deleted",
+          "Check the URL for any typos",
+          "Browse our homepage for similar content"
+        ],
+        "ARTICLE_VALIDATION": [
+          "We received invalid data from our servers",
+          "This is likely a temporary issue",
+          "Please report this to support if it continues"
+        ],
+        "DEFAULT": [
+          "Try refreshing the page",
+          "Clear your browser cache",
+          "Contact support if the issue persists"
+        ]
+      }
+    }
+  },
+  "header": {
+    "brandName": "Affiliate UI"
+  },
+  "footer": {
+    "about": {
+      "title": "About",
+      "description": "Your trusted source for the best affiliate deals and promocodes."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "sitemap": "Sitemap",
+      "cookiePolicy": "Cookie Policy"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "Email: contact@example.com",
+      "hours": "Support available 24/7"
+    },
+    "copyright": "© {year} Affiliate UI. All rights reserved."
+  },
+  "promocode": {
+    "card": {
+      "discount": "{discount}% OFF",
+      "flatDiscount": "${amount} OFF",
+      "expiresIn": "Expires {when}",
+      "today": "today",
+      "tomorrow": "tomorrow",
+      "inDays": "in {days} days",
+      "expired": "Expired",
+      "defaultDescription": "{discount} at {store}",
+      "defaultDiscount": "Discount",
+      "defaultStore": "Store",
+      "featured": "EXCLUSIVE"
+    },
+    "button": {
+      "clickToCopy": "Click to copy",
+      "clickToReveal": "Click to reveal",
+      "copied": "Copied!",
+      "getPromocode": "Get promocode"
+    },
+    "error": {
+      "failedToLoad": "Failed to load promocode",
+      "tryAgain": "Try again"
+    },
+    "toast": {
+      "copySuccess": "Promocode copied to clipboard!",
+      "copyError": "Failed to copy promocode",
+      "trackingError": "Failed to track click",
+      "navigationError": "Navigation failed. Please try again or copy the code manually."
+    },
+    "list": {
+      "title": "{storeName} Promo Codes for {month} {year}",
+      "errorBoundary": {
+        "title": "Unable to load promocodes",
+        "description": "We're having trouble loading the promocodes. Please try again.",
+        "tryAgain": "Try Again",
+        "refreshPage": "Refresh Page"
+      }
+    },
+    "dialog": {
+      "goToSite": "Go to site",
+      "andUsePromocode": "and use promocode",
+      "copyCode": "Copy code",
+      "noCodeNeeded": "No code needed for this offer",
+      "moreDetails": "More details on",
+      "copyAndGoToSite": "Copy and go to site",
+      "redirectingIn": "Redirecting in",
+      "seconds": "seconds",
+      "store": "store",
+      "showMore": "Show more",
+      "goTo": "Go to",
+      "andUseCode": "and use this promo code",
+      "copyAriaLabel": "Copy promo code",
+      "copyAndVisit": "Copy Code & Visit Site",
+      "goToOffer": "Go to Offer"
+    },
+    "errorBoundary": {
+      "title": "Failed to load promocode",
+      "description": "Something went wrong. Please try again.",
+      "tryAgain": "Try Again",
+      "refreshPage": "Refresh Page"
+    }
+  },
+  "article": {
+    "list": {
+      "noArticles": "No articles found",
+      "errorLoading": "Error loading articles"
+    },
+    "metadata": {
+      "readingTime": "{minutes} min read",
+      "publishedOn": "Published on {date}"
+    },
+    "placeholder": {
+      "title": "Article Page",
+      "description": "This is a placeholder for article: {slug}"
+    },
+    "more": "more",
+    "widget": {
+      "errorBoundary": {
+        "failedToLoad": "Widget failed to load",
+        "widgetType": "Widget type: {type}"
+      }
+    }
+  },
+  "compliance": {
+    "affiliate": {
+      "disclosure": "This article contains affiliate links. We may earn a commission on purchases made through these links at no extra cost to you.",
+      "transparencyNote": "We believe in transparency and only recommend products we trust.",
+      "title": "Affiliate Disclosure",
+      "withMerchant": "This article contains affiliate links to {merchantName}. We may earn a commission from qualifying purchases at no additional cost to you.",
+      "general": "This article contains affiliate links. We may earn a commission from qualifying purchases at no additional cost to you."
+    },
+    "gdpr": {
+      "notice": "We use cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.",
+      "privacyLink": "Privacy Policy",
+      "managePreferences": "Manage Preferences",
+      "title": "Privacy Notice (GDPR)",
+      "description": "We process your personal data in accordance with the General Data Protection Regulation (GDPR). {dataControllerName} is the data controller for this website. For more information about how we handle your data, please read our",
+      "aria": "GDPR Notice"
+    },
+    "cookies": {
+      "title": "Cookie Consent",
+      "description": "We use cookies to enhance your browsing experience and analyze our traffic. By clicking \"Accept\", you consent to our use of cookies.",
+      "accept": "Accept",
+      "decline": "Decline"
+    }
+  },
+  "theme": {
+    "toggle": {
+      "light": "Switch to light theme",
+      "dark": "Switch to dark theme",
+      "system": "Switch to system theme"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Affiliate Article System",
+      "subtitle": "Discover the latest articles and insights from our affiliate partners"
+    },
+    "features": {
+      "title": "Featured Articles",
+      "subtitle": "Explore our curated selection of top articles",
+      "cloaking": "Advanced Cloaking",
+      "promocodes": "Interactive Promocodes",
+      "analytics": "Comprehensive Analytics"
+    }
+  },
+  "widgets": {
+    "loading": "Loading widget...",
+    "error": {
+      "title": "Widget Error:"
+    }
+  },
+  "analytics": {
+    "debug": {
+      "title": "Analytics Debug Panel",
+      "button": "Analytics Debug",
+      "status": {
+        "userId": "User ID",
+        "traceId": "Trace ID",
+        "recording": "Recording",
+        "funnel": "Funnel",
+        "active": "Active",
+        "inactive": "Inactive",
+        "blackMode": "Black mode",
+        "noConsent": "No consent",
+        "notStarted": "Not started",
+        "stages": "stages"
+      },
+      "buttons": {
+        "clearEvents": "Clear Events",
+        "dumpConsole": "Dump to Console",
+        "exportData": "Export Debug Data"
+      },
+      "empty": "No events captured yet...",
+      "properties": "Properties"
+    },
+    "monitor": {
+      "title": "Analytics Event Monitor",
+      "stats": {
+        "total": "Total",
+        "filtered": "Filtered",
+        "queue": "Queue",
+        "memory": "Memory"
+      },
+      "buttons": {
+        "resume": "Resume",
+        "pause": "Pause",
+        "clear": "Clear",
+        "flushQueue": "Flush Queue"
+      },
+      "filter": "Filter events...",
+      "allTypes": "All Types",
+      "empty": {
+        "noEvents": "No events yet",
+        "noMatch": "No events match your filter"
+      },
+      "details": {
+        "title": "Event Details",
+        "basicInfo": "Basic Info",
+        "eventName": "Event Name",
+        "timestamp": "Timestamp",
+        "traceId": "Trace ID",
+        "sessionId": "Session ID",
+        "properties": "Properties",
+        "context": "Context"
+      }
+    }
+  },
+  "staticPages": {
+    "privacy": {
+      "meta": {
+        "title": "Privacy Policy",
+        "description": "Learn how we collect, use, and protect your personal information"
+      }
+    },
+    "terms": {
+      "meta": {
+        "title": "Terms of Service",
+        "description": "Terms and conditions for using our services"
+      }
+    },
+    "cookies": {
+      "meta": {
+        "title": "Cookie Policy",
+        "description": "How we use cookies and similar technologies"
+      }
+    },
+    "disclaimer": {
+      "meta": {
+        "title": "Disclaimer",
+        "description": "Important information about the use of our website"
+      }
+    }
+  }
+}

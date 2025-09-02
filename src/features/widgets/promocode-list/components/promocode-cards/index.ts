@@ -1,0 +1,1 @@
+export { PromocodeCardDefault } from './default/PromocodeCardDefault.server';

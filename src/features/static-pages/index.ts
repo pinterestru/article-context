@@ -1,0 +1,5 @@
+export { PrivacyPage, getPrivacyPageMetadata } from './privacy/PrivacyPage'
+export { TermsPage, getTermsPageMetadata } from './terms/TermsPage'
+export { CookiesPage, getCookiesPageMetadata } from './cookies/CookiesPage'
+export { DisclaimerPage, getDisclaimerPageMetadata } from './disclaimer/DisclaimerPage'
+export type { StaticPageProps } from './types'

@@ -1,0 +1,7 @@
+@import './theme.css';
+@import './active-theme.css';
+
+/* 
+ * Additional global styles that don't fit into Tailwind layers
+ * Most styles should be in theme.css using @layer directives
+ */

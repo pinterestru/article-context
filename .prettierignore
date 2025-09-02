@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Next.js
+.next
+out
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.log
+.DS_Store
+.env*
+
+# Build
+dist
+build

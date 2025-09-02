@@ -1,0 +1,1 @@
+export { PromocodeDialogContentDefault } from './default/PromocodeDialogContentDefault.client';

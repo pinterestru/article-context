@@ -1,0 +1,33 @@
+<!-- Example HTML content with widget placeholders for testing -->
+<div class="test-widgets">
+  <h2>Widget Demo</h2>
+  
+  <p>Here's an example of a promocode widget:</p>
+  
+  <div 
+    data-action="promocode" 
+    data-param-code="SAVE20" 
+    data-param-discount="20% OFF" 
+    data-param-description="Save 20% on your first order"
+    data-param-expires-at="2025-12-31T23:59:59Z"
+  >
+    <!-- Static fallback content for white mode -->
+    <div class="promocode-static">
+      <span>Use code: SAVE20 for 20% OFF</span>
+    </div>
+  </div>
+  
+  <p>And here's a countdown widget:</p>
+  
+  <div 
+    data-action="countdown" 
+    data-param-end-time="2025-12-31T23:59:59Z" 
+    data-param-title="Limited Time Offer!"
+    data-param-message="Offer expired"
+  >
+    <!-- Static fallback content for white mode -->
+    <div class="countdown-static">
+      <span>Limited time offer ends soon!</span>
+    </div>
+  </div>
+</div>

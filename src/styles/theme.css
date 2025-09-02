@@ -1,0 +1,662 @@
+/**
+ * This file is the single source of truth for your Tailwind CSS v4 theme.
+ * It replaces the old tailwind.config.js file.
+ */
+
+/*
+ * 1. Import the core Tailwind styles. This directive is essential.
+ */
+@import 'tailwindcss';
+
+/*
+ * 1.5. Import Tailwind Typography plugin for prose classes
+ */
+@plugin '@tailwindcss/typography';
+
+/*
+ * 2. Theme Configuration - Map CSS variables to Tailwind utilities
+ */
+@theme {
+  /* Core colors - Map CSS variables to Tailwind color utilities */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+  --color-border-dark: var(--color-border-dark);
+  --color-border-hover: var(--color-border-hover);
+  --color-input: var(--color-input);
+  --color-ring: var(--color-ring);
+
+  /* Primary colors */
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+
+  /* Secondary colors */
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+
+  /* Accent colors */
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+
+  /* Muted colors */
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+
+  /* Destructive colors */
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
+
+  /* Semantic colors */
+  --color-success: var(--color-success);
+  --color-success-foreground: var(--color-success-foreground);
+  --color-warning: var(--color-warning);
+  --color-warning-foreground: var(--color-warning-foreground);
+  --color-info: var(--color-info);
+  --color-info-foreground: var(--color-info-foreground);
+
+  /* Card colors */
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
+  --color-card-hover: var(--color-card-hover);
+  --color-card-featured: var(--color-card-featured);
+  --color-card-featured-border: var(--color-card-featured-border);
+
+  /* Gradient colors */
+  --color-gradient-start: var(--color-gradient-start);
+  --color-gradient-end: var(--color-gradient-end);
+
+  /* Featured colors */
+  --color-featured-gradient-from: var(--color-featured-gradient-from);
+  --color-featured-gradient-to: var(--color-featured-gradient-to);
+  --color-featured-bg-from: var(--color-featured-bg-from);
+  --color-featured-bg-to: var(--color-featured-bg-to);
+  --color-featured-border: var(--color-featured-border);
+}
+
+/*
+ * 3. Import theme files
+ * Theme-specific values are imported from theme files
+ * Note: Active theme is loaded via active-theme.css in globals.css
+ */
+/* @import './themes/default.css'; -- Removed to prevent override */
+
+/*
+ * 4. Base layer styles and resets
+ */
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    color: rgb(var(--color-foreground));
+    background: rgb(var(--color-background));
+    font-family:
+      var(--font-sans),
+      system-ui,
+      -apple-system,
+      sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background-color: rgb(var(--color-primary));
+    color: rgb(var(--color-primary-foreground));
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Images */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Form elements */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Code blocks */
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono), ui-monospace, SFMono-Regular, Consolas, 'Courier New', monospace;
+  }
+
+  /* Smooth scrolling */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Remove animations for people who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/*
+ * 4. Utility classes for theme colors
+ */
+@layer utilities {
+  /* Border utilities */
+  .border-border {
+    border-color: rgb(var(--color-border));
+  }
+  
+  .border-border-light {
+    border-color: rgb(var(--color-border-light));
+  }
+  
+  .border-border-dark {
+    border-color: rgb(var(--color-border-dark));
+  }
+  
+  .border-primary {
+    border-color: rgb(var(--color-primary));
+  }
+  
+  .hover\:border-border-hover:hover {
+    border-color: rgb(var(--color-border-hover));
+  }
+  
+  .hover\:border-primary:hover {
+    border-color: rgb(var(--color-primary));
+  }
+  
+  /* Opacity variants for borders */
+  .hover\:border-primary\/30:hover {
+    border-color: rgb(var(--color-primary) / 0.3);
+  }
+  
+  .hover\:border-primary\/20:hover {
+    border-color: rgb(var(--color-primary) / 0.2);
+  }
+  
+  /* Background utilities */
+  .bg-background {
+    background-color: rgb(var(--color-background));
+  }
+  
+  .bg-foreground {
+    background-color: rgb(var(--color-foreground));
+  }
+  
+  .bg-card {
+    background-color: rgb(var(--color-card));
+  }
+  
+  .bg-card-hover {
+    background-color: rgb(var(--color-card-hover));
+  }
+  
+  .bg-muted {
+    background-color: rgb(var(--color-muted));
+  }
+  
+  .bg-primary {
+    background-color: rgb(var(--color-primary));
+  }
+  
+  .bg-secondary {
+    background-color: rgb(var(--color-secondary));
+  }
+  
+  .bg-accent {
+    background-color: rgb(var(--color-accent));
+  }
+  
+  /* Text utilities */
+  .text-foreground {
+    color: rgb(var(--color-foreground));
+  }
+  
+  .text-card-foreground {
+    color: rgb(var(--color-card-foreground));
+  }
+  
+  .text-muted-foreground {
+    color: rgb(var(--color-muted-foreground));
+  }
+  
+  .text-primary {
+    color: rgb(var(--color-primary));
+  }
+  
+  .text-primary-foreground {
+    color: rgb(var(--color-primary-foreground));
+  }
+  
+  /* Gradient utilities */
+  .from-featured-bg-from {
+    --tw-gradient-from: rgb(var(--color-featured-bg-from));
+  }
+  
+  .to-featured-bg-to {
+    --tw-gradient-to: rgb(var(--color-featured-bg-to));
+  }
+  
+  .from-featured-gradient-from {
+    --tw-gradient-from: rgb(var(--color-featured-gradient-from));
+  }
+  
+  .to-featured-gradient-to {
+    --tw-gradient-to: rgb(var(--color-featured-gradient-to));
+  }
+  
+  .bg-card-featured {
+    background-color: rgb(var(--color-card-featured));
+  }
+  
+  .border-featured-border {
+    border-color: rgb(var(--color-featured-border));
+  }
+  
+  .from-gradient-start {
+    --tw-gradient-from: rgb(var(--color-gradient-start));
+  }
+  
+  .to-gradient-end {
+    --tw-gradient-to: rgb(var(--color-gradient-end));
+  }
+}
+
+/*
+ * 5. Component styles - reusable utilities and typography
+ */
+
+/* Reusable component utilities */
+@utility promocode-card {
+  @apply flex h-[72px] items-center gap-3 rounded-xl border p-3;
+  @apply transition-all duration-200 hover:shadow-lg;
+  @apply border-border shadow-sm;
+}
+
+/* Additional hover state for promocode-card opacity */
+.promocode-card:hover {
+  border-color: rgb(var(--color-border) / 0.8);
+}
+
+@utility promocode-card-featured {
+  @apply bg-card-featured border-card-featured-border;
+}
+
+@utility promocode-button {
+  @apply relative h-12 rounded-xl px-4;
+  @apply font-mono text-sm font-bold transition-all duration-200;
+  @apply border-2 border-dashed shadow-sm hover:shadow-lg;
+  @apply hover:scale-[1.02] active:scale-[0.98];
+  will-change: transform;
+}
+
+@utility discount-badge {
+  @apply flex flex-shrink-0 items-center justify-center;
+  @apply h-12 w-12 rounded-xl shadow-sm;
+  @apply from-gradient-start to-gradient-end bg-gradient-to-br;
+  @apply text-primary-foreground text-sm font-bold;
+}
+
+/* Article content typography - plain CSS with @apply */
+.article-content {
+  color: rgb(var(--color-foreground));
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .article-content {
+    font-size: 1.125rem;
+  }
+}
+
+/* Article paragraphs */
+.article-content p {
+  @apply text-muted-foreground mb-6 leading-relaxed;
+}
+
+/* Article headings */
+.article-content h1 {
+  @apply text-3xl font-bold md:text-3xl lg:text-4xl;
+  @apply mb-8 text-center leading-tight tracking-tight;
+}
+
+.article-content h2 {
+  @apply text-xl font-bold md:text-2xl lg:text-3xl;
+  @apply mt-12 mb-6 leading-tight tracking-tight;
+  @apply border-b pb-2;
+  border-bottom-color: rgb(var(--color-border));
+}
+
+.article-content h3 {
+  @apply text-lg font-bold md:text-xl lg:text-2xl;
+  @apply mt-8 mb-4 leading-tight tracking-tight;
+}
+
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  @apply mt-6 mb-3 font-bold tracking-tight;
+}
+
+/* Article links */
+.article-content a {
+  @apply text-primary hover:decoration-primary underline transition-colors;
+  text-decoration-color: rgb(var(--color-primary) / 0.3);
+}
+
+.article-content a:hover {
+  text-decoration-color: rgb(var(--color-primary));
+}
+
+/* Article lists */
+.article-content ul {
+  @apply my-6 list-disc pl-6;
+}
+
+.article-content ol {
+  @apply my-6 list-decimal pl-6;
+}
+
+.article-content li {
+  @apply text-muted-foreground mb-2 leading-relaxed;
+}
+
+/* Article images */
+.article-content img {
+  @apply mx-auto block h-auto w-full rounded-lg shadow-lg;
+}
+
+.article-content figure {
+  @apply my-8 md:my-12;
+}
+
+.article-content figcaption {
+  @apply text-muted-foreground mt-4 text-center text-sm;
+}
+
+/* Article image wrapper */
+.article-image-wrapper {
+  @apply mt-6 mb-6 md:mt-8 md:mb-8;
+}
+
+.article-image-wrapper img {
+  @apply mx-auto block h-auto w-full rounded-lg shadow-lg;
+}
+
+/* Article widget wrapper */
+.article-widget-wrapper {
+  @apply mb-8 md:mb-10;
+}
+
+/* First image (hero) should have less top margin */
+.article-content > *:first-child img,
+.article-content > figure:first-child,
+.article-content > .article-image-wrapper:first-child {
+  @apply mt-0;
+}
+
+/* First widget should have less top margin */
+.article-content > .article-widget-wrapper:first-child {
+  @apply mt-0;
+}
+
+/* Article blockquotes */
+.article-content blockquote {
+  @apply border-border text-muted-foreground my-8 border-l-4 pl-6 italic;
+}
+
+/* Article code */
+.article-content code {
+  @apply bg-muted rounded px-1.5 py-0.5 font-mono text-sm;
+}
+
+.article-content pre {
+  @apply bg-foreground text-background my-6 overflow-x-auto rounded-lg p-4;
+}
+
+.article-content pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+/* Article tables */
+.article-content table {
+  @apply my-6 w-full border-collapse;
+}
+
+.article-content th {
+  @apply bg-muted p-3 text-left font-semibold;
+}
+
+.article-content td {
+  @apply border-border border-b p-3;
+}
+
+/* Article strong text */
+.article-content strong {
+  @apply text-foreground font-semibold;
+}
+
+/* Article horizontal rule */
+.article-content hr {
+  @apply border-border my-12 border-0 border-t;
+}
+
+/*
+ * 5. Utilities layer - utility classes and overrides
+ */
+@layer utilities {
+  /* Cloaking CSS Module */
+  /* Hide promotional content by default (non-localized) */
+  .chide {
+    display: none !important;
+  }
+
+  /* Show promotional content when localized */
+  html.is-localized .chide {
+    display: block !important;
+  }
+
+  /* Show compliance content by default (non-localized) */
+  .cshow {
+    display: block !important;
+  }
+
+  /* Hide compliance content when localized */
+  html.is-localized .cshow {
+    display: none !important;
+  }
+
+  /* Ensure no layout shift with proper containment */
+  [data-cloak] {
+    contain: layout style;
+  }
+
+  /* Core animation utilities */
+  .animate-in {
+    animation-duration: var(--animation-duration, var(--animation-normal));
+    animation-timing-function: var(--animation-timing, ease-out);
+    animation-fill-mode: both;
+  }
+
+  .animate-out {
+    animation-duration: var(--animation-duration, var(--animation-normal));
+    animation-timing-function: var(--animation-timing, ease-in);
+    animation-fill-mode: both;
+  }
+
+  /* Duration modifiers */
+  .duration-fast {
+    --animation-duration: var(--animation-fast);
+  }
+  .duration-normal {
+    --animation-duration: var(--animation-normal);
+  }
+  .duration-slow {
+    --animation-duration: var(--animation-slow);
+  }
+
+  /* Delay modifiers */
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Core animation keyframes */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      transform: scale(var(--zoom-start, 0.95));
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes zoom-out {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(var(--zoom-end, 0.95));
+    }
+  }
+
+  @keyframes slide-in-x {
+    from {
+      transform: translateX(var(--slide-x, -1rem));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-y {
+    from {
+      transform: translateY(var(--slide-y, -1rem));
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Animation classes */
+  .fade-in-0 {
+    animation-name: fade-in;
+  }
+  .fade-out-0 {
+    animation-name: fade-out;
+  }
+  .zoom-in-95 {
+    animation-name: zoom-in;
+    --zoom-start: 0.95;
+  }
+  .zoom-out-95 {
+    animation-name: zoom-out;
+    --zoom-end: 0.95;
+  }
+  .slide-in-from-left-1\/2 {
+    animation-name: slide-in-x;
+    --slide-x: -50%;
+  }
+  .slide-in-from-top-\[48\%\] {
+    animation-name: slide-in-y;
+    --slide-y: -48%;
+  }
+}
+
+/* Print Media Styles */
+@media print {
+  /* Always show white mode content when printing */
+  .chide {
+    display: none !important;
+  }
+
+  .cshow {
+    display: block !important;
+  }
+
+  /* Override localized styles for printing */
+  html.is-localized .chide {
+    display: none !important;
+  }
+
+  html.is-localized .cshow {
+    display: block !important;
+  }
+
+  /* Hide any print-specific promotional elements */
+  [data-cloak='promotional'] {
+    display: none !important;
+  }
+}

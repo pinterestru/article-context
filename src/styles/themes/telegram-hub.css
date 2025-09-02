@@ -1,0 +1,263 @@
+/**
+ * Telegram Hub Theme - Modern educational directory aesthetic
+ * Combines Telegram's signature blue with modern gradients and glassmorphism
+ * Optimized for educational content and channel discovery
+ */
+
+@layer theme {
+  :root {
+    /* Core colors - Modern palette with Telegram blue */
+    --color-background: 249 250 251; /* #f9fafb - Subtle cool gray background */
+    --color-foreground: 17 24 39; /* #111827 - Deep charcoal for text */
+    --color-muted: 243 244 246; /* #f3f4f6 - Light gray for sections */
+    --color-muted-foreground: 107 114 128; /* #6b7280 - Medium gray for secondary text */
+    --color-border: 229 231 235; /* #e5e7eb - Soft border color */
+    --color-input: 229 231 235; /* #e5e7eb - Input borders */
+    --color-primary: 42 171 238; /* #2AABEE - Telegram signature blue */
+    --color-primary-foreground: 255 255 255; /* #ffffff */
+    --color-secondary: 239 246 255; /* #eff6ff - Very light blue */
+    --color-secondary-foreground: 30 64 175; /* #1e40af - Dark blue */
+    --color-accent: 237 242 255; /* #edf2ff - Ultra light indigo */
+    --color-accent-foreground: 79 70 229; /* #4f46e5 - Vivid indigo */
+    --color-destructive: 239 68 68; /* #ef4444 */
+    --color-destructive-foreground: 255 255 255; /* #ffffff */
+    --color-ring: 42 171 238; /* #2AABEE - Focus ring in Telegram blue */
+
+    /* Semantic colors with unique touches */
+    --color-success: 16 185 129; /* #10b981 - Emerald for trust indicators */
+    --color-success-foreground: 255 255 255; /* #ffffff */
+    --color-warning: 251 146 60; /* #fb923c - Warm orange */
+    --color-warning-foreground: 255 255 255; /* #ffffff */
+    --color-info: 14 165 233; /* #0ea5e9 - Sky blue for info */
+    --color-info-foreground: 255 255 255; /* #ffffff */
+
+    /* Component colors - Enhanced depth and modern feel */
+    --color-card: 255 255 255; /* #ffffff - Pure white cards */
+    --color-card-foreground: 17 24 39; /* #111827 */
+    --color-card-hover: 248 250 252; /* #f8fafc - Subtle hover state */
+    --color-card-featured: 240 249 255; /* #f0f9ff - Light sky background */
+    --color-card-featured-border: 125 211 252; /* #7dd3fc - Sky blue border */
+
+    /* Featured promocode colors - Unique gradient */
+    --color-featured-gradient-from: 59 130 246; /* #3b82f6 - Blue */
+    --color-featured-gradient-to: 99 102 241; /* #6366f1 - Indigo */
+    --color-featured-bg-from: 239 246 255; /* #eff6ff - Light blue */
+    --color-featured-bg-to: 238 242 255; /* #eef2ff - Light indigo */
+    --color-featured-border: 147 197 253; /* #93c5fd - Blue-300 */
+
+    /* Badge gradient colors - Modern vibrant */
+    --color-gradient-start: 42 171 238; /* #2AABEE - Telegram blue */
+    --color-gradient-end: 79 70 229; /* #4f46e5 - Indigo */
+
+    /* Font families - Clean and modern */
+    --font-family-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+
+    /* Animation durations - Snappy and modern */
+    --animation-fast: 120ms;
+    --animation-normal: 250ms;
+    --animation-slow: 400ms;
+
+    /* Container and section spacing - Generous breathing room */
+    --container-padding: 1.25rem;
+    --section-spacing: 3.5rem;
+
+    /* Border radius values - Modern rounded design */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+
+    /* Shadow values - Subtle depth with color tint */
+    --shadow-sm: 0 1px 3px 0 rgba(42, 171, 238, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(42, 171, 238, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(42, 171, 238, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+  }
+}
+
+/* Responsive container padding */
+:root {
+  --container-padding: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --container-padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: 3.5rem;
+  }
+}
+
+/* Telegram Hub specific enhancements */
+@layer utilities {
+  /* Channel card glassmorphism effect */
+  .channel-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(42, 171, 238, 0.1);
+    transition: all var(--animation-normal) ease;
+  }
+
+  .channel-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(42, 171, 238, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Trust indicator badges with glow */
+  .trust-badge {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(42, 171, 238, 0.1));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .trust-badge::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.3), rgba(42, 171, 238, 0.3));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity var(--animation-fast);
+    z-index: -1;
+  }
+
+  .trust-badge:hover::before {
+    opacity: 1;
+  }
+
+  /* Category filter buttons with gradient hover */
+  .category-button {
+    background: linear-gradient(135deg, rgba(42, 171, 238, 0.05), rgba(99, 102, 241, 0.05));
+    border: 1px solid transparent;
+    transition: all var(--animation-normal) ease;
+  }
+
+  .category-button:hover {
+    background: linear-gradient(135deg, rgba(42, 171, 238, 0.15), rgba(99, 102, 241, 0.15));
+    border-color: rgba(42, 171, 238, 0.3);
+  }
+
+  .category-button.active {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent-foreground));
+    color: white;
+    border-color: transparent;
+  }
+
+  /* Featured channel card with animated gradient border */
+  .featured-channel {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-featured-bg-from), var(--color-featured-bg-to));
+  }
+
+  .featured-channel::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-accent-foreground), var(--color-primary));
+    background-size: 200% 200%;
+    border-radius: var(--radius-lg);
+    opacity: 0.8;
+    z-index: -1;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Modern scroll indicator */
+  .scroll-indicator {
+    background: linear-gradient(to right, transparent, var(--color-primary), transparent);
+    height: 3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform-origin: left;
+    z-index: 50;
+  }
+
+  /* Subtle background pattern for sections */
+  .pattern-bg {
+    position: relative;
+    background-color: rgb(var(--color-muted));
+  }
+
+  .pattern-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(42, 171, 238, 0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+/* Enhanced article typography for educational content */
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  color: rgb(var(--color-foreground));
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.article-content a {
+  color: rgb(var(--color-primary));
+  text-decoration-color: rgba(var(--color-primary), 0.3);
+  text-underline-offset: 2px;
+  transition: all var(--animation-fast) ease;
+}
+
+.article-content a:hover {
+  text-decoration-color: rgba(var(--color-primary), 1);
+  text-underline-offset: 4px;
+}
+
+/* Modern promocode button styling */
+.promocode-button {
+  background: linear-gradient(135deg, rgba(42, 171, 238, 0.1), rgba(99, 102, 241, 0.1));
+  border: 2px dashed rgba(42, 171, 238, 0.4);
+  color: rgb(var(--color-primary));
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  position: relative;
+  overflow: hidden;
+}
+
+.promocode-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(42, 171, 238, 0.2), rgba(99, 102, 241, 0.2));
+  transform: translateX(-100%);
+  transition: transform var(--animation-normal) ease;
+}
+
+.promocode-button:hover::after {
+  transform: translateX(0);
+}
+
+.promocode-button:hover {
+  border-color: rgb(var(--color-primary));
+  transform: scale(1.02);
+}
