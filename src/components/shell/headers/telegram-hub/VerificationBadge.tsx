@@ -10,7 +10,7 @@ export function VerificationBadge() {
   if (pathname.startsWith('/article')) {
     // Show verification badge on article pages
     return (
-      <div className="max-w-[200px] rounded-md border border-border bg-muted px-4 py-2">
+      <div className="chide max-w-[200px] rounded-md border border-border bg-muted px-4 py-2">
         <div className="flex items-center gap-2">
           <p className="text-xs font-medium leading-tight text-muted-foreground">
             Мы вручную проверили<br />каждый промокод
