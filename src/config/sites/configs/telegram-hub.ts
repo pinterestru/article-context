@@ -12,6 +12,12 @@ export const telegramHubConfig: SiteConfig = {
     faviconUrl: '/images/sites/telegram-hub/favicon.svg',
     metaDescription: 'Лучшие образовательные Telegram-каналы для вашего развития',
   },
+  contact: {
+    email: 'hello@toedu.ru',
+    phone: '+7 (966) 124-79-67',
+    legalName: 'ИП Ильинский Дмитрий Феликсович',
+    legalInfo: 'ИНН: 645327647894'
+  },
   theme: 'telegram-hub',
   homepage: 'telegram-hub',
   header: 'telegram-hub',

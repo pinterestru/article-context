@@ -13,5 +13,13 @@ export const defaultConfig: SiteConfig = {
     faviconUrl: '/images/sites/default/favicon.svg',
     metaDescription: 'Discover the best promocodes and affiliate deals',
   },
+  contact: {
+    email: 'support@affiliatearticles.com',
+    phone: '+1 (555) 123-4567',
+    legalName: 'Affiliate Articles Ltd.',
+    address: '123 Business Street, Suite 100, New York, NY 10001',
+    businessHours: 'Monday - Friday: 9:00 AM - 5:00 PM EST',
+    legalInfo: 'Registered in Delaware, USA. Company Registration Number: 123456789'
+  },
   theme: 'default'
 }

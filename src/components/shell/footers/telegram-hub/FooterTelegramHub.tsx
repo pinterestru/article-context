@@ -1,6 +1,7 @@
 import { Container } from '@/components/layout/Container'
 import Link from 'next/link'
 import { siteConfig } from '@/config/sites/static'
+import { Logo } from '@/components/shared/Logo'
 
 export async function FooterTelegramHub() {
   const currentYear = new Date().getFullYear()
@@ -13,11 +14,32 @@ export async function FooterTelegramHub() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* About Section */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold">О проекте</h3>
+              <Logo className="mb-3" href="#" />
               <p className="text-sm text-muted-foreground">
-                {siteConfig.brand.name} — это тщательно отобранная коллекция образовательных каналов. 
+                {siteConfig.brand.name} — это коллекция образовательных каналов. 
                 Мы помогаем найти качественный контент для вашего развития.
               </p>
+              
+              {/* Contact Information */}
+              {siteConfig.contact && (
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  {siteConfig.contact.legalName && (
+                    <p>{siteConfig.contact.legalName} {siteConfig.contact.legalInfo && (siteConfig.contact.legalInfo)}</p>
+                  )}
+                  {siteConfig.contact.address && (
+                    <p>{siteConfig.contact.address}</p>
+                  )}
+                  {siteConfig.contact.email && (
+                    <p>Email: <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-foreground transition-colors">{siteConfig.contact.email}</a></p>
+                  )}
+                  {siteConfig.contact.phone && (
+                    <p>Тел: <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-foreground transition-colors">{siteConfig.contact.phone}</a></p>
+                  )}
+                  {siteConfig.contact.businessHours && (
+                    <p>{siteConfig.contact.businessHours}</p>
+                  )}
+                </div>
+              )}
             </div>
             
             {/* Quick Links Section */}
