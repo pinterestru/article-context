@@ -17,14 +17,14 @@ import {
 } from './promocode.types'
 
 // Constants for timeouts
-const API_TIMEOUT = 5000 // 5 seconds
+const API_TIMEOUT = 10000 // 5 seconds
 
 // Retry configuration for promocode API calls
 const PROMOCODE_RETRY_CONFIG = {
   retries: 3,
   factor: 2,
   minTimeout: 1000,
-  maxTimeout: 5000,
+  maxTimeout: 10000,
   shouldRetry: (error: unknown, attempt: number): boolean => {
     // Don't retry if we've exhausted attempts
     if (attempt <= 0) return false

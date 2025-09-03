@@ -38,7 +38,7 @@ async function _notify(message: string, options: NotificationOptions = {}): Prom
         headers: {
           'Content-Type': 'application/json',
         },
-        timeout: 5000, // 5 second timeout for notifications
+        timeout: 10000, // 5 second timeout for notifications
         cache: 'no-store',
       }).catch((error) => {
         // Don't throw on notification errors, just log them

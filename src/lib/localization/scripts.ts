@@ -370,7 +370,25 @@ window.LocalizationDataGet = __getLocalizationDataAsync;
 
 // Main initialization script
 const localizationInitScript = `
-function _0x50d4(){const _0x3a1c39=['is-localized','5480827sLXvLA','80096AQIRlL','243112pnNXPz','2235JDYcPg','localized','7wpSlnb','js_script_time_milliseconds','now','25IGicrt','add','1143582koaiQQ','20erOxUD','104753JyKMOP','__localizationProcessed','288pCuOWL','LocalizationDataGet','classList','34969092RUNAZs','1108skySAe'];_0x50d4=function(){return _0x3a1c39;};return _0x50d4();}function _0x40a2(_0x489bec,_0x2e314e){const _0x50d44d=_0x50d4();return _0x40a2=function(_0x40a2bc,_0x309488){_0x40a2bc=_0x40a2bc-0x151;let _0x17d9db=_0x50d44d[_0x40a2bc];return _0x17d9db;},_0x40a2(_0x489bec,_0x2e314e);}(function(_0x11b93a,_0x3d7590){const _0x2b192a=_0x40a2,_0x389e3e=_0x11b93a();while(!![]){try{const _0x69449d=-parseInt(_0x2b192a(0x15c))/0x1+parseInt(_0x2b192a(0x162))/0x2*(-parseInt(_0x2b192a(0x153))/0x3)+parseInt(_0x2b192a(0x152))/0x4*(-parseInt(_0x2b192a(0x158))/0x5)+-parseInt(_0x2b192a(0x15a))/0x6*(parseInt(_0x2b192a(0x155))/0x7)+-parseInt(_0x2b192a(0x151))/0x8*(parseInt(_0x2b192a(0x15e))/0x9)+-parseInt(_0x2b192a(0x15b))/0xa*(parseInt(_0x2b192a(0x164))/0xb)+parseInt(_0x2b192a(0x161))/0xc;if(_0x69449d===_0x3d7590)break;else _0x389e3e['push'](_0x389e3e['shift']());}catch(_0xa60cf1){_0x389e3e['push'](_0x389e3e['shift']());}}}(_0x50d4,0x8ee07),(async function(){const _0x72f746=_0x40a2;if(window[_0x72f746(0x15d)])return;window['__localizationProcessed']=!![];try{const _0x556aaf=performance['now'](),_0x1da683=window['LocalizationDataGet']?await window[_0x72f746(0x15f)]():{},_0x56734c=performance[_0x72f746(0x157)]()-_0x556aaf;_0x1da683[_0x72f746(0x156)]=_0x56734c;const _0x23bb51=await __updateLocalizationSettings(_0x1da683,_0x56734c);_0x23bb51&&_0x23bb51[_0x72f746(0x154)]===!![]&&document['documentElement'][_0x72f746(0x160)][_0x72f746(0x159)](_0x72f746(0x163));}catch(_0x39c701){console['error']('Localization\x20script\x20failed:',_0x39c701);}}()));
+(async function() {
+  if (window.__localizationProcessed) return;
+  window.__localizationProcessed = true;
+    
+  try {
+    const startTime = performance.now();
+    const localizationMeta = window.LocalizationDataGet ? await window.LocalizationDataGet() : {};
+    const executionTimeMs = performance.now() - startTime;
+    localizationMeta.js_script_time_milliseconds = executionTimeMs;
+    
+    const result = await __updateLocalizationSettings(localizationMeta, executionTimeMs);
+
+    if (result && result.localized === true) {
+      document.documentElement.classList.add('is-localized');
+    }
+  } catch (e) {
+    console.error('Localization script failed:', e);
+  }
+})();
 `;
 
 export const getLocalizationScripts = () => {

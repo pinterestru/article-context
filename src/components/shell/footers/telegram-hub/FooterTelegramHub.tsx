@@ -2,6 +2,7 @@ import { Container } from '@/components/layout/Container'
 import Link from 'next/link'
 import { siteConfig } from '@/config/sites/static'
 import { Logo } from '@/components/shared/Logo'
+import { ContactForm } from './ContactForm'
 
 export async function FooterTelegramHub() {
   const currentYear = new Date().getFullYear()
@@ -45,36 +46,44 @@ export async function FooterTelegramHub() {
               )}
             </div>
             
-            {/* Quick Links Section */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Быстрые ссылки</h3>
-              <nav className="flex flex-col space-y-2">
-                <Link href="/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Главная
-                </Link>
-                <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Политика конфиденциальности
-                </Link>
-                <Link href="/terms" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Условия использования
-                </Link>
-              </nav>
+            {/* Links Section */}
+            <div className="space-y-6">
+              {/* Quick Links */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold">Быстрые ссылки</h3>
+                <nav className="flex flex-col space-y-2">
+                  <Link href="/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Главная
+                  </Link>
+                  <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Политика конфиденциальности
+                  </Link>
+                  <Link href="/terms" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Условия использования
+                  </Link>
+                </nav>
+              </div>
+              
+              {/* Legal Section */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold">Правовая информация</h3>
+                <nav className="flex flex-col space-y-2">
+                  <Link href="/cookies" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Политика Cookie
+                  </Link>
+                  <Link href="/disclaimer" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Отказ от ответственности
+                  </Link>
+                  <a href="https://telegram.org/tos" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    Условия Telegram
+                  </a>
+                </nav>
+              </div>
             </div>
             
-            {/* Legal Section */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Правовая информация</h3>
-              <nav className="flex flex-col space-y-2">
-                <Link href="/cookies" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Политика Cookie
-                </Link>
-                <Link href="/disclaimer" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Отказ от ответственности
-                </Link>
-                <a href="https://telegram.org/tos" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Условия Telegram
-                </a>
-              </nav>
+            {/* Contact Form Section */}
+            <div>
+              <ContactForm />
             </div>
           </div>
           
