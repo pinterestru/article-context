@@ -3,13 +3,6 @@
 import { usePathname } from 'next/navigation'
 import { Megaphone } from 'lucide-react'
 
-const channelData = {
-  name: "Навигатор ЕГЭ и ОГЭ",
-  description: "Путеводитель по подготовке к экзаменам",
-  url: "https://t.me/navigator_ege",
-  subscriberCount: 7127,
-  avatar: "https://static2.tgstat.ru/channels/_100/8e/8ef63a2c85d274efc67025c8dac3b629.jpg"
-}
 
 export function VerificationBadge() {
   const pathname = usePathname()
