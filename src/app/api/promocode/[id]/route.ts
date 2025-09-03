@@ -52,20 +52,6 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
         { status: 200 } // Return 200 with error message for compatibility
       )
 
-      return NextResponse.json({
-        item: {
-          id: 'bot-promo',
-          title: 'Скидка 20% по промокоду',
-          description: 'Работает только после регистрации',
-          code: 'СКИДКА20',
-          link: 'https://example.com',
-          link_query_params: '',
-          store_name: 'Example Store',
-          store_image: '',
-          slug: 'example-store',
-          images: '',
-        },
-      })
     }
 
     // Fetch promocode using the API service
