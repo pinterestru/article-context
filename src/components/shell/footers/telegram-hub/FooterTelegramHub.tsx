@@ -24,7 +24,10 @@ export async function FooterTelegramHub() {
               {siteConfig.contact && (
                 <div className="space-y-2 text-sm text-muted-foreground">
                   {siteConfig.contact.legalName && (
-                    <p>{siteConfig.contact.legalName} {siteConfig.contact.legalInfo && (siteConfig.contact.legalInfo)}</p>
+                    <p>{siteConfig.contact.legalName}</p>
+                  )}
+                  {siteConfig.contact.legalInfo && (
+                    <p>{siteConfig.contact.legalInfo}</p>
                   )}
                   {siteConfig.contact.address && (
                     <p>{siteConfig.contact.address}</p>
