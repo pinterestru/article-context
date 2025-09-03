@@ -2,6 +2,7 @@ import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { logger } from '@/lib/logging/logger'
+import { COOKIES } from '@/config/constants';
 import { promocodeApiService } from '@/lib/services/promocode/promocode.api'
 import { storeApiService } from '@/lib/services/store/store.api'
 import { PROMOCODE_CONFIG } from '@/features/promocode/constants'
@@ -12,8 +13,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   try {
     // Check if request is from bot based on cookies
     const cookieStore = await cookies()
-    // const targetCookie = cookieStore.get('_target');
-    const isBot = false // targetCookie?.value === 'false';
+    const targetCookie = cookieStore.get(COOKIES.TARGET);
+    const isBot = targetCookie?.value === 'false';
 
     // Verify request timing
     const lastLogCookie = cookieStore.get('_last_log')
@@ -44,6 +45,11 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
           isBot: true,
         },
         'Bot detected, returning mock promocode'
+      )
+
+      return NextResponse.json(
+        { message: '404' },
+        { status: 200 } // Return 200 with error message for compatibility
       )
 
       return NextResponse.json({

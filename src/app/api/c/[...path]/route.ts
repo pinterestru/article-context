@@ -2,6 +2,7 @@ import type { NextRequest} from 'next/server';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { logger } from '@/lib/logging/logger';
+import { COOKIES } from '@/config/constants';
 import { trackerApiService } from '@/lib/services/tracker/tracker.api';
 import { notificationApiService } from '@/lib/services/notification/notification.api';
 
@@ -119,7 +120,7 @@ async function handleRequest(
     
     // Check if request is from bot
     const cookieStore = await cookies();
-    const isBot = target === 'false' || cookieStore.get('_target')?.value === 'false';
+    const isBot = target === 'false' || cookieStore.get(COOKIES.TARGET)?.value === 'false';
     
     // Force direct redirect for bots if not explicitly disabled
     if (isBot && direct !== 'false') {
