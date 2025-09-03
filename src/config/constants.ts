@@ -11,7 +11,7 @@ export const COOKIES = {
 
 // Cookie configuration
 export const COOKIE_CONFIG = {
-  MAX_AGE: 30 * 24 * 60 * 60, // 30 days in seconds
+  MAX_AGE: 24 * 60 * 60, // 30 days in seconds
   SAME_SITE: 'lax' as const,
   PATH: '/',
   SECURE: process.env.NODE_ENV === 'production',

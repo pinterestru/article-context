@@ -30,7 +30,7 @@ export async function FooterTelegramHub() {
                     <p>{siteConfig.contact.legalInfo}</p>
                   )}
                   {siteConfig.contact.address && (
-                    <p>{siteConfig.contact.address}</p>
+                    <p>Адрес: {siteConfig.contact.address}</p>
                   )}
                   {siteConfig.contact.email && (
                     <p>Email: <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-foreground transition-colors">{siteConfig.contact.email}</a></p>

@@ -16,6 +16,7 @@ export const telegramHubConfig: SiteConfig = {
     email: 'hello@toedu.ru',
     phone: '+7 (966) 124-79-67',
     legalName: 'ИП Ильинский Дмитрий Феликсович',
+    address: 'г.Саратов, ул. Московская 43А',
     legalInfo: 'ИНН: 645327647894, ОГРНИП: 324645700100736'
   },
   theme: 'telegram-hub',
