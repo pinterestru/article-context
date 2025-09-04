@@ -165,7 +165,7 @@ In development mode, all GTM events are logged to the console. Look for entries 
 
 ### GTM Not Loading
 
-1. Check that `NEXT_PUBLIC_GTM_ID` is set in environment
+1. Check that `GTM_ID` is set in environment
 2. Verify no CSP violations in browser console
 3. Check browser network tab for blocked requests
 4. Look for `[GTM]` error messages in console

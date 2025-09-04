@@ -3,6 +3,7 @@
 ## File Structure
 
 Each service module follows this structure:
+
 ```
 {service}/
 ├── {service}.types.ts    # Types, interfaces, schemas, errors
@@ -13,6 +14,7 @@ Each service module follows this structure:
 ## Key Patterns
 
 ### 1. Public API Pattern
+
 ```typescript
 // {service}.api.ts
 import 'server-only'
@@ -29,18 +31,22 @@ export const serviceMethod = cache(async (params): Promise<Result<T>> => {
 ```
 
 ### 2. Result Type
+
 All public methods return:
+
 ```typescript
-type Result<T> = 
-  | { success: true; data: T }
-  | { success: false; error: Error }
+type Result<T> = { success: true; data: T } | { success: false; error: Error }
 ```
 
 ### 3. Custom Error Classes
+
 ```typescript
 // {service}.types.ts
 export class ServiceError extends Error {
-  constructor(message: string, public code?: string) {
+  constructor(
+    message: string,
+    public code?: string
+  ) {
     super(message)
     this.name = 'ServiceError'
   }
@@ -48,18 +54,22 @@ export class ServiceError extends Error {
 ```
 
 ### 4. Import Rules
+
 - **External code**: Always import from `.api.ts` only
+
   ```typescript
   // ✅ Good
   import { fetchPromocodeById } from '@/lib/services/promocode/promocode.api'
-  
+
   // ❌ Bad - Never import internals
   import { PromocodeService } from '@/lib/services/promocode/promocode.service'
   ```
+
 - **Internal use**: Can import from `.service.ts` or `.types.ts`
 - **Types only**: Can import types from `.types.ts` if needed
 
 ### 5. Caching Strategy
+
 - Use React's `cache()` for request deduplication
 - Set appropriate `revalidate` times in Next.js cache options
 - Cache keys should include all parameters that affect the result

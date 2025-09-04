@@ -19,7 +19,7 @@ export const defaultConfig: SiteConfig = {
     legalName: 'Affiliate Articles Ltd.',
     address: '123 Business Street, Suite 100, New York, NY 10001',
     businessHours: 'Monday - Friday: 9:00 AM - 5:00 PM EST',
-    legalInfo: 'Registered in Delaware, USA. Company Registration Number: 123456789'
+    legalInfo: 'Registered in Delaware, USA. Company Registration Number: 123456789',
   },
-  theme: 'default'
+  theme: 'default',
 }

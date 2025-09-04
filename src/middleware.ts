@@ -1,9 +1,18 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { DEFAULT_LOCALE } from '@/config/client-env'
 import { LOCALES, LOCALE_COOKIE_NAME, type Locale } from '@/config/i18n'
+import * as Sentry from '@sentry/nextjs'
+import { normalizeDomain } from '@/lib/utils/domain'
 
 export default async function middleware(request: NextRequest) {
   const { searchParams } = request.nextUrl
+
+  // Get the hostname from the request headers. Provide a fallback.
+  const hostname = request.headers.get('host') || 'unknown'
+
+  // Set the hostname as a searchable tag in Sentry.
+  // This will apply to all errors and transactions for this request.
+  Sentry.setTag('domain', normalizeDomain(hostname))
 
   // Handle locale detection
   const storedLocale = request.cookies.get(LOCALE_COOKIE_NAME)?.value

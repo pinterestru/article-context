@@ -2,7 +2,9 @@ import { Suspense } from 'react'
 import { getArticleBySlug } from '@/lib/services/article/article.api'
 import { ArticleContentServer, ArticleLoadingSkeleton } from '@/features/article/components'
 import { Container } from '@/components/layout/Container'
+import { getWebsiteUrl } from '@/lib/utils/domain'
 import type { Metadata } from 'next'
+
 
 interface ArticlePageProps {
   params: Promise<{
@@ -47,7 +49,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   const article = result.data
 
-  const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL || 'https://example.com'
+  const baseUrl = getWebsiteUrl()
   const canonicalUrl = `${baseUrl}/article/${article.slug}`
 
   return {

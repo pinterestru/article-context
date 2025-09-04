@@ -1,8 +1,9 @@
 import { TermsPage, getTermsPageMetadata } from '@/features/static-pages'
+import { getWebsiteUrl } from '@/lib/utils/domain'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL || 'https://example.com'
+  const baseUrl = getWebsiteUrl()
   return getTermsPageMetadata(baseUrl)
 }
 

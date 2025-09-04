@@ -6,9 +6,9 @@ import { ContactForm } from './ContactForm'
 
 export async function FooterTelegramHub() {
   const currentYear = new Date().getFullYear()
-  
+
   return (
-    <footer className="mt-auto border-t border-border bg-background">
+    <footer className="border-border bg-background mt-auto border-t">
       <Container>
         <div className="flex flex-col gap-6 py-8 md:py-12">
           {/* Main Footer Content */}
@@ -16,83 +16,121 @@ export async function FooterTelegramHub() {
             {/* About Section */}
             <div className="space-y-3">
               <Logo className="mb-3" href="#" />
-              <p className="text-sm text-muted-foreground">
-                {siteConfig.brand.name} — это коллекция образовательных каналов. 
-                Мы помогаем найти качественный контент для вашего развития.
+              <p className="text-muted-foreground text-sm">
+                {siteConfig.brand.name} — это коллекция образовательных каналов. Мы помогаем найти
+                качественный контент для вашего развития.
               </p>
-              
+
               {/* Contact Information */}
               {siteConfig.contact && (
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  {siteConfig.contact.legalName && (
-                    <p>{siteConfig.contact.legalName}</p>
-                  )}
-                  {siteConfig.contact.legalInfo && (
-                    <p>{siteConfig.contact.legalInfo}</p>
-                  )}
-                  {siteConfig.contact.address && (
-                    <p>Адрес: {siteConfig.contact.address}</p>
-                  )}
+                <div className="text-muted-foreground space-y-2 text-sm">
+                  {siteConfig.contact.legalName && <p>{siteConfig.contact.legalName}</p>}
+                  {siteConfig.contact.legalInfo && <p>{siteConfig.contact.legalInfo}</p>}
+                  {siteConfig.contact.address && <p>Адрес: {siteConfig.contact.address}</p>}
                   {siteConfig.contact.email && (
-                    <p>Email: <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-foreground transition-colors">{siteConfig.contact.email}</a></p>
+                    <p>
+                      Email:{' '}
+                      <a
+                        href={`mailto:${siteConfig.contact.email}`}
+                        className="hover:text-foreground transition-colors"
+                      >
+                        {siteConfig.contact.email}
+                      </a>
+                    </p>
                   )}
                   {siteConfig.contact.phone && (
-                    <p>Тел: <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-foreground transition-colors">{siteConfig.contact.phone}</a></p>
+                    <p>
+                      Тел:{' '}
+                      <a
+                        href={`tel:${siteConfig.contact.phone}`}
+                        className="hover:text-foreground transition-colors"
+                      >
+                        {siteConfig.contact.phone}
+                      </a>
+                    </p>
                   )}
-                  {siteConfig.contact.businessHours && (
-                    <p>{siteConfig.contact.businessHours}</p>
-                  )}
+                  {siteConfig.contact.businessHours && <p>{siteConfig.contact.businessHours}</p>}
                 </div>
               )}
             </div>
-            
+
             {/* Links Section */}
             <div className="space-y-6">
               {/* Quick Links */}
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold">Быстрые ссылки</h3>
                 <nav className="flex flex-col space-y-2">
-                  <Link href="/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
                     Главная
                   </Link>
-                  <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
                     Политика конфиденциальности
                   </Link>
-                  <Link href="/terms" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
                     Условия использования
                   </Link>
                 </nav>
               </div>
-              
+
               {/* Legal Section */}
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold">Правовая информация</h3>
                 <nav className="flex flex-col space-y-2">
-                  <Link href="/cookies" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/cookies"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
                     Политика Cookie
                   </Link>
-                  <Link href="/disclaimer" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    href="/disclaimer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
                     Отказ от ответственности
                   </Link>
-                  <a href="https://telegram.org/tos" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <a
+                    href="https://telegram.org/tos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
                     Условия Telegram
                   </a>
                 </nav>
               </div>
             </div>
-            
+
             {/* Contact Form Section */}
             <div>
               <ContactForm />
             </div>
           </div>
-          
+
           {/* Copyright Section */}
-          <div className="flex flex-col items-center gap-4 border-t border-border pt-6 md:flex-row md:justify-between">
-            <p className="text-sm text-muted-foreground">
+          <div className="border-border flex flex-col items-center gap-4 border-t pt-6 md:flex-row md:justify-between">
+            <p className="text-muted-foreground text-sm">
               © {currentYear} {siteConfig.brand.name}. Все права защищены.
             </p>
-            <p className="text-xs text-muted-foreground text-center md:text-right">
+            <p className="text-muted-foreground text-center text-xs md:text-right">
               {siteConfig.brand.name} не связан с Telegram Messenger LLP
             </p>
           </div>

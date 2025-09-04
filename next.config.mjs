@@ -1,10 +1,26 @@
 import { withSentryConfig } from '@sentry/nextjs'
 import createNextIntlPlugin from 'next-intl/plugin'
+import withBundleAnalyzer from '@next/bundle-analyzer'
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config, { isServer }) => {
+    // This is the key to fixing the OpenTelemetry build errors.
+    // It tells Webpack to ignore these optional dependencies.
+    config.externals.push(
+      '@opentelemetry/exporter-jaeger',
+      '@opentelemetry/winston-transport',
+    );
+    
+    // Important: return the modified config
+    return config;
+  },
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
@@ -85,8 +101,16 @@ const nextConfig = {
 }
 
 
-// Apply plugins in order: next-intl first, then Sentry
-export default withSentryConfig(
-  withNextIntl(nextConfig),
-  { silent: true }
-)
+const composedConfig = withNextIntl(nextConfig)
+const sentryConfig = withSentryConfig(composedConfig, {
+  org: "adsteam",
+  project: "javascript-nextjs",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  tunnelRoute: "/monitoring",
+  disableLogger: true,
+  automaticVercelMonitors: true,
+})
+
+// 4. Export the final result wrapped in the bundle analyzer
+export default bundleAnalyzer(sentryConfig)

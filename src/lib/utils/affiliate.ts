@@ -30,13 +30,13 @@ export interface AffiliateUrlParams {
 /**
  * Get the current website domain
  * In browser: uses window.location.hostname
- * In server: uses NEXT_PUBLIC_WEBSITE_DOMAIN env var
+ * In server: uses WEBSITE_DOMAIN env var
  */
 export function getCurrentDomain(): string {
   if (typeof window !== 'undefined') {
     return window.location.host.replace("www.", "");
   }
-  return clientEnv.NEXT_PUBLIC_WEBSITE_DOMAIN || 'localhost';
+  return clientEnv.WEBSITE_DOMAIN || 'localhost';
 }
 
 /**

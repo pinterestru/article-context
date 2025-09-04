@@ -1,4 +1,4 @@
-// sentry.edge.config.ts
+// src/instrumentation-client.ts
 import { clientEnv } from '@/config/client-env'
 import * as Sentry from '@sentry/nextjs'
 import { COOKIES } from '@/config/constants'
@@ -9,19 +9,25 @@ Sentry.init({
   // Phase 1: Use environment variable for DSN
   dsn: clientEnv.SENTRY_DSN,
 
-  // Phase 2: Set the environment
-  environment: process.env.NODE_ENV,
+  // Phase 2: Adjust sampling rates for production vs. development
+  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.5 : 1.0,
 
-  // Phase 2: Adjust sampling rates
-  tracesSampleRate: 0.5,
+  // Phase 2: Add Replay integration for session recording
+  //replaysSessionSampleRate: 0.1,
+  //replaysOnErrorSampleRate: 1.0,
+
+  initialScope: (scope) => {
+    if (typeof window !== 'undefined') {
+      scope.setTag('domain', normalizeDomain(window.location.hostname))
+    }
+    return scope
+  },
 
   // Phase 1: Add beforeSend hook for data redaction and adding tags
   beforeSend(event, _hint) {
-    if (!event.tags?.domain && event.request?.headers?.host) {
-      event.tags = { ...event.tags, domain: normalizeDomain(event.request.headers.host) }
-    }
-    if (event.request?.headers?.cookie) {
-      const cookies = parseCookies(event.request.headers.cookie)
+    // On the client, we parse document.cookie
+    if (typeof document !== 'undefined' && document.cookie) {
+      const cookies = parseCookies(document.cookie)
 
       const traceId = cookies[COOKIES.TRACE]
       const mtfi = cookies[COOKIES.MTFI]
@@ -37,22 +43,24 @@ Sentry.init({
       if (target) {
         event.tags = { ...event.tags, target: target }
       }
-
-      // IMPORTANT: Still delete the raw cookie header for security
-      delete event.request.headers.cookie
     }
 
-    // Redact Authorization header
+    // Redact Authorization header if present in a client-side request (from fetch instrumentation)
     if (event.request?.headers?.['Authorization']) {
       delete event.request.headers['Authorization']
     }
 
-    // Add runtime tag for easy filtering in Sentry
-    event.tags = { ...event.tags, runtime: 'edge' }
     return event
   },
+
+  // Phase 2: Restore other client-side features
+  ignoreErrors: ['ResizeObserver loop limit exceeded'],
+  tracePropagationTargets: ['localhost', /^\//], // Add your API domains here
 
   // These are from your original wizard setup
   enableLogs: true,
   debug: false,
 })
+
+// This is a new Sentry v8 feature for App Router navigation
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart

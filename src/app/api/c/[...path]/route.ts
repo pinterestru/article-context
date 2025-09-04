@@ -1,10 +1,10 @@
-import type { NextRequest} from 'next/server';
-import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { logger } from '@/lib/logging/logger';
-import { COOKIES } from '@/config/constants';
-import { marketingProcess } from '@/lib/services/tracker/tracker.api';
-import { notify } from '@/lib/services/notification/notification.api';
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
+import { cookies } from 'next/headers'
+import { logger } from '@/lib/logging/logger'
+import { COOKIES } from '@/config/constants'
+import { marketingProcess } from '@/lib/services/tracker/tracker.api'
+import { notify } from '@/lib/services/notification/notification.api'
 
 // Ensure this route is always dynamically rendered
 export const dynamic = 'force-dynamic'
@@ -20,10 +20,10 @@ const localizationMetaScript = `
     return localization
   }
   window.LocalizationDataGet = __localizationData
-`;
+`
 
 // Default locale (you may want to make this configurable)
-const defaultLocale = 'en';
+const defaultLocale = 'en'
 
 // Generate the preload HTML with fingerprinting
 const generatePreloadScript = (locale: string = defaultLocale) => `<!DOCTYPE html>
@@ -54,49 +54,49 @@ const generatePreloadScript = (locale: string = defaultLocale) => `<!DOCTYPE htm
   </script>
 </body>
 </html>
-`;
+`
 
 // Pattern to split domain and path when they're concatenated
-const splitPattern = /\.(com|net|org|ru)(?!\/)(?=.)/;
+const splitPattern = /\.(com|net|org|ru)(?!\/)(?=.)/
 
 /**
  * Normalize tags array to properly separate domain and path
  */
 function normalizeTags(tags: string[]): string[] {
-  const first = tags[0];
-  const match = splitPattern.exec(first);
-  if (!match) return tags;
+  const first = tags[0]
+  const match = splitPattern.exec(first)
+  if (!match) return tags
 
-  const tldStart = match.index;
-  const tldLen = match[0].length;
-  const domain = first.slice(0, tldStart + tldLen);
-  const path = first.slice(tldStart + tldLen);
+  const tldStart = match.index
+  const tldLen = match[0].length
+  const domain = first.slice(0, tldStart + tldLen)
+  const path = first.slice(tldStart + tldLen)
 
-  tags.splice(0, 1, domain, path);
-  return tags;
+  tags.splice(0, 1, domain, path)
+  return tags
 }
 
 /**
  * Affiliate redirect handler
  * Handles URLs in format: /c/offer_domain/path?params
  * Example: /c/practicum.yandex.ru/course/python?utm_source=...
- * 
+ *
  * Supports both GET and POST methods for client fingerprinting
  */
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
-  const resolvedParams = await params;
-  return handleRequest(request, { params: resolvedParams }, 'GET');
+  const resolvedParams = await params
+  return handleRequest(request, { params: resolvedParams }, 'GET')
 }
 
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
-  const resolvedParams = await params;
-  return handleRequest(request, { params: resolvedParams }, 'POST');
+  const resolvedParams = await params
+  return handleRequest(request, { params: resolvedParams }, 'POST')
 }
 
 async function handleRequest(
@@ -106,22 +106,32 @@ async function handleRequest(
 ) {
   try {
     // Parse request body for POST requests
-    const requestBody = method === 'POST' ? await request.json().catch(() => ({})) : {};
-    
+    const requestBody = method === 'POST' ? await request.json().catch(() => ({})) : {}
+
     // Extract query parameters - matching legacy exactly
-    const searchParams = request.nextUrl.searchParams;
-    let { created_at: createdAt, mtfi, js_meta, url, domain, with_meta = 'true', target, direct, direct_link } = Object.fromEntries(searchParams);
-    
+    const searchParams = request.nextUrl.searchParams
+    let {
+      created_at: createdAt,
+      mtfi,
+      js_meta,
+      url,
+      domain,
+      with_meta = 'true',
+      target,
+      direct,
+      direct_link,
+    } = Object.fromEntries(searchParams)
+
     // Force with_meta to true like legacy
-    with_meta = 'true';
-    
+    with_meta = 'true'
+
     // Get URL value like legacy
-    let urlValue = url || request.url || '';
-    
+    let urlValue = url || request.url || ''
+
     // Check if request is from bot
-    const cookieStore = await cookies();
-    const isBot = target === 'false' || cookieStore.get(COOKIES.TARGET)?.value === 'false';
-    
+    const cookieStore = await cookies()
+    const isBot = target === 'false' || cookieStore.get(COOKIES.TARGET)?.value === 'false'
+
     // Force direct redirect for bots if not explicitly disabled
     if (isBot && direct !== 'false') {
       //direct = 'true';
@@ -129,58 +139,62 @@ async function handleRequest(
 
     if (isBot && urlValue) {
       try {
-        const urlObject = new URL(urlValue);
-        urlObject.searchParams.set('bot', 'true');
-        urlObject.searchParams.set('target', 'false');
-        urlValue = urlObject.toString(); // Update urlValue with the new URL string
+        const urlObject = new URL(urlValue)
+        urlObject.searchParams.set('bot', 'true')
+        urlObject.searchParams.set('target', 'false')
+        urlValue = urlObject.toString() // Update urlValue with the new URL string
       } catch (error) {
-        logger.warn({
-          error: error instanceof Error ? error.message : 'Unknown error',
-          url: urlValue,
-        }, 'Failed to parse and update URL for bot parameters');
+        logger.warn(
+          {
+            error: error instanceof Error ? error.message : 'Unknown error',
+            url: urlValue,
+          },
+          'Failed to parse and update URL for bot parameters'
+        )
       }
     }
-    
+
     // Handle direct redirect
     if (direct === 'true') {
       if (direct_link) {
-        return NextResponse.redirect(direct_link, { status: 301 });
+        return NextResponse.redirect(direct_link, { status: 301 })
       } else {
-        const link = `https://${params.path.join('/')}`;
+        const link = `https://${params.path.join('/')}`
         if (!link.includes('.')) {
-          return NextResponse.redirect(new URL('/', request.url), { status: 301 });
+          return NextResponse.redirect(new URL('/', request.url), { status: 301 })
         }
-        return NextResponse.redirect(link, { status: 301 });
+        return NextResponse.redirect(link, { status: 301 })
       }
     }
-    
+
     // Normalize tags like legacy
-    const tags = normalizeTags([...params.path]);
-    const tag = tags.shift() || '';
-    const path = tags.filter(v => !!v).join('/');
-    
+    const tags = normalizeTags([...params.path])
+    const tag = tags.shift() || ''
+    const path = tags.filter((v) => !!v).join('/')
+
     // Return preload script if no js_meta in request body
     if (with_meta && !requestBody.js_meta) {
       return new NextResponse(generatePreloadScript(), {
         headers: {
           'Content-Type': 'text/html; charset=utf-8',
         },
-      });
+      })
     }
-    
+
     // Generate MTFI cookie key
-    const mtfiKey = `_mtfi__${tag}${path ? `__${path.split('/').join('_')}` : ""}`;
-    
+    const mtfiKey = `_mtfi__${tag}${path ? `__${path.split('/').join('_')}` : ''}`
+
     // Get MTFI from cookie if not provided
     if (!mtfi) {
-      mtfi = cookieStore.get(mtfiKey)?.value || 'none';
+      mtfi = cookieStore.get(mtfiKey)?.value || 'none'
     }
-    
+
     // Prepare client meta information - matching legacy
     const clientMeta = {
-      ip: request.headers.get('cf-connecting-ip') || 
-          request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 
-          '',
+      ip:
+        request.headers.get('cf-connecting-ip') ||
+        request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+        '',
       user_agent: request.headers.get('user-agent') || '',
       domain: domain || request.headers.get('host') || '',
       url: urlValue,
@@ -189,109 +203,109 @@ async function handleRequest(
       headers: Array.from(request.headers.entries())
         .map(([name, value]) => `${name}: ${value}`)
         .join('\r\n'),
-    };
-    
+    }
+
     // Prepare query parameters for tracking - matching legacy
-    const query: Record<string, string> = {};
+    const query: Record<string, string> = {}
     searchParams.forEach((value, key) => {
       if (!['tags', 'direct_link', 'direct'].includes(key)) {
-        query[key] = value;
+        query[key] = value
       }
-    });
+    })
 
-    
     if (path) {
-      query.path = `/${path}`;
+      query.path = `/${path}`
     }
-    
+
     // Remove these from query like legacy
-    delete query.tags;
-    delete query.direct_link;
-    delete query.direct;
-    
+    delete query.tags
+    delete query.direct_link
+    delete query.direct
+
     // Get JS meta from request body or query params
-    const jsMeta = requestBody.js_meta || js_meta;
+    const jsMeta = requestBody.js_meta || js_meta
     if (jsMeta && !jsMeta.js_url) {
-      jsMeta.js_url = urlValue;
+      jsMeta.js_url = urlValue
     }
-    
+
     // Process marketing redirect through tracking service
-    const result = await marketingProcess(
-      tag,
-      query,
-      {
-        jsMeta,
-        clientMeta,
-      }
-    );
-    
+    const result = await marketingProcess(tag, query, {
+      jsMeta,
+      clientMeta,
+    })
+
     if (!result.success) {
-      logger.error({
-        tag,
-        error: result.error.message,
-      }, 'Marketing process failed');
-      
+      logger.error(
+        {
+          tag,
+          error: result.error.message,
+        },
+        'Marketing process failed'
+      )
+
       // Redirect to the tag URL on error
-      const redirectLink = `https://${tag}/${path}`;
-      return NextResponse.redirect(redirectLink, { status: 301 });
+      const redirectLink = `https://${tag}/${path}`
+      return NextResponse.redirect(redirectLink, { status: 301 })
     }
-    
-    const response = result.data;
-    
+
+    const response = result.data
+
     // Handle error response (when message exists and is not 'ok')
     if (response.message && response.message !== 'ok') {
-      const httpReferrer = request.headers.get('referer') || request.headers.get('referrer') || '-';
-      const redirectLink = `https://${tag}/${path}`;
-      const d = domain || request.headers.get('host') || 'no_domain';
-      const error = response.message;
-      
+      const httpReferrer = request.headers.get('referer') || request.headers.get('referrer') || '-'
+      const redirectLink = `https://${tag}/${path}`
+      const d = domain || request.headers.get('host') || 'no_domain'
+      const error = response.message
+
       // Remove path from query for notification
-      const notifyQuery = { ...query };
-      delete notifyQuery.path;
-      
+      const notifyQuery = { ...query }
+      delete notifyQuery.path
+
       // Send notification for broken campaign (fire and forget)
       void notify(
         `Broken Campaign: <b>${tag}</b> | ${redirectLink} | domain: ${d} | referrer: ${httpReferrer} | query: ${JSON.stringify(notifyQuery)} | ip: ${clientMeta.ip || ''} | err: ${error}`
-      );
-      
-      return NextResponse.redirect(redirectLink, { status: 301 });
+      )
+
+      return NextResponse.redirect(redirectLink, { status: 301 })
     }
-    
+
     // Set MTFI cookie if returned
     if (response.mtfi) {
-      const headers = new Headers();
+      const headers = new Headers()
       headers.append(
         'Set-Cookie',
         `${mtfiKey}=${response.mtfi}; Expires=${new Date(Date.now() + 24 * 60 * 60 * 1000).toUTCString()}; Path=/`
-      );
-      
+      )
+
       // Handle response based on type and client - matching legacy exactly
       if (response.type === 'redirect' && response.url) {
         if (!requestBody.is_client) {
-          return NextResponse.redirect(response.url, { status: 301, headers });
+          return NextResponse.redirect(response.url, { status: 301, headers })
         }
       }
-      
-      return NextResponse.json(response, { headers });
+
+      return NextResponse.json(response, { headers })
     }
-    
+
     // Handle response based on type and client - matching legacy exactly
     if (response.type === 'redirect' && response.url) {
       if (!requestBody.is_client) {
-        return NextResponse.redirect(response.url, { status: 301 });
+        return NextResponse.redirect(response.url, { status: 301 })
       }
     }
-    
-    return NextResponse.json(response);
-    
+
+    return NextResponse.json(response)
   } catch (error) {
-    logger.error({
-      error: error instanceof Error ? error.message : 'Unknown error',
-      path: params.path,
-      method,
-    }, 'Failed to process affiliate redirect');
-    
+    logger.error(
+      {
+        error: error instanceof Error ? error.message : 'Unknown error',
+        path: params.path,
+        method,
+      },
+      'Failed to process affiliate redirect'
+    )
+
     // Redirect to home on error
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(new URL('/', request.url))
   }
 }

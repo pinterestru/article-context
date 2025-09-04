@@ -11,13 +11,13 @@ import { clientEnv } from '@/config/client-env'
 const config: AnalyticsConfig = {
   debug: process.env.NODE_ENV === 'development',
   gtm: {
-    containerId: clientEnv.NEXT_PUBLIC_GTM_ID,
+    containerId: clientEnv.GTM_ID,
   },
   ga4: {
-    measurementId: clientEnv.NEXT_PUBLIC_GA4_MEASUREMENT_ID,
+    measurementId: clientEnv.GA4_MEASUREMENT_ID,
   },
   yandex: {
-    counterId: clientEnv.NEXT_PUBLIC_YANDEX_METRICA_ID,
+    counterId: clientEnv.YANDEX_METRICA_ID,
   },
 }
 

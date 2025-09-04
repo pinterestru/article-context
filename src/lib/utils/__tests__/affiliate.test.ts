@@ -3,7 +3,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 // Mock the client-env module
 vi.mock('@/config/client-env', () => ({
   clientEnv: {
-    NEXT_PUBLIC_WEBSITE_DOMAIN: 'server-domain.com'
+    WEBSITE_DOMAIN: 'server-domain.com'
   }
 }));
 
@@ -18,14 +18,14 @@ import {
 describe('affiliate utilities', () => {
   describe('getCurrentDomain', () => {
     const originalWindow = global.window;
-    const originalEnv = process.env.NEXT_PUBLIC_WEBSITE_DOMAIN;
+    const originalEnv = process.env.WEBSITE_DOMAIN;
 
     afterEach(() => {
       global.window = originalWindow;
       if (originalEnv !== undefined) {
-        process.env.NEXT_PUBLIC_WEBSITE_DOMAIN = originalEnv;
+        process.env.WEBSITE_DOMAIN = originalEnv;
       } else {
-        delete process.env.NEXT_PUBLIC_WEBSITE_DOMAIN;
+        delete process.env.WEBSITE_DOMAIN;
       }
     });
 

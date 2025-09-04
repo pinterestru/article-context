@@ -30,9 +30,9 @@ analytics.error(error, 'javascript')
 
 Set these environment variables:
 
-- `NEXT_PUBLIC_GTM_ID` - Google Tag Manager container ID
-- `NEXT_PUBLIC_GA4_MEASUREMENT_ID` - Google Analytics 4 measurement ID (for direct integration)
-- `NEXT_PUBLIC_YANDEX_METRICA_ID` - Yandex Metrica counter ID
+- `GTM_ID` - Google Tag Manager container ID
+- `GA4_MEASUREMENT_ID` - Google Analytics 4 measurement ID (for direct integration)
+- `YANDEX_METRICA_ID` - Yandex Metrica counter ID
 
 If an ID is not provided, that provider won't be loaded.
 
@@ -40,25 +40,25 @@ If an ID is not provided, that provider won't be loaded.
 
 1. **GTM Only** (GA4 configured inside GTM):
    ```bash
-   NEXT_PUBLIC_GTM_ID=GTM-XXXXXX
+   GTM_ID=GTM-XXXXXX
    ```
 
 2. **Direct GA4 Only**:
    ```bash
-   NEXT_PUBLIC_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+   GA4_MEASUREMENT_ID=G-XXXXXXXXXX
    ```
 
 3. **GTM + Direct GA4** (for testing or migration):
    ```bash
-   NEXT_PUBLIC_GTM_ID=GTM-XXXXXX
-   NEXT_PUBLIC_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+   GTM_ID=GTM-XXXXXX
+   GA4_MEASUREMENT_ID=G-XXXXXXXXXX
    ```
 
 4. **All Providers**:
    ```bash
-   NEXT_PUBLIC_GTM_ID=GTM-XXXXXX
-   NEXT_PUBLIC_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
-   NEXT_PUBLIC_YANDEX_METRICA_ID=12345678
+   GTM_ID=GTM-XXXXXX
+   GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+   YANDEX_METRICA_ID=12345678
    ```
 
 ### Opportunistic Loading:
@@ -67,7 +67,7 @@ If you only configure GTM but it loads GA4 or Yandex Metrica:
 
 ```bash
 # Only GTM configured
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXX
+GTM_ID=GTM-XXXXXX
 ```
 
 But GTM contains:

@@ -37,7 +37,7 @@ async function __updateLocalizationSettings(localizationMeta, executionTimeMs) {
     return {ok: false, localized: false, message: e.message};
   }
 }
-`;
+`
 
 const localizationMetaScript = `
 function __localizationLang() {
@@ -366,7 +366,7 @@ async function __getLocalizationDataAsync() {
   return Object.assign({}, ...results);
 }
 window.LocalizationDataGet = __getLocalizationDataAsync;
-`;
+`
 
 // Main initialization script
 const localizationInitScript = `
@@ -389,7 +389,7 @@ const localizationInitScript = `
     console.error('Localization script failed:', e);
   }
 })();
-`;
+`
 
 export const getLocalizationScripts = () => {
   // Combine all scripts in proper order
@@ -397,9 +397,9 @@ export const getLocalizationScripts = () => {
 ${localizationBaseScript}
 ${localizationMetaScript}
 ${localizationInitScript}
-`;
+`
 
   return {
-    unified: unified.trim()
-  };
-};
+    unified: unified.trim(),
+  }
+}

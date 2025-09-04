@@ -1,38 +1,60 @@
-import * as Sentry from '@sentry/nextjs';
-import { clientEnv } from '@/config/client-env';
+// sentry.server.config.ts
+import { clientEnv } from '@/config/client-env'
+import * as Sentry from '@sentry/nextjs'
+import { COOKIES } from '@/config/constants'
+import { parseCookies } from '@/lib/utils/cookie'
+import { normalizeDomain } from '@/lib/utils/domain'
 
 Sentry.init({
-  dsn: clientEnv.NEXT_PUBLIC_SENTRY_DSN,
+  // Phase 1: Use environment variable for DSN
+  dsn: clientEnv.SENTRY_DSN,
+
+  // Phase 2: Set the environment
   environment: process.env.NODE_ENV,
-  
-  // Server-specific settings
-  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
-  
-  // Profiling (Node.js 16+)
-  profilesSampleRate: 0.1,
-  
-  beforeSend(event) {
-    // Server-side context enrichment
-    event.tags = {
-      ...event.tags,
-      runtime: 'nodejs',
-      node_version: process.version,
-    };
-    
-    // Redact sensitive data
-    if (event.request?.cookies) {
-      delete event.request.cookies;
+
+  // Phase 2: Adjust sampling rates for production vs. development
+  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.5 : 1.0,
+  profilesSampleRate: 0.1, // Enable profiling
+
+  // Phase 1: Add beforeSend hook for data redaction and adding tags
+  beforeSend(event, _hint) {
+    if (!event.tags?.domain && event.request?.headers?.host) {
+      event.tags = { ...event.tags, domain: normalizeDomain(event.request.headers.host) }
     }
-    if (event.request?.headers) {
-      const headers = event.request.headers as Record<string, string>;
-      if (headers.authorization) {
-        headers.authorization = '[REDACTED]';
+    if (event.request?.headers?.cookie) {
+      const cookies = parseCookies(event.request.headers.cookie)
+
+      const traceId = cookies[COOKIES.TRACE]
+      const mtfi = cookies[COOKIES.MTFI]
+      const target = cookies[COOKIES.TARGET]
+
+      // Add all searchable cookie values as tags
+      if (traceId) {
+        event.tags = { ...event.tags, trace_id: traceId }
       }
-      if (headers.cookie) {
-        headers.cookie = '[REDACTED]';
+      if (mtfi) {
+        event.tags = { ...event.tags, mtfi_id: mtfi }
       }
+      if (target) {
+        event.tags = { ...event.tags, target: target }
+      }
+      // Since all values are now tags, the context object is not needed for cookies.
+
+      // IMPORTANT: Still delete the raw cookie header for security
+      delete event.request.headers.cookie
     }
-    
-    return event;
+
+    // Redact Authorization header
+    if (event.request?.headers?.['Authorization']) {
+      delete event.request.headers['Authorization']
+    }
+
+    // Add runtime tag for easy filtering in Sentry
+    event.tags = { ...event.tags, runtime: 'nodejs' }
+    return event
   },
-});
+
+  // These are from your original wizard setup
+  enableLogs: true,
+  debug: false,
+})

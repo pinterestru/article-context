@@ -120,11 +120,11 @@ async function fetchPromocodesForGroup(
 
     // Fetch promocodes using the modern API
     const promocodesResult = await fetchPromocodesList(query)
-    
+
     if (!promocodesResult.success) {
       throw promocodesResult.error
     }
-    
+
     const promocodes = promocodesResult.data
 
     // Process data for each widget in the group

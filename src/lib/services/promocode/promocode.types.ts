@@ -9,7 +9,10 @@ export type Result<T, E = Error> = { success: true; data: T } | { success: false
  * Custom error types for promocode service
  */
 export class PromocodeError extends Error {
-  constructor(message: string, public code?: string) {
+  constructor(
+    message: string,
+    public code?: string
+  ) {
     super(message)
     this.name = 'PromocodeError'
   }
@@ -23,7 +26,10 @@ export class PromocodeNotFoundError extends PromocodeError {
 }
 
 export class PromocodeValidationError extends PromocodeError {
-  constructor(message: string, public zodError?: unknown) {
+  constructor(
+    message: string,
+    public zodError?: unknown
+  ) {
     super(message, 'VALIDATION_ERROR')
     this.name = 'PromocodeValidationError'
   }
@@ -141,4 +147,3 @@ export const FALLBACK_PROMOCODES: Promocode[] = [
     requiresEmail: false,
   },
 ]
-

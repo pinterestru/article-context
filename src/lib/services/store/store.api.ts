@@ -5,12 +5,7 @@ import { logger } from '@/lib/logging/logger'
 import { ProductService } from '../product/product.service'
 import type { ProductTransformer } from '../product/product.types'
 import { PRODUCT_TYPES } from '../product/product.types'
-import {
-  StoreSchema,
-  type Store,
-  type StoreResult,
-  StoreNotFoundError,
-} from './store.types'
+import { StoreSchema, type Store, type StoreResult, StoreNotFoundError } from './store.types'
 
 // Constants for cache TTL
 const STORE_CACHE_TTL = 86400 // 24 hours
@@ -140,4 +135,3 @@ export const getStoreBySlug = cache(async (slug: string): Promise<StoreResult> =
     }
   }
 })
-

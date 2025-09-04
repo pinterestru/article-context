@@ -1,5 +1,5 @@
 import { JsonLd } from './JsonLd'
-import { getWebsiteUrl } from '@/lib/utils/media'
+import { getWebsiteUrl } from '@/lib/utils/domain'
 import { getSiteConfig } from '@/config/sites/static'
 import type { Article } from '@/lib/services/article/article.types'
 

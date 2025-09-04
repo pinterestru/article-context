@@ -3,11 +3,7 @@ import { httpClient } from '@/lib/http/client'
 import { env } from '@/config/env'
 import { clientEnv } from '@/config/client-env'
 import { logger } from '@/lib/logging/logger'
-import {
-  type NotificationOptions,
-  type Result,
-  NotificationError,
-} from './notification.types'
+import { type NotificationOptions, type Result, NotificationError } from './notification.types'
 
 /**
  * Send a notification message with Result pattern
@@ -55,7 +51,7 @@ export async function notify(
     }
 
     // If we have Sentry configured, send as a warning
-    if (clientEnv.NEXT_PUBLIC_SENTRY_DSN) {
+    if (clientEnv.SENTRY_DSN) {
       try {
         const Sentry = await import('@sentry/nextjs')
         Sentry.captureMessage(message, 'warning')
@@ -88,4 +84,3 @@ export async function notify(
     }
   }
 }
-

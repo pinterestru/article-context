@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { HomePage } from '@/features/home-pages'
 import { getSiteConfig } from '@/config/sites/static'
+import { getWebsiteUrl } from '@/lib/utils/domain'
 
 const siteConfig = getSiteConfig()
 
-const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL || 'https://example.com'
+const baseUrl = getWebsiteUrl()
 
 export const metadata: Metadata = {
   title: {

@@ -7,9 +7,9 @@ import Script from 'next/script'
 import { clientEnv } from '@/config/client-env'
 
 export function AnalyticsScripts() {
-  const gtmId = clientEnv.NEXT_PUBLIC_GTM_ID
-  const ga4Id = clientEnv.NEXT_PUBLIC_GA4_MEASUREMENT_ID
-  const yandexId = clientEnv.NEXT_PUBLIC_YANDEX_METRICA_ID
+  const gtmId = clientEnv.GTM_ID
+  const ga4Id = clientEnv.GA4_MEASUREMENT_ID
+  const yandexId = clientEnv.YANDEX_METRICA_ID
 
   return (
     <>
@@ -99,7 +99,7 @@ export function AnalyticsScripts() {
  * Head scripts for analytics (if needed for early initialization)
  */
 export function AnalyticsHeadScripts() {
-  const gtmId = clientEnv.NEXT_PUBLIC_GTM_ID
+  const gtmId = clientEnv.GTM_ID
 
   if (!gtmId) return null
 

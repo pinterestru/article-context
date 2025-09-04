@@ -7,16 +7,12 @@ import '@/styles/globals.css'
 import { env } from '@/config/env'
 import { cookies } from 'next/headers'
 import { COOKIES } from '@/config/constants'
-import { 
-  AnalyticsScripts, 
-  AnalyticsHeadScripts, 
-  PageTracker,
-} from '@/components/analytics'
+import { AnalyticsScripts, AnalyticsHeadScripts, PageTracker } from '@/components/analytics'
 import { Header } from '@/components/shell/headers/Header'
 import { Footer } from '@/components/shell/footers/Footer'
 import { getLocalizationScripts } from '@/lib/localization/scripts.obfuscated'
 import { Toaster } from '@/components/ui/sonner.client'
-import { getWebsiteUrl } from '@/lib/utils/media'
+import { getWebsiteUrl } from '@/lib/utils/domain'
 import { getSiteConfig } from '@/config/sites/static'
 import { OrganizationJsonLd } from '@/components/seo'
 
@@ -39,7 +35,9 @@ export const metadata: Metadata = {
     default: siteConfig.brand.name,
     template: `%s | ${siteConfig.brand.name}`,
   },
-  description: siteConfig.brand.metaDescription || 'Affiliate article system with cloaking and promocode functionality',
+  description:
+    siteConfig.brand.metaDescription ||
+    'Affiliate article system with cloaking and promocode functionality',
   metadataBase: new URL(getWebsiteUrl()),
   icons: {
     icon: siteConfig.brand.faviconUrl,
@@ -47,14 +45,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: siteConfig.brand.name,
-    description: siteConfig.brand.metaDescription || 'Affiliate article system with cloaking and promocode functionality',
+    description:
+      siteConfig.brand.metaDescription ||
+      'Affiliate article system with cloaking and promocode functionality',
     type: 'website',
     siteName: siteConfig.brand.name,
   },
   twitter: {
     card: 'summary',
     title: siteConfig.brand.name,
-    description: siteConfig.brand.metaDescription || 'Affiliate article system with cloaking and promocode functionality',
+    description:
+      siteConfig.brand.metaDescription ||
+      'Affiliate article system with cloaking and promocode functionality',
   },
 }
 
@@ -71,10 +73,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-
-  const cookieStore = await cookies();
-  const targetCookie = cookieStore.get(COOKIES.TARGET)?.value;
-  const cloakClass = env.CLOAK_DISABLED || targetCookie === "true" ? 'is-localized' : ''
+  const cookieStore = await cookies()
+  const targetCookie = cookieStore.get(COOKIES.TARGET)?.value
+  const cloakClass = env.CLOAK_DISABLED || targetCookie === 'true' ? 'is-localized' : ''
 
   // Get locale and messages from next-intl
   const locale = await getLocale()
@@ -107,7 +108,7 @@ export default async function RootLayout({
           </div>
           <Toaster />
         </NextIntlClientProvider>
-        
+
         {/* Analytics Scripts */}
         <AnalyticsScripts />
         <PageTracker />

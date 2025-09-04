@@ -2,7 +2,7 @@ import 'server-only';
 import { JSDOM } from 'jsdom';
 import DOMPurify from 'isomorphic-dompurify';
 import type { SanitizedHTML } from './types/sanitized';
-import { getWebsiteUrl } from '@/lib/utils/media';
+import { getWebsiteUrl } from '@/lib/utils/domain';
 
 // Cache for sanitized content
 const sanitizedCache = new Map<string, SanitizedHTML>();

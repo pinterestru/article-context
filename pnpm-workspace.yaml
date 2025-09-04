@@ -1,3 +1,10 @@
 ignoredBuiltDependencies:
   - '@tailwindcss/oxide'
   - msw
+
+onlyBuiltDependencies:
+  - '@sentry/cli'
+  - esbuild
+  - protobufjs
+  - sharp
+  - unrs-resolver

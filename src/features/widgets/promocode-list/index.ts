@@ -1,6 +1,6 @@
 /**
  * Self-contained Promocode List Widget
- * 
+ *
  * This widget can display one or many promocodes with full functionality including:
  * - Static or dynamic data sources
  * - Multiple layout options (list, grid, inline, featured)
@@ -10,18 +10,17 @@
  */
 
 // Main components
-export { PromocodeList } from './components/PromocodeList.server';
-export { PromocodeListWidget } from './components/PromocodeListWidget';
+export { PromocodeList } from './components/PromocodeList.server'
+export { PromocodeListWidget } from './components/PromocodeListWidget'
 
 // Supporting components (for advanced usage)
-export { PromocodeCard } from './components/PromocodeCard.server';
-export { PromocodeButton } from './components/PromocodeButton.client';
-export { PromocodeListSkeleton, PromocodeCardSkeleton } from './components/PromocodeListSkeleton';
-export { PromocodeListErrorBoundary } from './components/PromocodeListErrorBoundary.client';
+export { PromocodeCard } from './components/PromocodeCard.server'
+export { PromocodeButton } from './components/PromocodeButton.client'
+export { PromocodeListSkeleton, PromocodeCardSkeleton } from './components/PromocodeListSkeleton'
+export { PromocodeListErrorBoundary } from './components/PromocodeListErrorBoundary.client'
 
-
-// Services (re-export from lib) 
-export { fetchPromocodesList, fetchPromocodeById } from '@/lib/services/promocode/promocode.api';
+// Services (re-export from lib)
+export { fetchPromocodesList, fetchPromocodeById } from '@/lib/services/promocode/promocode.api'
 
 // Types
 export type {
@@ -29,15 +28,15 @@ export type {
   PromocodeListWidgetProps,
   AsyncPromocodeListWidgetProps,
   PromocodeApiResponse,
-} from './types';
+} from './types'
 
 // Schemas and validation
-export { 
+export {
   promocodeSchema,
   promocodeListConfigSchema,
   parsePromocodeListConfig,
   isValidPromocodeListConfig,
-} from './schemas/config';
+} from './schemas/config'
 
 // Default widget export for registry
-export { PromocodeListWidget as default } from './components/PromocodeListWidget';
+export { PromocodeListWidget as default } from './components/PromocodeListWidget'

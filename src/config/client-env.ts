@@ -3,28 +3,28 @@ import type { Locale } from './i18n'
 
 const clientEnvSchema = z.object({
   // Website domain (needed for client-side redirects and absolute URLs)
-  NEXT_PUBLIC_WEBSITE_DOMAIN: z.string().default('localhost:3000'),
+  WEBSITE_DOMAIN: z.string().default('localhost:3000'),
   
   // Default locale for the application
   DEFAULT_LOCALE: z.enum(['en', 'ru']).default('en'),
   
   // Analytics (client-side tracking)
-  NEXT_PUBLIC_GA4_MEASUREMENT_ID: z.string().optional(),
-  NEXT_PUBLIC_GTM_ID: z.string().optional(),
-  NEXT_PUBLIC_YANDEX_METRICA_ID: z.string().optional(),
+  GA4_MEASUREMENT_ID: z.string().optional(),
+  GTM_ID: z.string().optional(),
+  YANDEX_METRICA_ID: z.string().optional(),
   
   // Monitoring (client-side error tracking)
-  NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
+  SENTRY_DSN: z.string().optional(),
 })
 
 function validateClientEnv() {
   const parsed = clientEnvSchema.safeParse({
-    NEXT_PUBLIC_WEBSITE_DOMAIN: process.env.NEXT_PUBLIC_WEBSITE_DOMAIN,
+    WEBSITE_DOMAIN: process.env.NEXT_PUBLIC_WEBSITE_DOMAIN,
     DEFAULT_LOCALE: process.env.NEXT_PUBLIC_DEFAULT_LOCALE as 'en' | 'ru' | undefined,
-    NEXT_PUBLIC_GA4_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID,
-    NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID,
-    NEXT_PUBLIC_YANDEX_METRICA_ID: process.env.NEXT_PUBLIC_YANDEX_METRICA_ID,
-    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    GA4_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID,
+    GTM_ID: process.env.NEXT_PUBLIC_GTM_ID,
+    YANDEX_METRICA_ID: process.env.NEXT_PUBLIC_YANDEX_METRICA_ID,
+    SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
   })
 
   if (!parsed.success) {

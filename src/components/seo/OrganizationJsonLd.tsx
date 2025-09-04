@@ -1,6 +1,6 @@
 import { JsonLd } from './JsonLd'
 import { getSiteConfig } from '@/config/sites/static'
-import { getWebsiteUrl } from '@/lib/utils/media'
+import { getWebsiteUrl } from '@/lib/utils/domain'
 
 export function OrganizationJsonLd() {
   const siteConfig = getSiteConfig()

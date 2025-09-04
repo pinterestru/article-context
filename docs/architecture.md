@@ -2675,7 +2675,7 @@ export const logger = isServer
         bindings: () => ({
           environment: process.env.NODE_ENV,
           service: 'affiliate-article-ui',
-          version: process.env.NEXT_PUBLIC_APP_VERSION,
+          version: process.env.APP_VERSION,
         }),
       },
       timestamp: pino.stdTimeFunctions.isoTime,
@@ -2764,7 +2764,7 @@ import * as Sentry from '@sentry/nextjs'
 
 export function initSentry() {
   Sentry.init({
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    dsn: process.env.SENTRY_DSN,
     environment: process.env.NODE_ENV,
     tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
     beforeSend(event, hint) {
@@ -2822,9 +2822,9 @@ export function setSentryContext(context: {
 import posthog from 'posthog-js'
 
 export function initPostHog() {
-  if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  if (typeof window !== 'undefined' && process.env.POSTHOG_KEY) {
+    posthog.init(process.env.POSTHOG_KEY, {
+      api_host: process.env.POSTHOG_HOST,
       capture_pageview: false, // Manual control
       capture_pageleave: true,
       // Link errors to session replays
@@ -3060,29 +3060,29 @@ export async function GET(
 # .env.example
 
 # API Configuration
-NEXT_PUBLIC_TRACKER_API_URL=https://api.tracker.example.com
+TRACKER_API_URL=https://api.tracker.example.com
 TRACKER_API_KEY=your-secret-api-key-here
 
 # Affiliate Configuration
-NEXT_PUBLIC_FALLBACK_URL=https://partner.example.com
+FALLBACK_URL=https://partner.example.com
 AFFILIATE_NETWORK_ID=your-network-id
 
 # Analytics & Monitoring
-NEXT_PUBLIC_POSTHOG_KEY=phc_your_posthog_key
-NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
+POSTHOG_KEY=phc_your_posthog_key
+POSTHOG_HOST=https://app.posthog.com
 SENTRY_DSN=https://your-sentry-dsn@sentry.io/project-id
 SENTRY_AUTH_TOKEN=your-sentry-auth-token
 SENTRY_ORG=your-org
 SENTRY_PROJECT=affiliate-article-ui
 
 # Feature Flags
-NEXT_PUBLIC_ENABLE_ANALYTICS=true
-NEXT_PUBLIC_ENABLE_ERROR_TRACKING=true
-NEXT_PUBLIC_CLOAK_WINDOW_MS=300000  # 5 minutes in milliseconds
+ENABLE_ANALYTICS=true
+ENABLE_ERROR_TRACKING=true
+CLOAK_WINDOW_MS=300000  # 5 minutes in milliseconds
 
 # Development
-NEXT_PUBLIC_DEBUG_MODE=false
-NEXT_PUBLIC_SHOW_DEV_TOOLS=false
+DEBUG_MODE=false
+SHOW_DEV_TOOLS=false
 
 # Deployment
 VERCEL_URL=
@@ -3090,8 +3090,8 @@ VERCEL_ENV=development
 NODE_ENV=development
 
 # Internationalization
-NEXT_PUBLIC_DEFAULT_LOCALE=en
-NEXT_PUBLIC_SUPPORTED_LOCALES=en,ru
+DEFAULT_LOCALE=en
+SUPPORTED_LOCALES=en,ru
 
 # Content API (if using external CMS)
 CONTENT_API_URL=https://cms.example.com/api

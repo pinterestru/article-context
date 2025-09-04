@@ -55,11 +55,11 @@ export async function PromocodeListWidget({ config, className }: WidgetComponent
         slug: dynamicQuery.slug,
         count: dynamicQuery.count || 10,
       })
-      
+
       if (!result.success) {
         throw result.error
       }
-      
+
       promocodes = result.data
     }
 
