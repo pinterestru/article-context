@@ -7,9 +7,7 @@ import type { ProductTransformer } from '../product/product.types'
 import { PRODUCT_TYPES } from '../product/product.types'
 import {
   StoreSchema,
-  type IStoreApiService,
   type Store,
-  type FetchStoreParams,
   type StoreResult,
   StoreNotFoundError,
 } from './store.types'
@@ -71,9 +69,9 @@ const storeTransformer: ProductTransformer<Store> = (item: Record<string, unknow
 }
 
 /**
- * Cache-wrapped internal function for fetching store details using ProductService
+ * Get store by slug with proper error handling
  */
-const _fetchStore = cache(async ({ slug }: FetchStoreParams): Promise<Store | null> => {
+export const getStoreBySlug = cache(async (slug: string): Promise<StoreResult> => {
   try {
     logger.info({ slug, productType: PRODUCT_TYPES.STORE }, 'Fetching store details')
 
@@ -92,7 +90,10 @@ const _fetchStore = cache(async ({ slug }: FetchStoreParams): Promise<Store | nu
 
     if (!response.item) {
       logger.warn({ slug }, 'Store not found')
-      return null
+      return {
+        success: false,
+        error: new StoreNotFoundError(slug),
+      }
     }
 
     // Validate with schema
@@ -108,7 +109,7 @@ const _fetchStore = cache(async ({ slug }: FetchStoreParams): Promise<Store | nu
         'Successfully fetched store'
       )
 
-      return validatedStore
+      return { success: true, data: validatedStore }
     } catch (validationError) {
       logger.error(
         {
@@ -119,7 +120,10 @@ const _fetchStore = cache(async ({ slug }: FetchStoreParams): Promise<Store | nu
         'Store validation failed'
       )
 
-      return null
+      return {
+        success: false,
+        error: new StoreNotFoundError(slug),
+      }
     }
   } catch (error) {
     logger.error(
@@ -130,34 +134,6 @@ const _fetchStore = cache(async ({ slug }: FetchStoreParams): Promise<Store | nu
       'Failed to fetch store'
     )
 
-    return null
-  }
-})
-
-/**
- * Get store by slug with proper error handling
- */
-export const getStoreBySlug = cache(async (slug: string): Promise<StoreResult> => {
-  try {
-    const store = await _fetchStore({ slug })
-
-    if (!store) {
-      return {
-        success: false,
-        error: new StoreNotFoundError(slug),
-      }
-    }
-
-    return { success: true, data: store }
-  } catch (error) {
-    logger.error(
-      {
-        slug,
-        error: error instanceof Error ? error.message : 'Unknown error',
-      },
-      'Failed to get store by slug'
-    )
-
     return {
       success: false,
       error: error instanceof Error ? error : new Error('Unknown error'),
@@ -165,102 +141,3 @@ export const getStoreBySlug = cache(async (slug: string): Promise<StoreResult> =
   }
 })
 
-/**
- * Get list of stores
- */
-export const getStores = cache(
-  async (page: number = 1, pageSize: number = 20): Promise<StoreResult<Store[]>> => {
-    try {
-      const response = await ProductService.productList<Store>(
-        {
-          type: PRODUCT_TYPES.STORE,
-          page,
-          pageSize,
-          ecommerceStoreId: env.ARTICLE_ECOMMERCE_STORE_ID,
-        },
-        { revalidate: STORE_CACHE_TTL },
-        storeTransformer
-      )
-
-      if (!response.itemList || response.itemList.length === 0) {
-        return { success: true, data: [] }
-      }
-
-      // Validate all stores
-      const validatedStores = response.itemList
-        .map((item) => {
-          try {
-            return StoreSchema.parse(item)
-          } catch (error) {
-            logger.error(
-              {
-                action: 'store_validation_failed',
-                item: JSON.stringify(item).slice(0, 500),
-                error: error instanceof Error ? error.message : 'Unknown validation error',
-              },
-              'Failed to validate store'
-            )
-            return null
-          }
-        })
-        .filter((store): store is Store => store !== null)
-
-      return { success: true, data: validatedStores }
-    } catch (error) {
-      logger.error(
-        {
-          error: error instanceof Error ? error.message : 'Unknown error',
-        },
-        'Failed to fetch stores'
-      )
-
-      return {
-        success: false,
-        error: error instanceof Error ? error : new Error('Unknown error'),
-      }
-    }
-  }
-)
-
-/**
- * Public API functions with Result pattern
- */
-
-/**
- * Fetch store with Result pattern
- */
-export const fetchStore = cache(async (params: FetchStoreParams): Promise<StoreResult> => {
-  try {
-    const store = await _fetchStore(params)
-
-    if (!store) {
-      return {
-        success: false,
-        error: new StoreNotFoundError(params.slug),
-      }
-    }
-
-    return { success: true, data: store }
-  } catch (error) {
-    logger.error(
-      {
-        params,
-        error: error instanceof Error ? error.message : 'Unknown error',
-      },
-      'Failed to fetch store in API layer'
-    )
-
-    return {
-      success: false,
-      error: error instanceof Error ? error : new Error('Unknown error'),
-    }
-  }
-})
-
-/**
- * Legacy implementation for backward compatibility
- * @deprecated Use the individual functions instead
- */
-export const storeApiService: IStoreApiService = {
-  fetchStore: _fetchStore,
-}

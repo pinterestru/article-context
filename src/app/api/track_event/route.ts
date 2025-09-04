@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
-import { trackerApiService } from '@/lib/services/tracker/tracker.api';
+import { trackEvent } from '@/lib/services/tracker/tracker.api';
 import { logger } from '@/lib/logging/logger';
 import { getOrCreateTraceId } from '@/lib/tracing/trace-id';
 import type { ClientMeta } from '@/lib/services/tracker/tracker.types';
@@ -129,7 +129,7 @@ export async function GET(request: NextRequest) {
     }
     
     // Call tracking service
-    const trackingResult = await trackerApiService.trackEvent(
+    const result = await trackEvent(
       eventType,
       trackType || undefined,
       finalTrackValue || undefined,
@@ -140,7 +140,23 @@ export async function GET(request: NextRequest) {
       }
     );
     
-    // Check if tracking was successful
+    if (!result.success) {
+      logger.error({
+        traceId,
+        error: result.error.message,
+        eventType,
+        trackType,
+      }, 'Track event failed');
+      
+      return NextResponse.json({
+        ok: false,
+        message: result.error.message,
+      }, { status: 200 }); // Always return 200 to match legacy behavior
+    }
+    
+    const trackingResult = result.data;
+    
+    // Check if tracking was successful (legacy format check)
     if (trackingResult.message && trackingResult.message !== 'ok') {
       logger.error({
         traceId,
@@ -159,7 +175,7 @@ export async function GET(request: NextRequest) {
     // Handle additional view tracking if requested
     if (withView && eventType === 'visit' && trackingResult.mtfi && trackingResult.content_is_target !== 'false') {
       // Fire additional view_page event
-      await trackerApiService.trackEvent(
+      await trackEvent(
         'view_page',
         'view_page_entry',
         finalUrl,

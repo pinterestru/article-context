@@ -67,13 +67,6 @@ export const StoreResponseSchema = z.object({
  */
 export type StoreResponse = z.infer<typeof StoreResponseSchema>;
 
-/**
- * Parameters for fetching store
- */
-export interface FetchStoreParams {
-  slug: string;
-  asProduct?: boolean;
-}
 
 /**
  * Result type for store operations
@@ -82,13 +75,3 @@ export type StoreResult<T = Store> =
   | { success: true; data: T }
   | { success: false; error: Error }
 
-/**
- * The interface (contract) for our store API service.
- * This defines all methods related to store operations.
- */
-export interface IStoreApiService {
-  /**
-   * Fetch store details from the API with caching
-   */
-  fetchStore(params: FetchStoreParams): Promise<Store | null>;
-}

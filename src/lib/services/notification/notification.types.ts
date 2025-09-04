@@ -42,34 +42,10 @@ export const NotificationRequestSchema = z.object({
   source: z.string(),
 });
 
-/**
- * Schema for batch notification
- */
-export const BatchNotificationItemSchema = z.object({
-  message: z.string(),
-  options: NotificationOptionsSchema.optional(),
-});
 
 /**
  * TypeScript types inferred from schemas
  */
 export type NotificationOptions = z.infer<typeof NotificationOptionsSchema>;
 export type NotificationRequest = z.infer<typeof NotificationRequestSchema>;
-export type BatchNotificationItem = z.infer<typeof BatchNotificationItemSchema>;
 
-/**
- * The interface (contract) for our notification API service.
- * This defines all methods related to notification operations.
- */
-export interface INotificationApiService {
-  /**
-   * Send a notification message
-   * This can be integrated with various notification systems like Slack, Discord, email, etc.
-   */
-  notify(message: string, options?: NotificationOptions): Promise<void>;
-
-  /**
-   * Send a batch of notifications
-   */
-  notifyBatch(messages: BatchNotificationItem[]): Promise<void>;
-}

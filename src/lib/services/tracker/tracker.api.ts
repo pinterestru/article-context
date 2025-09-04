@@ -3,11 +3,12 @@ import { httpClient } from '@/lib/http/client';
 import { env } from '@/config/env';
 import { logger } from '@/lib/logging/logger';
 import type {
-  ITrackerApiService,
   TrackingOptions,
   TrackingResponse,
   MarketingProcessResponse,
+  Result,
 } from './tracker.types';
+import { TrackerError } from './tracker.types';
 
 // Timeout configuration (10 seconds)
 const API_TIMEOUT = 10000;
@@ -107,26 +108,33 @@ function buildTrackingHeaders(clientMeta?: Partial<TrackingOptions['clientMeta']
 }
 
 /**
- * Internal function to track events
+ * Track a general event with Result pattern
+ * DO NOT cache this function - it tracks real-time events
  */
-async function _trackEvent(
+export async function trackEvent(
   eventType: string,
   trackType?: string,
   trackValue?: string,
   options?: Partial<TrackingOptions>
-): Promise<TrackingResponse> {
+): Promise<Result<TrackingResponse>> {
   const startTime = Date.now();
   
   try {
     // Validate required fields
     if (!env.API_BASE_URL) {
       logger.error('API_BASE_URL not configured');
-      return { message: 'no apiPath' };
+      return { 
+        success: true, 
+        data: { message: 'no apiPath' } 
+      };
     }
     
     if (eventType !== 'visit' && !options?.mtfi) {
       logger.debug('No mtfi for non-visit event');
-      return { message: 'no mtfi' };
+      return { 
+        success: true, 
+        data: { message: 'no mtfi' } 
+      };
     }
     
     // Build URL with query parameters
@@ -198,46 +206,64 @@ async function _trackEvent(
       contentIsTarget: response.content_is_target,
     }, 'Tracking event completed');
     
-    return response;
+    return { success: true, data: response };
   } catch (error) {
     const duration = Date.now() - startTime;
     
     logger.error({
       eventType,
       trackType,
+      trackValue,
       duration,
       error: error instanceof Error ? error.message : 'Unknown error',
-    }, 'Tracking event error');
-    
+    }, 'Failed to track event');
+
     return {
-      message: error instanceof Error ? error.message : 'Unknown error',
+      success: false,
+      error: error instanceof Error ? error : new TrackerError('Failed to track event'),
     };
   }
 }
 
 /**
- * Internal function to track visit events
+ * Track initial visit/session with Result pattern
+ * DO NOT cache this function - it tracks real-time events
  */
-async function _trackVisit(
+export async function trackVisit(
   jsMeta: Record<string, unknown> | string,
   options?: Partial<TrackingOptions>
-): Promise<TrackingResponse> {
-  return _trackEvent('visit', undefined, undefined, {
-    ...options,
-    jsMeta,
-    withFlow: true, // Visit events typically include flow tracking
-  });
+): Promise<Result<TrackingResponse>> {
+  try {
+    return await trackEvent('visit', undefined, undefined, {
+      ...options,
+      jsMeta,
+      withFlow: true, // Visit events typically include flow tracking
+    });
+  } catch (error) {
+    logger.error(
+      {
+        hasJsMeta: !!jsMeta,
+        error: error instanceof Error ? error.message : 'Unknown error',
+      },
+      'Failed to track visit'
+    );
+
+    return {
+      success: false,
+      error: error instanceof Error ? error : new TrackerError('Failed to track visit'),
+    };
+  }
 }
 
 /**
- * Internal function to process marketing redirects
+ * Process marketing redirects with Result pattern
+ * DO NOT cache this function - it handles real-time redirects
  */
-async function _marketingProcess(
+export async function marketingProcess(
   tag: string,
-  slug?: string,
   query?: Record<string, string>,
   options?: Partial<TrackingOptions>
-): Promise<MarketingProcessResponse> {
+): Promise<Result<MarketingProcessResponse>> {
   const startTime = Date.now();
   
   try {
@@ -259,11 +285,6 @@ async function _marketingProcess(
     // Add tag parameter
     if (tag) {
       params += `&tag=${encodeURIComponent(tag)}`;
-    }
-    
-    // Add slug parameter with tag value (matching legacy behavior)
-    if (slug) {
-      params += `&slug=${encodeURIComponent(tag)}`;
     }
     
     // Add domain parameter if available
@@ -297,7 +318,6 @@ async function _marketingProcess(
     
     logger.debug({
       tag,
-      slug,
       mtfi,
       hasQuery: !!query,
       hasJsMeta: !!options?.jsMeta,
@@ -330,47 +350,25 @@ async function _marketingProcess(
     
     logger.info({
       tag,
-      slug,
       duration,
       mtfi: response.mtfi,
       type: response.type,
       hasUrl: !!response.url,
     }, 'Marketing process completed');
     
-    return response;
+    return { success: true, data: response };
   } catch (error) {
     const duration = Date.now() - startTime;
     
     logger.error({
       tag,
-      slug,
       duration,
       error: error instanceof Error ? error.message : 'Unknown error',
-    }, 'Marketing process error');
-    
+    }, 'Failed to process marketing redirect');
+
     return {
-      message: error instanceof Error ? error.message : 'Unknown error',
+      success: false,
+      error: error instanceof Error ? error : new TrackerError('Failed to process marketing redirect'),
     };
   }
 }
-
-/**
- * The tracker service implementation matching legacy API format
- */
-export const trackerApiService: ITrackerApiService = {
-  /**
-   * Track a general event
-   */
-  trackEvent: _trackEvent,
-
-  /**
-   * Track initial visit/session
-   * This is a specialized version of trackEvent with eventType="visit"
-   */
-  trackVisit: _trackVisit,
-
-  /**
-   * Process marketing redirects
-   */
-  marketingProcess: _marketingProcess,
-};

@@ -142,18 +142,3 @@ export const FALLBACK_PROMOCODES: Promocode[] = [
   },
 ]
 
-/**
- * The interface (contract) for our promocode API service.
- * This defines all methods related to promocode operations.
- */
-export interface IPromocodeApiService {
-  /**
-   * Fetch promocode list from product content API
-   */
-  fetchPromocodesList(params: FetchPromocodeListParams): Promise<Promocode[]>
-
-  /**
-   * Fetch single promocode by ID
-   */
-  fetchPromocodeById(id: string): Promise<Promocode | null>
-}

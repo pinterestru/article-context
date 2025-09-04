@@ -1,7 +1,7 @@
 import type { WidgetComponentProps } from '@/features/widgets/lib/registry.server'
 import type { Promocode } from '@/lib/services/promocode/promocode.types'
 import { PromocodeList } from './PromocodeList.server'
-import { promocodeApiService } from '@/lib/services/promocode/promocode.api'
+import { fetchPromocodesList } from '@/lib/services/promocode/promocode.api'
 import { parsePromocodeListConfig } from '../schemas/config'
 
 /**
@@ -51,10 +51,16 @@ export async function PromocodeListWidget({ config, className }: WidgetComponent
     }
     // Dynamic case - fetch from API
     else if (source === 'dynamic' && dynamicQuery?.slug) {
-      promocodes = await promocodeApiService.fetchPromocodesList({
+      const result = await fetchPromocodesList({
         slug: dynamicQuery.slug,
         count: dynamicQuery.count || 10,
       })
+      
+      if (!result.success) {
+        throw result.error
+      }
+      
+      promocodes = result.data
     }
 
     return <PromocodeList promocodes={promocodes} {...displayProps} />

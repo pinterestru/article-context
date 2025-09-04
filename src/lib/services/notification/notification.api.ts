@@ -4,17 +4,18 @@ import { env } from '@/config/env'
 import { clientEnv } from '@/config/client-env'
 import { logger } from '@/lib/logging/logger'
 import {
-  type INotificationApiService,
   type NotificationOptions,
-  type BatchNotificationItem,
   type Result,
   NotificationError,
 } from './notification.types'
 
 /**
- * Internal function to send a notification message
+ * Send a notification message with Result pattern
  */
-async function _notify(message: string, options: NotificationOptions = {}): Promise<void> {
+export async function notify(
+  message: string,
+  options: NotificationOptions = {}
+): Promise<Result<void>> {
   try {
     // Log the notification locally
     logger.warn(
@@ -38,7 +39,7 @@ async function _notify(message: string, options: NotificationOptions = {}): Prom
         headers: {
           'Content-Type': 'application/json',
         },
-        timeout: 10000, // 5 second timeout for notifications
+        timeout: 10000, // 10 second timeout for notifications
         cache: 'no-store',
       }).catch((error) => {
         // Don't throw on notification errors, just log them
@@ -69,38 +70,7 @@ async function _notify(message: string, options: NotificationOptions = {}): Prom
     // - Email service
     // - SMS service
     // - etc.
-  } catch (error) {
-    // Don't throw errors from notification service
-    logger.error(
-      {
-        event: 'notification_error',
-        error: error instanceof Error ? error.message : 'Unknown error',
-      },
-      'Failed to process notification'
-    )
-  }
-}
 
-/**
- * Internal function to send a batch of notifications
- */
-async function _notifyBatch(messages: BatchNotificationItem[]): Promise<void> {
-  await Promise.all(messages.map(({ message, options }) => _notify(message, options)))
-}
-
-/**
- * Public notification API with Result pattern
- */
-
-/**
- * Send a notification message with Result pattern
- */
-export async function notify(
-  message: string,
-  options: NotificationOptions = {}
-): Promise<Result<void>> {
-  try {
-    await _notify(message, options)
     return { success: true, data: undefined }
   } catch (error) {
     logger.error(
@@ -119,36 +89,3 @@ export async function notify(
   }
 }
 
-/**
- * Send a batch of notifications with Result pattern
- */
-export async function notifyBatch(messages: BatchNotificationItem[]): Promise<Result<void>> {
-  try {
-    await _notifyBatch(messages)
-    return { success: true, data: undefined }
-  } catch (error) {
-    logger.error(
-      {
-        event: 'notification_batch_api_error',
-        error: error instanceof Error ? error.message : 'Unknown error',
-        messageCount: messages.length,
-      },
-      'Failed to send notification batch'
-    )
-
-    return {
-      success: false,
-      error:
-        error instanceof Error ? error : new NotificationError('Failed to send notification batch'),
-    }
-  }
-}
-
-/**
- * Legacy interface implementation for backward compatibility
- * @deprecated Use the individual functions instead
- */
-export const notificationApiService: INotificationApiService = {
-  notify: _notify,
-  notifyBatch: _notifyBatch,
-}

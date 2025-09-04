@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { logger } from '@/lib/logging/logger'
 import { COOKIES } from '@/config/constants';
-import { promocodeApiService } from '@/lib/services/promocode/promocode.api'
-import { storeApiService } from '@/lib/services/store/store.api'
+import { fetchPromocodeById } from '@/lib/services/promocode/promocode.api'
+import { getStoreBySlug } from '@/lib/services/store/store.api'
 import { PROMOCODE_CONFIG } from '@/features/promocode/constants'
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -55,18 +55,37 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     }
 
     // Fetch promocode using the API service
-    const promocode = await promocodeApiService.fetchPromocodeById(promocodeId)
+    const promocodeResult = await fetchPromocodeById(promocodeId)
 
-    if (!promocode) {
+    if (!promocodeResult.success) {
+      logger.error(
+        {
+          promocodeId,
+          error: promocodeResult.error.message,
+        },
+        'Failed to fetch promocode'
+      )
       return NextResponse.json({ message: '404' }, { status: 200 })
     }
+
+    const promocode = promocodeResult.data
 
     // Fetch store details if we have a product ID
     let store = null
     if (promocode.partner) {
-      store = await storeApiService.fetchStore({
-        slug: promocode.partner,
-      })
+      const storeResult = await getStoreBySlug(promocode.partner)
+      if (storeResult.success) {
+        store = storeResult.data
+      } else {
+        logger.warn(
+          {
+            promocodeId,
+            storeSlug: promocode.partner,
+            error: storeResult.error.message,
+          },
+          'Failed to fetch store for promocode'
+        )
+      }
     }
 
     // Transform to match expected API format

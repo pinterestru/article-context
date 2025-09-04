@@ -20,8 +20,8 @@ export { PromocodeListSkeleton, PromocodeCardSkeleton } from './components/Promo
 export { PromocodeListErrorBoundary } from './components/PromocodeListErrorBoundary.client';
 
 
-// Services (re-export from lib)
-export { promocodeApiService } from '@/lib/services/promocode/promocode.api';
+// Services (re-export from lib) 
+export { fetchPromocodesList, fetchPromocodeById } from '@/lib/services/promocode/promocode.api';
 
 // Types
 export type {

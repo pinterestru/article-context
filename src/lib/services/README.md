@@ -48,9 +48,16 @@ export class ServiceError extends Error {
 ```
 
 ### 4. Import Rules
-- **External code**: Import from `.api.ts`
-- **Internal use**: Import from `.service.ts` or `.types.ts`
-- **Never**: Import `.service.ts` from outside the service module
+- **External code**: Always import from `.api.ts` only
+  ```typescript
+  // ✅ Good
+  import { fetchPromocodeById } from '@/lib/services/promocode/promocode.api'
+  
+  // ❌ Bad - Never import internals
+  import { PromocodeService } from '@/lib/services/promocode/promocode.service'
+  ```
+- **Internal use**: Can import from `.service.ts` or `.types.ts`
+- **Types only**: Can import types from `.types.ts` if needed
 
 ### 5. Caching Strategy
 - Use React's `cache()` for request deduplication

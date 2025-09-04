@@ -43,6 +43,21 @@ export interface MarketingProcessResponse extends TrackingResponse {
 }
 
 /**
+ * Result type for consistent error handling
+ */
+export type Result<T, E = Error> = { success: true; data: T } | { success: false; error: E };
+
+/**
+ * Custom error types for tracker service
+ */
+export class TrackerError extends Error {
+  constructor(message: string, public code?: string) {
+    super(message);
+    this.name = 'TrackerError';
+  }
+}
+
+/**
  * Event type mapping from legacy system
  */
 export const EVENT_TYPE_MAPPING: Record<string, string> = {
@@ -65,38 +80,6 @@ export const TRACK_TYPE_MAPPING: Record<string, string> = {
   'navigated': 'view_page_navigated'
 };
 
-/**
- * Tracker API service interface
- */
-export interface ITrackerApiService {
-  /**
-   * Track a general event
-   */
-  trackEvent(
-    eventType: string,
-    trackType?: string,
-    trackValue?: string,
-    options?: Partial<TrackingOptions>
-  ): Promise<TrackingResponse>;
-
-  /**
-   * Track initial visit/session
-   */
-  trackVisit(
-    jsMeta: Record<string, unknown> | string,
-    options?: Partial<TrackingOptions>
-  ): Promise<TrackingResponse>;
-
-  /**
-   * Process marketing redirects
-   */
-  marketingProcess(
-    tag: string,
-    slug?: string,
-    query?: Record<string, string>,
-    options?: Partial<TrackingOptions>
-  ): Promise<MarketingProcessResponse>;
-}
 
 /**
  * Error class for tracker API errors

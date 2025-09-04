@@ -6,7 +6,6 @@ import { logger } from '@/lib/logging/logger'
 import {
   ProductContentListResponseSchema,
   ProductContentResponseSchema,
-  type IPromocodeApiService,
   type FetchPromocodeListParams,
   type Promocode,
   type ProductContent,
@@ -17,7 +16,7 @@ import {
 } from './promocode.types'
 
 // Constants for timeouts
-const API_TIMEOUT = 10000 // 5 seconds
+const API_TIMEOUT = 10000 // 10 seconds
 
 // Retry configuration for promocode API calls
 const PROMOCODE_RETRY_CONFIG = {
@@ -39,93 +38,6 @@ const PROMOCODE_RETRY_CONFIG = {
     return true
   },
 }
-
-/**
- * Cache-wrapped internal function for fetching promocode list
- */
-const _fetchPromocodesList = cache(
-  async (params: FetchPromocodeListParams): Promise<Promocode[]> => {
-    const {
-      partner,
-      article,
-      slug,
-      slugs,
-      count = 10,
-      ecommerceStoreId: _ecommerceStoreId,
-      withCode = true,
-      random = false,
-      mode = 'single',
-    } = params
-
-    const storeId = env.PROMOCODE_ECOMMERCE_STORE_ID
-
-    // Build query parameters
-    const searchParams = new URLSearchParams({
-      ...(storeId && { ecommerce_store_id: storeId }),
-      ...(slug && { slug }),
-      ...(slugs && { slugs: slugs.join(',') }),
-      ...(withCode && { with_code: 'true' }),
-      ...(random && { random: 'true' }),
-      mode,
-      max: count.toString(),
-    })
-
-    const url = `${env.API_BASE_URL}/api/ecommerce_product_content_promocode_list?${searchParams}`
-
-    try {
-      logger.info(
-        {
-          partner,
-          article,
-          slug,
-          count,
-        },
-        'Fetching promocode list'
-      )
-
-      const response = await httpClient<unknown>(url, {
-        next: {
-          revalidate: env.PROMOCODE_CACHE_TTL,
-          tags: ['promocodes', ...(slug ? [`promocode-list:${slug}`] : [])],
-        },
-        timeout: API_TIMEOUT,
-        retry: PROMOCODE_RETRY_CONFIG,
-      })
-
-      // Validate response
-      const validatedResponse = ProductContentListResponseSchema.parse(response)
-
-      // Transform product content to promocodes
-      const promocodes = validatedResponse.item_list.map((item, index) => {
-        const promocode = transformProductContentToPromocode(item, index)
-        // Always mark first two promocodes as featured
-        if (index < 2) {
-          promocode.featured = true
-        }
-        return promocode
-      })
-
-      logger.info(
-        {
-          count: promocodes.length,
-        },
-        'Successfully fetched promocode list'
-      )
-
-      return promocodes
-    } catch (error) {
-      logger.error(
-        {
-          error: error instanceof Error ? error.message : 'Unknown error',
-          params,
-        },
-        'Failed to fetch promocode list'
-      )
-
-      return []
-    }
-  }
-)
 
 /**
  * Mask a promocode string
@@ -202,9 +114,100 @@ function mapTypeToTags(type?: string): Array<'gift' | 'discount' | 'promocode' |
 }
 
 /**
- * Cache-wrapped internal function for fetching single promocode by ID
+ * Fetch promocode list with Result pattern
  */
-const _fetchPromocodeById = cache(async (id: string): Promise<Promocode | null> => {
+export const fetchPromocodesList = cache(
+  async (params: FetchPromocodeListParams): Promise<Result<Promocode[]>> => {
+    const {
+      partner,
+      article,
+      slug,
+      slugs,
+      count = 10,
+      ecommerceStoreId: _ecommerceStoreId,
+      withCode = true,
+      random = false,
+      mode = 'single',
+    } = params
+
+    const storeId = env.PROMOCODE_ECOMMERCE_STORE_ID
+
+    // Build query parameters
+    const searchParams = new URLSearchParams({
+      ...(storeId && { ecommerce_store_id: storeId }),
+      ...(slug && { slug }),
+      ...(slugs && { slugs: slugs.join(',') }),
+      ...(withCode && { with_code: 'true' }),
+      ...(random && { random: 'true' }),
+      mode,
+      max: count.toString(),
+    })
+
+    const url = `${env.API_BASE_URL}/api/ecommerce_product_content_promocode_list?${searchParams}`
+
+    try {
+      logger.info(
+        {
+          partner,
+          article,
+          slug,
+          count,
+        },
+        'Fetching promocode list'
+      )
+
+      const response = await httpClient<unknown>(url, {
+        next: {
+          revalidate: env.PROMOCODE_CACHE_TTL,
+          tags: ['promocodes', ...(slug ? [`promocode-list:${slug}`] : [])],
+        },
+        timeout: API_TIMEOUT,
+        retry: PROMOCODE_RETRY_CONFIG,
+      })
+
+      // Validate response
+      const validatedResponse = ProductContentListResponseSchema.parse(response)
+
+      // Transform product content to promocodes
+      const promocodes = validatedResponse.item_list.map((item, index) => {
+        const promocode = transformProductContentToPromocode(item, index)
+        // Always mark first two promocodes as featured
+        if (index < 2) {
+          promocode.featured = true
+        }
+        return promocode
+      })
+
+      logger.info(
+        {
+          count: promocodes.length,
+        },
+        'Successfully fetched promocode list'
+      )
+
+      return { success: true, data: promocodes }
+    } catch (error) {
+      logger.error(
+        {
+          error: error instanceof Error ? error.message : 'Unknown error',
+          params,
+        },
+        'Failed to fetch promocode list'
+      )
+
+      return {
+        success: false,
+        error:
+          error instanceof Error ? error : new PromocodeError('Failed to fetch promocode list'),
+      }
+    }
+  }
+)
+
+/**
+ * Fetch single promocode by ID with Result pattern
+ */
+export const fetchPromocodeById = cache(async (id: string): Promise<Result<Promocode>> => {
   try {
     logger.info({ id }, 'Fetching promocode by ID')
 
@@ -225,7 +228,10 @@ const _fetchPromocodeById = cache(async (id: string): Promise<Promocode | null> 
 
     if (!validatedResponse.item || !validatedResponse.item.ecommerce_product_content_id) {
       logger.warn({ id }, 'Promocode not found')
-      return null
+      return {
+        success: false,
+        error: new PromocodeNotFoundError(id),
+      }
     }
 
     // Transform to promocode
@@ -239,7 +245,7 @@ const _fetchPromocodeById = cache(async (id: string): Promise<Promocode | null> 
       'Successfully fetched promocode'
     )
 
-    return promocode
+    return { success: true, data: promocode }
   } catch (error) {
     logger.error(
       {
@@ -249,76 +255,9 @@ const _fetchPromocodeById = cache(async (id: string): Promise<Promocode | null> 
       'Failed to fetch promocode by ID'
     )
 
-    return null
-  }
-})
-
-/**
- * Public API functions with Result pattern
- */
-
-/**
- * Fetch promocode list with Result pattern
- */
-export const fetchPromocodesList = cache(
-  async (params: FetchPromocodeListParams): Promise<Result<Promocode[]>> => {
-    try {
-      const promocodes = await _fetchPromocodesList(params)
-      return { success: true, data: promocodes }
-    } catch (error) {
-      logger.error(
-        {
-          error: error instanceof Error ? error.message : 'Unknown error',
-          params,
-        },
-        'Failed to fetch promocode list in API layer'
-      )
-
-      return {
-        success: false,
-        error:
-          error instanceof Error ? error : new PromocodeError('Failed to fetch promocode list'),
-      }
-    }
-  }
-)
-
-/**
- * Fetch single promocode by ID with Result pattern
- */
-export const fetchPromocodeById = cache(async (id: string): Promise<Result<Promocode>> => {
-  try {
-    const promocode = await _fetchPromocodeById(id)
-
-    if (!promocode) {
-      return {
-        success: false,
-        error: new PromocodeNotFoundError(id),
-      }
-    }
-
-    return { success: true, data: promocode }
-  } catch (error) {
-    logger.error(
-      {
-        id,
-        error: error instanceof Error ? error.message : 'Unknown error',
-      },
-      'Failed to fetch promocode by ID in API layer'
-    )
-
     return {
       success: false,
       error: error instanceof Error ? error : new PromocodeError('Failed to fetch promocode'),
     }
   }
 })
-
-/**
- * Legacy implementation for backward compatibility
- * @deprecated Use the individual functions instead
- */
-export const promocodeApiService: IPromocodeApiService = {
-  fetchPromocodesList: _fetchPromocodesList,
-  fetchPromocodeById: _fetchPromocodeById,
-}

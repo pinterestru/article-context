@@ -1,6 +1,6 @@
 import 'server-only'
 import { cache } from 'react'
-import { promocodeApiService } from '@/lib/services/promocode/promocode.api'
+import { fetchPromocodesList } from '@/lib/services/promocode/promocode.api'
 import type { PromocodeListWidgetConfig, WidgetConfig } from '@/features/widgets/lib/config-parser'
 import type { Promocode, FetchPromocodeListParams } from '@/lib/services/promocode/promocode.types'
 import { logger } from '@/lib/logging/logger'
@@ -119,7 +119,13 @@ async function fetchPromocodesForGroup(
     }
 
     // Fetch promocodes using the modern API
-    const promocodes = await promocodeApiService.fetchPromocodesList(query)
+    const promocodesResult = await fetchPromocodesList(query)
+    
+    if (!promocodesResult.success) {
+      throw promocodesResult.error
+    }
+    
+    const promocodes = promocodesResult.data
 
     // Process data for each widget in the group
     widgets.forEach((widget) => {

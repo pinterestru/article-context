@@ -1,7 +1,7 @@
 import type { NextRequest} from 'next/server';
 import { NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
-import { trackerApiService } from '@/lib/services/tracker/tracker.api';
+import { trackVisit } from '@/lib/services/tracker/tracker.api';
 import { logger } from '@/lib/logging/logger';
 import { getOrCreateTraceId } from '@/lib/tracing/trace-id';
 import type { ClientMeta } from '@/lib/services/tracker/tracker.types';
@@ -58,18 +58,36 @@ export async function POST(request: NextRequest) {
     
     // Call tracking service with visit event (matching legacy behavior)
     const serverStartTime = performance.now();
-    const trackingResult = await trackerApiService.trackVisit(jsMeta, {
+    const result = await trackVisit(jsMeta, {
       clientMeta,
     });
     const serverExecutionTimeMs = performance.now() - serverStartTime;
     
-    // Check if tracking was successful
+    if (!result.success) {
+      logger.error({
+        traceId,
+        error: result.error.message,
+        mtfi,
+      }, 'Localization tracking failed');
+      
+      // Return false to keep content hidden on error
+      const errorResponse: LocalizationResponse = {
+        ok: true,
+        localized: false,
+      };
+      
+      return NextResponse.json(errorResponse);
+    }
+    
+    const trackingResult = result.data;
+    
+    // Check if tracking was successful (legacy format check)
     if (trackingResult.message && trackingResult.message !== 'ok') {
       logger.error({
         traceId,
         error: trackingResult.message,
         mtfi,
-      }, 'Localization tracking failed');
+      }, 'Localization tracking returned error message');
       
       // Return false to keep content hidden on error
       const errorResponse: LocalizationResponse = {

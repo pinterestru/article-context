@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { logger } from '@/lib/logging/logger';
 import { COOKIES } from '@/config/constants';
-import { trackerApiService } from '@/lib/services/tracker/tracker.api';
-import { notificationApiService } from '@/lib/services/notification/notification.api';
+import { marketingProcess } from '@/lib/services/tracker/tracker.api';
+import { notify } from '@/lib/services/notification/notification.api';
 
 // Ensure this route is always dynamically rendered
 export const dynamic = 'force-dynamic'
@@ -110,13 +110,13 @@ async function handleRequest(
     
     // Extract query parameters - matching legacy exactly
     const searchParams = request.nextUrl.searchParams;
-    let { slug, created_at: createdAt, mtfi, js_meta, url, domain, with_meta = 'true', target, direct, direct_link } = Object.fromEntries(searchParams);
+    let { created_at: createdAt, mtfi, js_meta, url, domain, with_meta = 'true', target, direct, direct_link } = Object.fromEntries(searchParams);
     
     // Force with_meta to true like legacy
     with_meta = 'true';
     
     // Get URL value like legacy
-    const urlValue = url || `${request.headers.get('x-forwarded-proto') || 'https'}://${request.headers.get('host')}${request.url}` || '';
+    let urlValue = url || request.url || '';
     
     // Check if request is from bot
     const cookieStore = await cookies();
@@ -125,6 +125,20 @@ async function handleRequest(
     // Force direct redirect for bots if not explicitly disabled
     if (isBot && direct !== 'false') {
       //direct = 'true';
+    }
+
+    if (isBot && urlValue) {
+      try {
+        const urlObject = new URL(urlValue);
+        urlObject.searchParams.set('bot', 'true');
+        urlObject.searchParams.set('target', 'false');
+        urlValue = urlObject.toString(); // Update urlValue with the new URL string
+      } catch (error) {
+        logger.warn({
+          error: error instanceof Error ? error.message : 'Unknown error',
+          url: urlValue,
+        }, 'Failed to parse and update URL for bot parameters');
+      }
     }
     
     // Handle direct redirect
@@ -155,7 +169,7 @@ async function handleRequest(
     }
     
     // Generate MTFI cookie key
-    const mtfiKey = `_mtfi__${tag}${path ? `__${path.split('/').join('_')}` : (slug ? `__${slug}` : '')}`;
+    const mtfiKey = `_mtfi__${tag}${path ? `__${path.split('/').join('_')}` : ""}`;
     
     // Get MTFI from cookie if not provided
     if (!mtfi) {
@@ -185,10 +199,6 @@ async function handleRequest(
       }
     });
 
-    if (isBot) {
-      query.target = 'false';
-      query.bot = 'true';
-    }
     
     if (path) {
       query.path = `/${path}`;
@@ -206,9 +216,8 @@ async function handleRequest(
     }
     
     // Process marketing redirect through tracking service
-    const response = await trackerApiService.marketingProcess(
+    const result = await marketingProcess(
       tag,
-      slug || undefined,
       query,
       {
         jsMeta,
@@ -216,8 +225,21 @@ async function handleRequest(
       }
     );
     
-    // Handle error response
-    if (response.message) {
+    if (!result.success) {
+      logger.error({
+        tag,
+        error: result.error.message,
+      }, 'Marketing process failed');
+      
+      // Redirect to the tag URL on error
+      const redirectLink = `https://${tag}/${path}`;
+      return NextResponse.redirect(redirectLink, { status: 301 });
+    }
+    
+    const response = result.data;
+    
+    // Handle error response (when message exists and is not 'ok')
+    if (response.message && response.message !== 'ok') {
       const httpReferrer = request.headers.get('referer') || request.headers.get('referrer') || '-';
       const redirectLink = `https://${tag}/${path}`;
       const d = domain || request.headers.get('host') || 'no_domain';
@@ -227,8 +249,8 @@ async function handleRequest(
       const notifyQuery = { ...query };
       delete notifyQuery.path;
       
-      // Send notification for broken campaign
-      await notificationApiService.notify(
+      // Send notification for broken campaign (fire and forget)
+      void notify(
         `Broken Campaign: <b>${tag}</b> | ${redirectLink} | domain: ${d} | referrer: ${httpReferrer} | query: ${JSON.stringify(notifyQuery)} | ip: ${clientMeta.ip || ''} | err: ${error}`
       );
       
